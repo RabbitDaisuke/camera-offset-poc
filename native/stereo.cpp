@@ -81,6 +81,20 @@ static val calibrateStereo(const val &views, const val &options) {
     }
 }
 
+static val undistortPixels(const val &points, const val &camera) {
+    std::vector<cv::Point2d> input, output;
+    for (int i = 0; i < points["length"].as<int>(); ++i)
+        input.emplace_back(points[i][0].as<double>(), points[i][1].as<double>());
+    cv::undistortPoints(input, output, matrix(camera["K"], 3, 3), matrix(camera["D"], 5, 1));
+    val result = val::array();
+    for (size_t i = 0; i < output.size(); ++i) {
+        val p = val::array(); p.set(0, output[i].x); p.set(1, output[i].y); p.set(2, 1.0);
+        result.set(i, p);
+    }
+    return result;
+}
+
 EMSCRIPTEN_BINDINGS(epipolar_stereo) {
     emscripten::function("calibrateStereo", &calibrateStereo);
+    emscripten::function("undistortPixels", &undistortPixels);
 }
