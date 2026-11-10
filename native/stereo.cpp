@@ -45,18 +45,23 @@ static val calibrateStereo(const val &views, const val &options) {
             }
         }
         cv::Mat K0 = matrix(options["K0"], 3, 3), K1 = matrix(options["K1"], 3, 3);
-        cv::Mat D0 = cv::Mat::zeros(5, 1, CV_64F), D1 = cv::Mat::zeros(5, 1, CV_64F);
+        cv::Mat D0 = options["D0"].isUndefined() ? cv::Mat::zeros(5, 1, CV_64F) : matrix(options["D0"], 5, 1);
+        cv::Mat D1 = options["D1"].isUndefined() ? cv::Mat::zeros(5, 1, CV_64F) : matrix(options["D1"], 5, 1);
         cv::Mat R, T, E, F, errors;
         std::vector<cv::Mat> rvecs, tvecs;
         int flags = cv::CALIB_USE_INTRINSIC_GUESS | cv::CALIB_FIX_ASPECT_RATIO |
                     cv::CALIB_FIX_PRINCIPAL_POINT | cv::CALIB_ZERO_TANGENT_DIST |
                     cv::CALIB_FIX_K2 | cv::CALIB_FIX_K3 | cv::CALIB_USE_LU;
         if (!options["radial"].as<bool>()) flags |= cv::CALIB_FIX_K1;
+        if (!options["R"].isUndefined() && !options["T"].isUndefined()) {
+            R = matrix(options["R"], 3, 3); T = matrix(options["T"], 3, 1);
+            flags |= cv::CALIB_USE_EXTRINSIC_GUESS;
+        }
         const double rms = cv::stereoCalibrate(
             object, left, right, K0, D0, K1, D1,
             cv::Size(options["width"].as<int>(), options["height"].as<int>()),
             R, T, E, F, rvecs, tvecs, errors, flags,
-            cv::TermCriteria(cv::TermCriteria::COUNT | cv::TermCriteria::EPS, 100, 1e-8));
+            cv::TermCriteria(cv::TermCriteria::COUNT | cv::TermCriteria::EPS, 500, 1e-10));
         val result = val::object(), poses = val::array();
         result.set("rms", rms); result.set("K0", array(K0)); result.set("K1", array(K1));
         result.set("D0", array(D0)); result.set("D1", array(D1));
