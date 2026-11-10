@@ -41,6 +41,7 @@ jobs:
           factory({wasmBinary: fs.readFileSync('./dist/native/stereo-native.wasm')}).then(module => {
             if (typeof module.calibrateStereo !== 'function') throw new Error('Missing calibrateStereo');
             if (typeof module.undistortPixels !== 'function') throw new Error('Missing undistortPixels');
+            if (typeof module.stereoDisparity !== 'function') throw new Error('Missing stereoDisparity');
             const result = module.calibrateStereo([], {});
             if (!result.error?.includes('At least two paper pairs')) throw new Error('Binding did not handle invalid input');
             console.log('OpenCV WASM loaded; stereoCalibrate binding and exception handling verified');

@@ -94,7 +94,36 @@ static val undistortPixels(const val &points, const val &camera) {
     return result;
 }
 
+static val stereoDisparity(const val &left, const val &right, int width, int height,
+                          int minimum, int disparities) {
+    cv::Mat a(height, width, CV_8UC3), b(height, width, CV_8UC3), da, db;
+    if (left["length"].as<int>() != width * height * 3 || right["length"].as<int>() != width * height * 3)
+        throw std::invalid_argument("RGB image dimensions differ");
+    val(emscripten::typed_memory_view(a.total() * 3, a.data)).call<void>("set", left);
+    val(emscripten::typed_memory_view(b.total() * 3, b.data)).call<void>("set", right);
+    disparities = ((disparities + 15) / 16) * 16;
+    const int block = 5, rightMinimum = -minimum - disparities + 1;
+    // SGBM reserves the full disparity range at both image edges. Padding
+    // retains the real overlap when the requested depth range is wide;
+    // downstream RGB/valid-image checks reject padding correspondences.
+    const int pad = minimum + disparities + block;
+    cv::Mat paddedA = cv::Mat::zeros(height, width + 2 * pad, CV_8UC3), paddedB = paddedA.clone();
+    const cv::Rect original(pad, 0, width, height);
+    a.copyTo(paddedA(original)); b.copyTo(paddedB(original));
+    auto matcher = cv::StereoSGBM::create(minimum, disparities, block, 8 * 3 * block * block,
+        32 * 3 * block * block, 1, 31, 12, 60, 2, cv::StereoSGBM::MODE_SGBM_3WAY);
+    matcher->compute(paddedA, paddedB, da);
+    matcher->setMinDisparity(rightMinimum); matcher->compute(paddedB, paddedA, db);
+    da = da(original).clone(); db = db(original).clone();
+    val result = val::object();
+    result.set("left", val(emscripten::typed_memory_view(da.total(), da.ptr<int16_t>())).call<val>("slice"));
+    result.set("right", val(emscripten::typed_memory_view(db.total(), db.ptr<int16_t>())).call<val>("slice"));
+    result.set("minimum", minimum); result.set("rightMinimum", rightMinimum);
+    return result;
+}
+
 EMSCRIPTEN_BINDINGS(epipolar_stereo) {
     emscripten::function("calibrateStereo", &calibrateStereo);
     emscripten::function("undistortPixels", &undistortPixels);
+    emscripten::function("stereoDisparity", &stereoDisparity);
 }
