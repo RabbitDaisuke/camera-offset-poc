@@ -1,0 +1,53 @@
+name: Build OpenCV stereo WASM
+on:
+  push:
+    paths:
+      - native/**
+      - .github/workflows/build-stereo-wasm.yml
+  pull_request:
+    paths:
+      - native/**
+      - .github/workflows/build-stereo-wasm.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Emscripten 3.1.74
+        shell: bash
+        run: |
+          curl --fail --location --retry 3 https://github.com/emscripten-core/emsdk/archive/refs/tags/3.1.74.tar.gz -o "$RUNNER_TEMP/emsdk.tar.gz"
+          tar -xzf "$RUNNER_TEMP/emsdk.tar.gz" -C "$RUNNER_TEMP"
+          "$RUNNER_TEMP/emsdk-3.1.74/emsdk" install 3.1.74
+          "$RUNNER_TEMP/emsdk-3.1.74/emsdk" activate 3.1.74
+      - name: Build OpenCV and stereo binding
+        shell: bash
+        env:
+          BUILD_ROOT: ${{ runner.temp }}/opencv-stereo-build
+          BUILD_JOBS: '2'
+        run: |
+          source "$RUNNER_TEMP/emsdk-3.1.74/emsdk_env.sh"
+          bash native/build.sh
+      - name: Verify WASM loads and exports calibration
+        shell: bash
+        run: |
+          node <<'NODE'
+          const fs = require('node:fs');
+          const factory = require('./dist/native/stereo-native.js');
+          factory({wasmBinary: fs.readFileSync('./dist/native/stereo-native.wasm')}).then(module => {
+            if (typeof module.calibrateStereo !== 'function') throw new Error('Missing calibrateStereo');
+            const result = module.calibrateStereo([], {});
+            if (!result.error?.includes('At least two paper pairs')) throw new Error('Binding did not handle invalid input');
+            console.log('OpenCV WASM loaded; stereoCalibrate binding and exception handling verified');
+          }).catch(error => { console.error(error); process.exitCode = 1; });
+          NODE
+      - uses: actions/upload-artifact@v4
+        with:
+          name: opencv-4.13.0-stereo-wasm
+          path: dist/native/
+          if-no-files-found: error
+          retention-days: 30
