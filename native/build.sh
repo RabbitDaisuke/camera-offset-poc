@@ -32,7 +32,7 @@ em++ -std=c++17 -O3 -msimd128 -fexceptions --bind "$project_dir/native/stereo.cp
   "$binary_dir/lib/libopencv_flann.a" "$binary_dir/lib/libopencv_imgproc.a" \
   "$binary_dir/lib/libopencv_core.a" "$binary_dir/3rdparty/lib/libzlib.a" \
   -sMODULARIZE=1 -sEXPORT_NAME=StereoNativeFactory -sALLOW_MEMORY_GROWTH=1 \
-  -sINITIAL_MEMORY=67108864 -sMAXIMUM_MEMORY=2147483648 \
+  -sINITIAL_MEMORY=67108864 -sMAXIMUM_MEMORY=2147483648 -sSTACK_SIZE=5242880 -sSTACK_OVERFLOW_CHECK=2 \
   -sENVIRONMENT=web,worker,node -sFILESYSTEM=0 -sDISABLE_EXCEPTION_CATCHING=0 \
   -o "$output_dir/stereo-native.js"
 cp "$source_dir/LICENSE" "$output_dir/OpenCV-LICENSE.txt"

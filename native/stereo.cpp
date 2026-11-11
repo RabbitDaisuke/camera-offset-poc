@@ -158,6 +158,7 @@ static val stereoDisparity(const val &left, const val &right, int width, int hei
 }
 
 EMSCRIPTEN_BINDINGS(epipolar_stereo) {
+    emscripten::constant("aprilTagStackBytes", 5242880);
     emscripten::function("detectAprilTags", &detectAprilTags);
     emscripten::function("calibrateStereo", &calibrateStereo);
     emscripten::function("undistortPixels", &undistortPixels);
