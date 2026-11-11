@@ -23,8 +23,11 @@ self.BackgroundPlanes=(()=>{
    const rms=Math.sqrt(inliers.reduce((s,p)=>s+(value(plane,p[0],p[1])-p[2])**2,0)/inliers.length);
    models.push({plane,leftHull,rightHull,support:inliers.length,rms,areas});
   }
-  const maps=[new Float32Array(S*S),new Float32Array(S*S)],tolerances=maps.map(()=>new Float32Array(S*S));maps.forEach(a=>a.fill(NaN));
-  for(const model of models)for(let side=0;side<2;side++){
+  // Plane propagation consumes the fitted models directly. Do not rasterize
+  // two full image maps when that caller never reads them. Background depth
+  // classification still requests the same support-limited maps by default.
+  const maps=options.rasterize===false?[]:[new Float32Array(S*S),new Float32Array(S*S)],tolerances=maps.map(()=>new Float32Array(S*S));maps.forEach(a=>a.fill(NaN));
+  for(const model of (options.rasterize===false?[]:models))for(let side=0;side<2;side++){
    const h=side?model.rightHull:model.leftHull,p=model.plane,x0=Math.max(0,Math.ceil(Math.min(...h.map(p=>p[0])))),x1=Math.min(S-1,Math.floor(Math.max(...h.map(p=>p[0])))),y0=Math.max(0,Math.ceil(Math.min(...h.map(p=>p[1])))),y1=Math.min(S-1,Math.floor(Math.max(...h.map(p=>p[1]))));
    for(let y=y0;y<=y1;y++)for(let x=x0;x<=x1;x++){if(!inside(h,x,y))continue;const d=value(p,x,y)/(side?1-p[0]:1),k=y*S+x;if(d>0&&(!Number.isFinite(maps[side][k])||d>maps[side][k])){maps[side][k]=d;tolerances[side][k]=Math.max(3,3*model.rms);}}
   }

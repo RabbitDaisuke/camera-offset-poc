@@ -1,0 +1,65 @@
+{
+  "note": "Early wall filtering removed 33 previously accepted front measurements through neighborhood checks. Move filtering after the original checks before accepting the change.",
+  "utc": "2026-11-11T11:14:30.705Z",
+  "base": {
+    "time": 149.89,
+    "count": 84413,
+    "measured": 31913,
+    "matched": 7506,
+    "estimated": 44994,
+    "foot": {
+      "0": 392,
+      "3": 81,
+      "6": 1782
+    },
+    "behind": 53760,
+    "minZ": -1.296805500984192,
+    "ms": 5230.5999999940395,
+    "timing": {
+      "seekMs": 0.19999999552965164,
+      "decodePairMs": 110.89999999850988,
+      "workerRoundTripMs": 4917.30000000447,
+      "workerComputeMs": 4902.5999999940395,
+      "workerTransferWaitMs": 14.700000010430813,
+      "renderMs": 202.19999999552965,
+      "totalMs": 5230.5999999940395
+    },
+    "alscMs": 705.8000000044703,
+    "planeMs": 291.5,
+    "planePrepareMs": 1221.8000000044703,
+    "a4Behind": 0
+  },
+  "front": {
+    "time": 149.89,
+    "count": 69159,
+    "measured": 9121,
+    "matched": 3015,
+    "estimated": 57023,
+    "foot": {
+      "0": 392,
+      "3": 101,
+      "6": 1810
+    },
+    "behind": 0,
+    "minZ": 0.03000069223344326,
+    "ms": 3399.6999999955297,
+    "timing": {
+      "seekMs": 0.7999999970197678,
+      "decodePairMs": 125.10000000149012,
+      "workerRoundTripMs": 3117.6999999955297,
+      "workerComputeMs": 3096.89999999851,
+      "workerTransferWaitMs": 20.799999997019768,
+      "renderMs": 156.10000000149012,
+      "totalMs": 3399.6999999955297
+    },
+    "alscMs": 568.7999999970198,
+    "planeMs": 226.39999999850988,
+    "planePrepareMs": 795.2000000029802,
+    "a4Behind": 38732
+  },
+  "retention": {
+    "eligible": 9154,
+    "missing": 33,
+    "changed": 0
+  }
+}

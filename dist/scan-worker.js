@@ -1,5 +1,5 @@
 'use strict';
-const SCAN_VERSION='20261111-scene-planes-8';
+const SCAN_VERSION='20261111-scene-planes-13';
 importScripts('opencv.js',...['calibration-core.js','joint-paper.js','multi-paper.js','stereo-calibration.js','geometry-audit.js','gpu-stereo.js','background-planes.js','surface-completion.js','least-squares-stereo.js','joint-depth-solver.js','piecewise-stereo.js','plane-propagation.js'].map(path=>path+'?v='+SCAN_VERSION));
 let gpuPromise=null;
 const getGpu=()=>gpuPromise||(gpuPromise=GpuStereo.create().catch(e=>{gpuPromise=null;throw e;}));
@@ -105,6 +105,8 @@ function statistics(rgb,S,r){const n=(S+1)*(S+1),sums=[new Float64Array(n),new F
 function textureEigenvalues(rgb,S,block){const src=CV.matFromArray(S,S,CV.CV_8UC3,rgb),gray=new CV.Mat(),eigen=new CV.Mat();try{CV.cvtColor(src,gray,CV.COLOR_RGB2GRAY);CV.cornerMinEigenVal(gray,eigen,block,3,CV.BORDER_DEFAULT);return new Float32Array(eigen.data32F);}finally{src.delete();gray.delete();eigen.delete();}}
 async function matchSurface(rgbA,rgbB,fa,fb,opts,reference=false){const matchingStarted=performance.now(),{S,f,cx,cy,Rt,C0,baseline}=rect;
  const sceneMode=!reference&&opts.scope==='scene',foregroundOnly=!reference&&!sceneMode;
+ const frontOnly=!reference&&opts.a4FrontOnly,frontMeters=Number(opts.a4FrontMeters??.03),wallConstraints=[],wallPixels=new Set();
+ if(frontOnly&&(!Number.isFinite(frontMeters)||frontMeters<0))throw Error('A4手前の距離は0以上の数値を指定してください');
  const inspectionStage=opts.inspectRegion?new Uint8Array(S*S):null;
  rgbA=new Uint8Array(rgbA);rgbB=new Uint8Array(rgbB);
  // Stereo searches one dimension. A straight edge may still constrain its
@@ -128,7 +130,7 @@ async function matchSurface(rgbA,rgbB,fa,fb,opts,reference=false){const matching
   const norm=Math.sqrt(Math.max(0,square));return norm<Math.sqrt(N*3)*3?-2:crossSum/(st[0].norms[p]*norm);
  };
  const choose=(a,b,x,y,reverse=false)=>{const shadows=b===0?fa.raw:fb.raw,arr=[];let best=-2,bx=-1;const begin=reverse?x+minD:x-maxD,end=reverse?x+maxD:x-minD;for(let u=Math.max(r,begin);u<=Math.min(S-r-1,end);u++){const k=y*S+u;if(!rect.valid[b][k]||(!sceneMode&&shadows[k]===127)||st[b].norms[k]<Math.sqrt(st[b].N*3)*3)continue;const v=corr(a,b,x,u,y);arr.push([u,v]);if(v>best){best=v;bx=u;}}let second=-2;for(const [u,v]of arr)if(Math.abs(u-bx)>2)second=Math.max(second,v);return {x:bx,score:best,gap:best-second,candidates:arr.length};};
- const counts={sampled:0,invalidImage:0,shadow:0,texture:0,aperture:0,correlation:0,ambiguous:0,roundtrip:0,neighborhood:0,geometry:0,background:0};
+ const counts={sampled:0,invalidImage:0,a4Behind:0,shadow:0,texture:0,aperture:0,correlation:0,ambiguous:0,roundtrip:0,neighborhood:0,geometry:0,background:0};
  const backgroundPatch=(i,x,y)=>{if(!exposure[i]?.ok)return false;const a=textures[i],b=textures[i+2],fit=exposure[i].channels;let dot=0,norm=0;for(let dy=-r;dy<=r;dy++)for(let dx=-r;dx<=r;dx++){const j=((y+dy)*S+x+dx)*3;for(let c=0;c<3;c++){const value=(a[j+c]-fit[c].bias)/fit[c].gain;dot+=value*b[j+c];norm+=b[j+c]*b[j+c];}}const alpha=dot/Math.max(1,norm);if(alpha<.25||alpha>1.08)return false;let residual=0;for(let dy=-r;dy<=r;dy++)for(let dx=-r;dx<=r;dx++){const j=((y+dy)*S+x+dx)*3;for(let c=0;c<3;c++)residual+=((a[j+c]-fit[c].bias)/fit[c].gain-Math.min(1,alpha)*b[j+c])**2;}const tolerance=Math.min(12,Math.max(6,median(fit.map(c=>c.sigma))*2.5));return Math.sqrt(residual/(st[0].N*3))<tolerance;};
  const preparedAt=performance.now(),range=Math.min(S-minD-16,maxD-minD+1),dense=opts.method==='sgbm'?(opts.backend==='webgpu'?await (await getGpu()).compute(rgbA,rgbB,S,S,minD,range,nativeAPI,opts.stereoBlock||5):nativeAPI.stereoDisparity(rgbA,rgbB,S,S,minD,range)):null,stereoAt=performance.now();
  for(let y=r;y<S-r;y+=step)for(let x=r;x<S-r;x+=step){
@@ -193,6 +195,10 @@ async function matchSurface(rgbA,rgbB,fa,fb,opts,reference=false){const matching
   counts.isolated3D=keys.length-keep.size;
   for(let i=keys.length-1;i>=0;i--)if(!keep.has(i)){points.splice(i*3,3);colors.splice(i*3,3);uv.splice(i*4,4);accepted.splice(i,1);depths.splice(i,1);angles.splice(i,1);}
  }
+ // Apply the authorized output boundary after the original neighborhood and
+ // island checks, so removing a wall does not invalidate a nearby front point.
+ // Compact before ALSC and plane propagation: wall points never become seeds.
+ if(frontOnly){let write=0;for(let i=0;i<accepted.length;i++){if(points[3*i+2]<=frontMeters){counts.a4Behind++;if(opts.a4FrontConstraints!==false){wallConstraints.push([uv[4*i],uv[4*i+1],uv[4*i+2],disparity[accepted[i]]]);wallPixels.add(accepted[i]);}continue;}for(let c=0;c<3;c++){points[3*write+c]=points[3*i+c];colors[3*write+c]=colors[3*i+c];}for(let c=0;c<4;c++)uv[4*write+c]=uv[4*i+c];accepted[write]=accepted[i];depths[write]=depths[i];angles[write]=angles[i];write++;}points.length=colors.length=3*write;uv.length=4*write;accepted.length=depths.length=angles.length=write;}
  counts.subpixelRecovered=accepted.filter(k=>refined[k]).length;
  if(inspectionStage){for(const k of accepted)inspectionStage[k]=13;const polygon=opts.inspectRegion,inside=(x,y)=>{let yes=false;for(let i=0,j=polygon.length-1;i<polygon.length;j=i++){const a=polygon[i],b=polygon[j];if((a[1]>y)!==(b[1]>y)&&x<(b[0]-a[0])*(y-a[1])/(b[1]-a[1])+a[0])yes=!yes;}return yes;},names=['not-sampled','other','shadow','low-texture','sgbm-invalid','left-right','rgb-correlation','candidate','mog-background','neighbors','geometry','background-match','island','accepted'],histogram={},pixels=[];for(let y=r;y<S-r;y++)for(let x=r;x<S-r;x++){if(!inside(x,y))continue;const k=y*S+x,stage=names[inspectionStage[k]];histogram[stage]=(histogram[stage]||0)+1;pixels.push([x,y,inspectionStage[k],dense?dense.left[k]/16:null,scores[k],st[0].norms[k]/Math.sqrt(st[0].N*3)]);}counts.inspection={polygon,histogram,pixels};}
  // Classification follows triangulation; every measured point remains available.
@@ -208,12 +214,17 @@ async function matchSurface(rgbA,rgbB,fa,fb,opts,reference=false){const matching
  }
  if(sceneMode)counts.backgroundModel=backgroundPlanes?.report;
  const result={method:dense?(dense.gpuTiming?'WebGPU RGB SGBM 3WAY + OpenCV filtering + RGB NCC validation':'OpenCV StereoSGBM RGB + native uniqueness + RGB NCC validation'):'RGB NCC',backend:dense?.gpuTiming?'webgpu':'cpu',gpuTiming:dense?.gpuTiming||null,patchSize:2*r+1,minimumEigenvalue,points:new Float32Array(points),colors:new Uint8Array(colors),uv:new Float32Array(uv),accepted,counts,...(sceneMode?{labels,classification,classificationSource}:{}),...(reference?{validDisparity}:{}),rayAngle:angles.length?{min:Math.min(...angles),median:median(angles)}:null,depth:depths.length?{min:Math.min(...depths),median:median(depths),max:Math.max(...depths)}:null,disparityRange:[minD,maxD],matchingTiming:{prepareMs:preparedAt-matchingStarted,stereoMs:stereoAt-preparedAt,candidateMs:candidatesAt-stereoAt,filterMs:performance.now()-candidatesAt}};
+ // Removed output is still an observation. Keep its depth as a constraint,
+ // without exporting wall vertices or using them as region-growing seeds.
+ Object.defineProperty(result,'wallConstraints',{value:wallConstraints});
  if(opts.completion&&!reference&&(foregroundOnly||['bilateral','piecewise','alsc','photogrammetry','plane-propagation'].includes(opts.completionMethod))){
   const accept=(x,y,u,d,world)=>{
    if(x<r||y<r||u<r||x>=S-r||y>=S-r||u>=S-r)return false;
    const k=y*S+x,rays=cameras.map(c=>sub(world,c.center));
+   if(wallPixels.has(k))return false;
    if(cameras.some((c,i)=>mv(c.R,rays[i])[2]<=0)||Math.atan2(Math.hypot(...cross(...rays)),dot(...rays))*180/Math.PI<1)return false;
    if(!rect.valid[0][k]||!rect.valid[1][y*S+u])return false;
+   if(frontOnly&&world[2]<=frontMeters)return false;
    if(!foregroundOnly)return true;
    if(Number.isFinite(backgroundDisparity?.[k])&&Math.abs(d-backgroundDisparity[k])<Math.max(2,d*.02))return false;
    if(st.length===4&&(corr(0,2,x,x,y)>.95||corr(1,3,u,u,y)>.95||backgroundPatch(0,x,y)||backgroundPatch(1,u,y)))return false;

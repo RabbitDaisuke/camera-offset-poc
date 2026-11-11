@@ -1,0 +1,330 @@
+{
+  "utc": "2026-11-11T11:40:12.307Z",
+  "stage": "done",
+  "records": [
+    {
+      "time": 149.913,
+      "before": {
+        "time": 149.89,
+        "count": 76052,
+        "measured": 9154,
+        "matched": 3129,
+        "estimated": 63769,
+        "foot": {
+          "0": 392,
+          "3": 101,
+          "6": 1741
+        },
+        "behind": 0,
+        "minZ": 0.03000069223344326,
+        "ms": 2821.5,
+        "timing": {
+          "seekMs": 0.10000000149011612,
+          "decodePairMs": 89.30000000447035,
+          "workerRoundTripMs": 2632.39999999851,
+          "workerComputeMs": 2622.2000000029802,
+          "workerTransferWaitMs": 10.199999995529652,
+          "renderMs": 99.69999999552965,
+          "totalMs": 2821.5
+        },
+        "alscMs": 590.6000000014901,
+        "planeMs": 206.30000000447035,
+        "planePrepareMs": 528,
+        "a4Behind": 22759
+      },
+      "after": {
+        "time": 149.89,
+        "count": 76052,
+        "measured": 9154,
+        "matched": 3129,
+        "estimated": 63769,
+        "foot": {
+          "0": 392,
+          "3": 101,
+          "6": 1741
+        },
+        "behind": 0,
+        "minZ": 0.03000069223344326,
+        "ms": 2431.2999999970198,
+        "timing": {
+          "seekMs": 0.20000000298023224,
+          "decodePairMs": 82.69999999552965,
+          "workerRoundTripMs": 2254.3000000044703,
+          "workerComputeMs": 2244.5,
+          "workerTransferWaitMs": 9.800000004470348,
+          "renderMs": 94.09999999403954,
+          "totalMs": 2431.2999999970198
+        },
+        "alscMs": 596.6999999955297,
+        "planeMs": 219.20000000298023,
+        "planePrepareMs": 488,
+        "a4Behind": 22759
+      },
+      "equal": {
+        "points": {
+          "before": 228156,
+          "after": 228156,
+          "different": 0
+        },
+        "colors": {
+          "before": 228156,
+          "after": 228156,
+          "different": 0
+        },
+        "uv": {
+          "before": 304208,
+          "after": 304208,
+          "different": 0
+        },
+        "pointKinds": {
+          "before": 76052,
+          "after": 76052,
+          "different": 0
+        }
+      }
+    },
+    {
+      "time": 26.882,
+      "before": {
+        "time": 26.87,
+        "count": 88855,
+        "measured": 7593,
+        "matched": 1377,
+        "estimated": 79885,
+        "foot": {
+          "0": 445,
+          "3": 207,
+          "6": 3113
+        },
+        "behind": 0,
+        "minZ": 0.030005713924765587,
+        "ms": 2156.2000000029802,
+        "timing": {
+          "seekMs": 0,
+          "decodePairMs": 86.70000000298023,
+          "workerRoundTripMs": 1973,
+          "workerComputeMs": 1959.3000000044703,
+          "workerTransferWaitMs": 13.699999995529652,
+          "renderMs": 96.5,
+          "totalMs": 2156.2000000029802
+        },
+        "alscMs": 569.6000000014901,
+        "planeMs": 210.80000000447035,
+        "planePrepareMs": 405.29999999701977,
+        "a4Behind": 5475
+      },
+      "after": {
+        "time": 26.87,
+        "count": 88855,
+        "measured": 7593,
+        "matched": 1377,
+        "estimated": 79885,
+        "foot": {
+          "0": 445,
+          "3": 207,
+          "6": 3113
+        },
+        "behind": 0,
+        "minZ": 0.030005713924765587,
+        "ms": 2103.2999999970198,
+        "timing": {
+          "seekMs": 0.10000000149011612,
+          "decodePairMs": 78.09999999403954,
+          "workerRoundTripMs": 1927.3000000044703,
+          "workerComputeMs": 1912.8999999985099,
+          "workerTransferWaitMs": 14.400000005960464,
+          "renderMs": 97.79999999701977,
+          "totalMs": 2103.2999999970198
+        },
+        "alscMs": 538,
+        "planeMs": 205.39999999850988,
+        "planePrepareMs": 391,
+        "a4Behind": 5475
+      },
+      "equal": {
+        "points": {
+          "before": 266565,
+          "after": 266565,
+          "different": 0
+        },
+        "colors": {
+          "before": 266565,
+          "after": 266565,
+          "different": 0
+        },
+        "uv": {
+          "before": 355420,
+          "after": 355420,
+          "different": 0
+        },
+        "pointKinds": {
+          "before": 88855,
+          "after": 88855,
+          "different": 0
+        }
+      }
+    },
+    {
+      "time": 82.264,
+      "before": {
+        "time": 82.261667,
+        "count": 87119,
+        "measured": 19070,
+        "matched": 6178,
+        "estimated": 61871,
+        "foot": {
+          "0": 676,
+          "3": 946,
+          "6": 1845
+        },
+        "behind": 0,
+        "minZ": 0.030000783503055573,
+        "ms": 2661.3000000044703,
+        "timing": {
+          "seekMs": 0.10000000149011612,
+          "decodePairMs": 88.60000000149012,
+          "workerRoundTripMs": 2477.60000000149,
+          "workerComputeMs": 2465.39999999851,
+          "workerTransferWaitMs": 12.200000002980232,
+          "renderMs": 95,
+          "totalMs": 2661.3000000044703
+        },
+        "alscMs": 752.8000000044703,
+        "planeMs": 216.29999999701977,
+        "planePrepareMs": 608,
+        "a4Behind": 7866
+      },
+      "after": {
+        "time": 82.261667,
+        "count": 87119,
+        "measured": 19070,
+        "matched": 6178,
+        "estimated": 61871,
+        "foot": {
+          "0": 676,
+          "3": 946,
+          "6": 1845
+        },
+        "behind": 0,
+        "minZ": 0.030000783503055573,
+        "ms": 2627,
+        "timing": {
+          "seekMs": 0.19999999552965164,
+          "decodePairMs": 76,
+          "workerRoundTripMs": 2461.60000000149,
+          "workerComputeMs": 2450.7000000029802,
+          "workerTransferWaitMs": 10.899999998509884,
+          "renderMs": 89.20000000298023,
+          "totalMs": 2627
+        },
+        "alscMs": 756,
+        "planeMs": 192.19999999552965,
+        "planePrepareMs": 612.7000000029802,
+        "a4Behind": 7866
+      },
+      "equal": {
+        "points": {
+          "before": 261357,
+          "after": 261357,
+          "different": 0
+        },
+        "colors": {
+          "before": 261357,
+          "after": 261357,
+          "different": 0
+        },
+        "uv": {
+          "before": 348476,
+          "after": 348476,
+          "different": 0
+        },
+        "pointKinds": {
+          "before": 87119,
+          "after": 87119,
+          "different": 0
+        }
+      }
+    },
+    {
+      "time": 267.305,
+      "before": {
+        "time": 267.323333,
+        "count": 87017,
+        "measured": 13302,
+        "matched": 7609,
+        "estimated": 66106,
+        "foot": {
+          "0": 862,
+          "3": 605,
+          "6": 824
+        },
+        "behind": 0,
+        "minZ": 0.03000044822692871,
+        "ms": 2553.5,
+        "timing": {
+          "seekMs": 0,
+          "decodePairMs": 92.09999999403954,
+          "workerRoundTripMs": 2370.3000000044703,
+          "workerComputeMs": 2360.1999999955297,
+          "workerTransferWaitMs": 10.100000008940697,
+          "renderMs": 91.10000000149012,
+          "totalMs": 2553.5
+        },
+        "alscMs": 756.5999999940395,
+        "planeMs": 212.79999999701977,
+        "planePrepareMs": 563.6000000014901,
+        "a4Behind": 7664
+      },
+      "after": {
+        "time": 267.323333,
+        "count": 87017,
+        "measured": 13302,
+        "matched": 7609,
+        "estimated": 66106,
+        "foot": {
+          "0": 862,
+          "3": 605,
+          "6": 824
+        },
+        "behind": 0,
+        "minZ": 0.03000044822692871,
+        "ms": 2515.7999999970198,
+        "timing": {
+          "seekMs": 0.10000000149011612,
+          "decodePairMs": 76.69999999552965,
+          "workerRoundTripMs": 2353.10000000149,
+          "workerComputeMs": 2341.7000000029802,
+          "workerTransferWaitMs": 11.399999998509884,
+          "renderMs": 85.89999999850988,
+          "totalMs": 2515.7999999970198
+        },
+        "alscMs": 758.2999999970198,
+        "planeMs": 224.79999999701977,
+        "planePrepareMs": 542.9000000059605,
+        "a4Behind": 7664
+      },
+      "equal": {
+        "points": {
+          "before": 261051,
+          "after": 261051,
+          "different": 0
+        },
+        "colors": {
+          "before": 261051,
+          "after": 261051,
+          "different": 0
+        },
+        "uv": {
+          "before": 348068,
+          "after": 348068,
+          "different": 0
+        },
+        "pointKinds": {
+          "before": 87017,
+          "after": 87017,
+          "different": 0
+        }
+      }
+    }
+  ]
+}

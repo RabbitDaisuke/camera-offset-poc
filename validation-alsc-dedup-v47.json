@@ -1,0 +1,93 @@
+{
+  "at": "2026-11-11T11:08:29.632Z",
+  "version": "20261111-scene-planes-8",
+  "time": 149.89,
+  "comparison": {
+    "points": {
+      "before": 253239,
+      "after": 253239,
+      "different": 0,
+      "max": 0
+    },
+    "colors": {
+      "before": 253239,
+      "after": 253239,
+      "different": 0,
+      "max": 0
+    },
+    "uv": {
+      "before": 337652,
+      "after": 337652,
+      "different": 0,
+      "max": 0
+    },
+    "pointKinds": {
+      "before": 84413,
+      "after": 84413,
+      "different": 0,
+      "max": 0
+    }
+  },
+  "before": {
+    "points": 84413,
+    "timing": {
+      "seekMs": 0.09999999403953552,
+      "decodePairMs": 105.60000000149012,
+      "workerRoundTripMs": 8464.89999999851,
+      "workerComputeMs": 8447.60000000149,
+      "workerTransferWaitMs": 17.299999997019768,
+      "renderMs": 209,
+      "totalMs": 8779.59999999404
+    },
+    "alsc": {
+      "method": "epipolar-joint-ALSC-region-growing",
+      "sampleStep": 1,
+      "geometricRadiometricCoupling": "Schur complement",
+      "maxIterations": 20,
+      "scope": "scene",
+      "measured": 31913,
+      "matched": 7506,
+      "estimated": 0,
+      "matchedLeft": 52905,
+      "matchedRight": 46637,
+      "lrRejected": 23401,
+      "filterRejected": 0,
+      "rounds": 32,
+      "radius": 10,
+      "prepareMs": 185.69999999552965,
+      "computeReadbackMs": 4043,
+      "totalMs": 4733.39999999851
+    }
+  },
+  "after": {
+    "points": 84413,
+    "timing": {
+      "seekMs": 0.5,
+      "decodePairMs": 159.79999999701977,
+      "workerRoundTripMs": 4204.89999999851,
+      "workerComputeMs": 4167.5,
+      "workerTransferWaitMs": 37.399999998509884,
+      "renderMs": 201.5,
+      "totalMs": 4566.69999999553
+    },
+    "alsc": {
+      "method": "epipolar-joint-ALSC-region-growing",
+      "sampleStep": 1,
+      "geometricRadiometricCoupling": "Schur complement",
+      "maxIterations": 20,
+      "scope": "scene",
+      "measured": 31913,
+      "matched": 7506,
+      "estimated": 0,
+      "matchedLeft": 52905,
+      "matchedRight": 46637,
+      "lrRejected": 23401,
+      "filterRejected": 0,
+      "rounds": 32,
+      "radius": 10,
+      "prepareMs": 202.40000000596046,
+      "computeReadbackMs": 673.3999999985099,
+      "totalMs": 923.5
+    }
+  }
+}

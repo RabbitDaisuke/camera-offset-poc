@@ -1,0 +1,391 @@
+{
+  "utc": "2026-11-11T11:31:26.740Z",
+  "stage": "done",
+  "records": [
+    {
+      "requestedTime": 26.882,
+      "base": {
+        "time": 26.87,
+        "count": 88128,
+        "measured": 13068,
+        "matched": 2630,
+        "estimated": 72430,
+        "foot": {
+          "0": 445,
+          "3": 207,
+          "6": 3084
+        },
+        "behind": 25371,
+        "minZ": -1.1338355541229248,
+        "ms": 2453.89999999851,
+        "timing": {
+          "seekMs": 0.19999999552965164,
+          "decodePairMs": 86.10000000149012,
+          "workerRoundTripMs": 2241.7000000029802,
+          "workerComputeMs": 2229.2000000029802,
+          "workerTransferWaitMs": 12.5,
+          "renderMs": 125.89999999850988,
+          "totalMs": 2453.89999999851
+        },
+        "alscMs": 625.8999999985099,
+        "planeMs": 224,
+        "planePrepareMs": 540.1000000014901,
+        "a4Behind": 0
+      },
+      "front": {
+        "time": 26.87,
+        "count": 88855,
+        "measured": 7593,
+        "matched": 1377,
+        "estimated": 79885,
+        "foot": {
+          "0": 445,
+          "3": 207,
+          "6": 3113
+        },
+        "behind": 0,
+        "minZ": 0.030005713924765587,
+        "ms": 2117.7999999970198,
+        "timing": {
+          "seekMs": 0.19999999552965164,
+          "decodePairMs": 77.30000000447035,
+          "workerRoundTripMs": 1934.2999999970198,
+          "workerComputeMs": 1923.6000000014901,
+          "workerTransferWaitMs": 10.699999995529652,
+          "renderMs": 106,
+          "totalMs": 2117.7999999970198
+        },
+        "alscMs": 566.7999999970198,
+        "planeMs": 198.10000000149012,
+        "planePrepareMs": 390.20000000298023,
+        "a4Behind": 5475
+      },
+      "retention": {
+        "eligible": 7593,
+        "missing": 0,
+        "changed": 0
+      }
+    },
+    {
+      "requestedTime": 3.182,
+      "base": {
+        "time": 3.2,
+        "count": 95908,
+        "measured": 26462,
+        "matched": 5523,
+        "estimated": 63923,
+        "foot": {
+          "0": 3304,
+          "3": 445,
+          "6": 1633
+        },
+        "behind": 47873,
+        "minZ": -1.0921348333358765,
+        "ms": 2746.8000000044703,
+        "timing": {
+          "seekMs": 0.10000000149011612,
+          "decodePairMs": 93,
+          "workerRoundTripMs": 2544.7000000029802,
+          "workerComputeMs": 2533.1999999955297,
+          "workerTransferWaitMs": 11.50000000745058,
+          "renderMs": 109,
+          "totalMs": 2746.8000000044703
+        },
+        "alscMs": 811.5,
+        "planeMs": 229.5,
+        "planePrepareMs": 555.6999999955297,
+        "a4Behind": 0
+      },
+      "front": {
+        "time": 3.2,
+        "count": 72758,
+        "measured": 8118,
+        "matched": 3079,
+        "estimated": 61561,
+        "foot": {
+          "0": 5,
+          "3": 327,
+          "6": 2730
+        },
+        "behind": 0,
+        "minZ": 0.030000319704413414,
+        "ms": 2285.60000000149,
+        "timing": {
+          "seekMs": 0.10000000149011612,
+          "decodePairMs": 77.79999999701977,
+          "workerRoundTripMs": 2126.7000000029802,
+          "workerComputeMs": 2114.2999999970198,
+          "workerTransferWaitMs": 12.400000005960464,
+          "renderMs": 81,
+          "totalMs": 2285.60000000149
+        },
+        "alscMs": 687.7999999970198,
+        "planeMs": 195,
+        "planePrepareMs": 372.3999999985099,
+        "a4Behind": 18344
+      },
+      "retention": {
+        "eligible": 8118,
+        "missing": 0,
+        "changed": 0
+      }
+    },
+    {
+      "requestedTime": 91.018,
+      "base": {
+        "time": 90.996667,
+        "count": 107646,
+        "measured": 32640,
+        "matched": 10494,
+        "estimated": 64512,
+        "foot": {
+          "0": 2794,
+          "3": 279,
+          "6": 1661
+        },
+        "behind": 55997,
+        "minZ": -1.0263391733169556,
+        "ms": 2839.89999999851,
+        "timing": {
+          "seekMs": 0.10000000149011612,
+          "decodePairMs": 86.89999999850988,
+          "workerRoundTripMs": 2627.89999999851,
+          "workerComputeMs": 2616,
+          "workerTransferWaitMs": 11.899999998509884,
+          "renderMs": 125,
+          "totalMs": 2839.89999999851
+        },
+        "alscMs": 734.6000000014901,
+        "planeMs": 236.89999999850988,
+        "planePrepareMs": 649.1000000014901,
+        "a4Behind": 0
+      },
+      "front": {
+        "time": 90.996667,
+        "count": 82041,
+        "measured": 14004,
+        "matched": 5804,
+        "estimated": 62233,
+        "foot": {
+          "0": 389,
+          "3": 206,
+          "6": 2186
+        },
+        "behind": 0,
+        "minZ": 0.030007749795913696,
+        "ms": 2303.4000000059605,
+        "timing": {
+          "seekMs": 0.10000000149011612,
+          "decodePairMs": 80,
+          "workerRoundTripMs": 2135.3000000044703,
+          "workerComputeMs": 2124.60000000149,
+          "workerTransferWaitMs": 10.700000002980232,
+          "renderMs": 88,
+          "totalMs": 2303.4000000059605
+        },
+        "alscMs": 547.8999999985099,
+        "planeMs": 195.60000000149012,
+        "planePrepareMs": 482.79999999701977,
+        "a4Behind": 18636
+      },
+      "retention": {
+        "eligible": 14004,
+        "missing": 0,
+        "changed": 0
+      }
+    },
+    {
+      "requestedTime": 82.264,
+      "base": {
+        "time": 82.261667,
+        "count": 88635,
+        "measured": 26936,
+        "matched": 8784,
+        "estimated": 52915,
+        "foot": {
+          "0": 770,
+          "3": 887,
+          "6": 1793
+        },
+        "behind": 31886,
+        "minZ": -1.6169170141220093,
+        "ms": 2940.60000000149,
+        "timing": {
+          "seekMs": 0.10000000149011612,
+          "decodePairMs": 91.89999999850988,
+          "workerRoundTripMs": 2762,
+          "workerComputeMs": 2750.8000000044703,
+          "workerTransferWaitMs": 11.199999995529652,
+          "renderMs": 86.60000000149012,
+          "totalMs": 2940.60000000149
+        },
+        "alscMs": 905.3999999985099,
+        "planeMs": 235.10000000149012,
+        "planePrepareMs": 710.0999999940395,
+        "a4Behind": 0
+      },
+      "front": {
+        "time": 82.261667,
+        "count": 87119,
+        "measured": 19070,
+        "matched": 6178,
+        "estimated": 61871,
+        "foot": {
+          "0": 676,
+          "3": 946,
+          "6": 1845
+        },
+        "behind": 0,
+        "minZ": 0.030000783503055573,
+        "ms": 2602.7000000029802,
+        "timing": {
+          "seekMs": 0.10000000149011612,
+          "decodePairMs": 83.5,
+          "workerRoundTripMs": 2434,
+          "workerComputeMs": 2422.6999999955297,
+          "workerTransferWaitMs": 11.300000004470348,
+          "renderMs": 85.10000000149012,
+          "totalMs": 2602.7000000029802
+        },
+        "alscMs": 727.3999999985099,
+        "planeMs": 209.69999999552965,
+        "planePrepareMs": 603.4000000059605,
+        "a4Behind": 7866
+      },
+      "retention": {
+        "eligible": 19070,
+        "missing": 0,
+        "changed": 0
+      }
+    },
+    {
+      "requestedTime": 266.009,
+      "base": {
+        "time": 266.04,
+        "count": 90550,
+        "measured": 20414,
+        "matched": 9212,
+        "estimated": 60924,
+        "foot": {
+          "0": 709,
+          "3": 671,
+          "6": 615
+        },
+        "behind": 22732,
+        "minZ": -2.2438035011291504,
+        "ms": 2656.89999999851,
+        "timing": {
+          "seekMs": 0,
+          "decodePairMs": 83.60000000149012,
+          "workerRoundTripMs": 2483,
+          "workerComputeMs": 2471.10000000149,
+          "workerTransferWaitMs": 11.899999998509884,
+          "renderMs": 90.29999999701977,
+          "totalMs": 2656.89999999851
+        },
+        "alscMs": 743,
+        "planeMs": 233.80000000447035,
+        "planePrepareMs": 623.5,
+        "a4Behind": 0
+      },
+      "front": {
+        "time": 266.04,
+        "count": 78766,
+        "measured": 12784,
+        "matched": 7111,
+        "estimated": 58871,
+        "foot": {
+          "0": 709,
+          "3": 671,
+          "6": 586
+        },
+        "behind": 0,
+        "minZ": 0.030012648552656174,
+        "ms": 2604.5,
+        "timing": {
+          "seekMs": 0,
+          "decodePairMs": 79.80000000447035,
+          "workerRoundTripMs": 2446.60000000149,
+          "workerComputeMs": 2435.39999999851,
+          "workerTransferWaitMs": 11.200000002980232,
+          "renderMs": 78.09999999403954,
+          "totalMs": 2604.5
+        },
+        "alscMs": 762.6000000014901,
+        "planeMs": 226.39999999850988,
+        "planePrepareMs": 577,
+        "a4Behind": 7630
+      },
+      "retention": {
+        "eligible": 12784,
+        "missing": 0,
+        "changed": 0
+      }
+    },
+    {
+      "requestedTime": 267.305,
+      "base": {
+        "time": 267.323333,
+        "count": 94214,
+        "measured": 20966,
+        "matched": 9910,
+        "estimated": 63338,
+        "foot": {
+          "0": 862,
+          "3": 605,
+          "6": 926
+        },
+        "behind": 24085,
+        "minZ": -2.4143450260162354,
+        "ms": 2779.10000000149,
+        "timing": {
+          "seekMs": 0.10000000149011612,
+          "decodePairMs": 99.29999999701977,
+          "workerRoundTripMs": 2588.60000000149,
+          "workerComputeMs": 2577.0999999940395,
+          "workerTransferWaitMs": 11.50000000745058,
+          "renderMs": 91.10000000149012,
+          "totalMs": 2779.10000000149
+        },
+        "alscMs": 832.7000000029802,
+        "planeMs": 219.19999999552965,
+        "planePrepareMs": 630.7000000029802,
+        "a4Behind": 0
+      },
+      "front": {
+        "time": 267.323333,
+        "count": 87017,
+        "measured": 13302,
+        "matched": 7609,
+        "estimated": 66106,
+        "foot": {
+          "0": 862,
+          "3": 605,
+          "6": 824
+        },
+        "behind": 0,
+        "minZ": 0.03000044822692871,
+        "ms": 2517.1999999955297,
+        "timing": {
+          "seekMs": 0.19999999552965164,
+          "decodePairMs": 76.10000000149012,
+          "workerRoundTripMs": 2354.89999999851,
+          "workerComputeMs": 2342.8000000044703,
+          "workerTransferWaitMs": 12.099999994039536,
+          "renderMs": 86,
+          "totalMs": 2517.1999999955297
+        },
+        "alscMs": 748.8999999985099,
+        "planeMs": 216.89999999850988,
+        "planePrepareMs": 559.8999999985099,
+        "a4Behind": 7664
+      },
+      "retention": {
+        "eligible": 13302,
+        "missing": 0,
+        "changed": 0
+      }
+    }
+  ],
+  "note": "Previously randomly sampled times, seed 1794393030; subject visible in both original video thumbnails confirmed 2026-11-11T11:31Z. Foot ROI counts outside 149.913 do not refer to the foot and are not a quality metric."
+}

@@ -1,0 +1,82 @@
+{
+  "utc": "2026-11-11T11:27:58.843Z",
+  "stage": "done",
+  "before": {
+    "time": 149.89,
+    "count": 76052,
+    "measured": 9154,
+    "matched": 3129,
+    "estimated": 63769,
+    "foot": {
+      "0": 392,
+      "3": 101,
+      "6": 1741
+    },
+    "behind": 0,
+    "minZ": 0.03000069223344326,
+    "ms": 2603.89999999851,
+    "timing": {
+      "seekMs": 0.10000000149011612,
+      "decodePairMs": 85.70000000298023,
+      "workerRoundTripMs": 2412.7999999970198,
+      "workerComputeMs": 2402.2999999970198,
+      "workerTransferWaitMs": 10.5,
+      "renderMs": 105.29999999701977,
+      "totalMs": 2603.89999999851
+    },
+    "alscMs": 565,
+    "planeMs": 225.29999999701977,
+    "planePrepareMs": 564.5,
+    "a4Behind": 22759
+  },
+  "after": {
+    "time": 149.89,
+    "count": 76052,
+    "measured": 9154,
+    "matched": 3129,
+    "estimated": 63769,
+    "foot": {
+      "0": 392,
+      "3": 101,
+      "6": 1741
+    },
+    "behind": 0,
+    "minZ": 0.03000069223344326,
+    "ms": 2423.7999999970198,
+    "timing": {
+      "seekMs": 0.20000000298023224,
+      "decodePairMs": 79.69999999552965,
+      "workerRoundTripMs": 2252.3000000044703,
+      "workerComputeMs": 2241.5,
+      "workerTransferWaitMs": 10.800000004470348,
+      "renderMs": 91.59999999403954,
+      "totalMs": 2423.7999999970198
+    },
+    "alscMs": 576.6999999955297,
+    "planeMs": 217.89999999850988,
+    "planePrepareMs": 487.20000000298023,
+    "a4Behind": 22759
+  },
+  "equal": {
+    "points": {
+      "before": 228156,
+      "after": 228156,
+      "different": 0
+    },
+    "colors": {
+      "before": 228156,
+      "after": 228156,
+      "different": 0
+    },
+    "uv": {
+      "before": 304208,
+      "after": 304208,
+      "different": 0
+    },
+    "pointKinds": {
+      "before": 76052,
+      "after": 76052,
+      "different": 0
+    }
+  }
+}

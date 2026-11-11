@@ -6,7 +6,7 @@
 // No temporal guesses or semantic masks are used. Added depths remain estimates.
 self.PlanePropagation=(()=>{
  const shader=`
- struct Params {size:u32,pixels:u32,radius:i32,jump:i32,minD:f32,maxD:f32,gamma:f32,consistency:f32,iteration:u32,refine:u32};
+ struct Params {size:u32,pixels:u32,radius:i32,jump:i32,minD:f32,maxD:f32,gamma:f32,consistency:f32,iteration:u32,refine:u32,front:vec4<f32>,rayZ:vec4<f32>};
  struct Field {plane:vec4<f32>,bias:vec4<f32>};
  @group(0) @binding(0) var<uniform> p:Params;
  @group(0) @binding(1) var<storage,read> images:array<u32>;
@@ -21,6 +21,8 @@ self.PlanePropagation=(()=>{
  fn random(state:ptr<function,u32>)->f32{*state=1664525u*(*state)+1013904223u;return f32((*state)>>8u)/16777216.;}
  fn evaluate(x:i32,y:i32,side:i32,v:Field)->Field{
   let disp=v.plane.x;let u=f32(x)-disp;
+  let worldZ=select(p.front.y,p.front.z,side==1)+dot(p.rayZ.xyz,vec3<f32>(f32(x),f32(y),1.))*p.front.w/abs(disp);
+  if(worldZ<=p.front.x){return empty();}
   if(abs(disp)<p.minD||abs(disp)>p.maxD||disp*select(1.,-1.,side==1)<=0.||u<2.||u>=f32(p.size)-3.||masks[index(i32(round(u)),y,1-side)]!=255u){return empty();}
   let center=rgb(x,y,side);var weight=0.;var error=0.;var photo=0.;var anchorWeight=0.;var anchorError=0.;
   for(var dy=-p.radius;dy<=p.radius;dy++){for(var dx=-p.radius;dx<=p.radius;dx++){
@@ -32,7 +34,7 @@ self.PlanePropagation=(()=>{
    let bg=(sample(q+1.,yy,1-side)-sample(q-1.,yy,1-side))*.5*(1.-v.plane.y);
    error+=w*(.1*min(dot(abs(delta),vec3<f32>(1./3.)),10.)+.9*min(dot(abs(ag-bg),vec3<f32>(1./3.)),2.));
    photo+=w*dot(delta,delta)/3.;weight+=w;
-   if(seeds[k].bias.w>0.){anchorWeight+=w;anchorError+=w*min(100.,(d-seeds[k].plane.x)*(d-seeds[k].plane.x));}
+   if(seeds[k].bias.w!=0.){anchorWeight+=w;anchorError+=w*min(100.,(d-seeds[k].plane.x)*(d-seeds[k].plane.x));}
   }}
   if(weight<8.||photo/weight>400.){return empty();}
   if(anchorWeight>1.&&anchorError/anchorWeight>9.){return empty();}
@@ -41,7 +43,7 @@ self.PlanePropagation=(()=>{
  }
  @compute @workgroup_size(64) fn propagate(@builtin(global_invocation_id) gid:vec3<u32>){
   let k=gid.x;if(k>=2u*p.pixels){return;}let x=i32(k%p.size);let y=i32(k/p.size%p.size);let side=i32(k/p.pixels);
-  if(masks[k]!=255u){outputMap[k]=empty();return;}
+  if(masks[k]!=255u||seeds[k].bias.w<0.){outputMap[k]=empty();return;}
   var best=empty();if(inputMap[k].bias.w>0.){best=evaluate(x,y,side,inputMap[k]);}
   for(var axis=0;axis<4;axis++){
    let dx=select(0,select(-p.jump,p.jump,axis==1),axis<2);let dy=select(0,select(-p.jump,p.jump,axis==3),axis>=2);let xx=x+dx;let yy=y+dy;
@@ -78,7 +80,7 @@ self.PlanePropagation=(()=>{
    const start=performance.now(),{S,f,baseline}=rect,N=S*S,device=this.device,pixels=new Uint32Array(2*N),valid=new Uint32Array(2*N),field=new Float32Array(2*N*8),observed=new Float32Array(2*N);observed.fill(NaN);
    for(let side=0;side<2;side++)for(let k=0;k<N;k++){pixels[side*N+k]=rgbs[side][3*k]|rgbs[side][3*k+1]<<8|rgbs[side][3*k+2]<<16;valid[side*N+k]=masks[side][k];field[(side*N+k)*8+3]=1e9;}
    for(let i=0;i<result.points.length/3;i++){if(result.pointKinds&&![0,3].includes(result.pointKinds[i]))continue;const x=result.uv[4*i],y=result.uv[4*i+1],u=result.uv[4*i+2],d=x-u;observed[y*S+x]=d;if(u>=0&&u<S)observed[N+y*S+Math.round(u)]=-d;}
-   const fitted=BackgroundPlanes.build(cv,{uv:result.uv,validDisparity:observed.subarray(0,N)},S,{sampleStep:2,minSupport:24,maxModels:16,minArea:64}),models=fitted.report.models;
+   const fitted=BackgroundPlanes.build(cv,{uv:result.uv,validDisparity:observed.subarray(0,N)},S,{sampleStep:2,minSupport:24,maxModels:16,minArea:64,rasterize:opts.planeRasterize===true}),models=fitted.report.models;
    const sample=(side,x,y,c)=>{const a=Math.floor(x),t=x-a;return rgbs[side][(y*S+a)*3+c]*(1-t)+rgbs[side][(y*S+a+1)*3+c]*t;};let seeds=[0,0],modelSeeds=[0,0];
    for(let side=0;side<2;side++)for(let y=2;y<S-2;y++)for(let x=2;x<S-2;x++){
     const k=side*N+y*S+x,d=observed[k];if(!Number.isFinite(d))continue;let xx=0,xy=0,yy=0,xd=0,yd=0,n=0;
@@ -90,11 +92,18 @@ self.PlanePropagation=(()=>{
     for(let dy=-3;dy<=3;dy++)for(let dx=-3;dx<=3;dx++){const px=x+dx,py=y+dy,u=px-center-a*dx-b*dy;if(px<0||px>=S||py<0||py>=S||u<0||u>=S-1)continue;for(let c=0;c<3;c++)bias[c]+=rgbs[side][(py*S+px)*3+c]-sample(1-side,u,py,c);count++;const q=observed[side*N+py*S+px];if(Number.isFinite(q))squared+=(q-center-a*dx-b*dy)**2;}
     if(!count||squared/count>4)continue;field.set([center,a,b,0,...bias.map(v=>v/count),1],k*8);seeds[side]++;
    }
+   const anchors=new Float32Array(field);let wallAnchors=0;
+   // Negative confidence denotes a measured depth excluded from output. It
+   // constrains nearby plane costs but never propagates or becomes a vertex.
+   for(const [x,y,u,d] of result.wallConstraints||[])for(let side=0;side<2;side++){
+    const xx=side?Math.round(u):x;if(xx<0||xx>=S)continue;const k=side*N+y*S+xx;if(Number.isFinite(observed[k]))continue;
+    anchors.set([side?-d:d,0,0,0,0,0,0,-1],k*8);wallAnchors++;
+   }
    for(const b of this.buffers)b.destroy();this.buffers=[];const make=(bytes,usage,data)=>{const b=device.createBuffer({size:bytes,usage});this.buffers.push(b);if(data)device.queue.writeBuffer(b,0,data);return b;};
-   const storage=GPUBufferUsage.STORAGE|GPUBufferUsage.COPY_DST|GPUBufferUsage.COPY_SRC,im=make(pixels.byteLength,storage,pixels),mask=make(valid.byteLength,storage,valid),seed=make(field.byteLength,storage,field),a=make(field.byteLength,storage,field),b=make(field.byteLength,storage),read=make(field.byteLength,GPUBufferUsage.MAP_READ|GPUBufferUsage.COPY_DST);
+   const storage=GPUBufferUsage.STORAGE|GPUBufferUsage.COPY_DST|GPUBufferUsage.COPY_SRC,im=make(pixels.byteLength,storage,pixels),mask=make(valid.byteLength,storage,valid),seed=make(anchors.byteLength,storage,anchors),a=make(field.byteLength,storage,field),b=make(field.byteLength,storage),read=make(field.byteLength,GPUBufferUsage.MAP_READ|GPUBufferUsage.COPY_DST);
    const jumps=[1,2,4,8,16,32,16,8,4,2,1,1,2,4,8,16,8,4,2,1];let src=a,dst=b;const encoder=device.createCommandEncoder();device.pushErrorScope('validation');
-   for(const [iteration,jump] of jumps.entries()){const data=new ArrayBuffer(48);new Uint32Array(data).set([S,N,opts.planeRadius??8,jump]);new Float32Array(data).set([f*baseline/opts.far,Math.min(S-1,f*baseline/opts.near),10,opts.planeConsistency??1],4);new Uint32Array(data).set([iteration,Number(!!opts.planeRefine)],8);const uniform=make(48,GPUBufferUsage.UNIFORM|GPUBufferUsage.COPY_DST,data),group=device.createBindGroup({layout:this.pipeline.getBindGroupLayout(0),entries:[uniform,im,mask,seed,src,dst].map((buffer,binding)=>({binding,resource:{buffer}}))}),pass=encoder.beginComputePass();pass.setPipeline(this.pipeline);pass.setBindGroup(0,group);pass.dispatchWorkgroups(Math.ceil(2*N/64));pass.end();[src,dst]=[dst,src];}
-   encoder.copyBufferToBuffer(src,0,read,0,field.byteLength);const submitted=performance.now();device.queue.submit([encoder.finish()]);await read.mapAsync(GPUMapMode.READ);const output=new Float32Array(read.getMappedRange().slice(0));read.unmap();const error=await device.popErrorScope();if(error)throw Error(error.message);return {output,seeds,modelSeeds,models,prepareMs:submitted-start,computeReadbackMs:performance.now()-submitted,rounds:jumps.length,radius:opts.planeRadius??8};
+   for(const [iteration,jump] of jumps.entries()){const data=new ArrayBuffer(80);new Uint32Array(data).set([S,N,opts.planeRadius??8,jump]);new Float32Array(data).set([f*baseline/opts.far,Math.min(S-1,f*baseline/opts.near),10,opts.planeConsistency??1],4);new Uint32Array(data).set([iteration,Number(!!opts.planeRefine)],8);new Float32Array(data).set([opts.a4FrontOnly?opts.a4FrontMeters:-1e6,rect.C0[2],rect.C0[2]+baseline*rect.R[2],f*baseline,rect.Rt[6]/f,rect.Rt[7]/f,rect.Rt[8]-(rect.Rt[6]*rect.cx+rect.Rt[7]*rect.cy)/f,0],12);const uniform=make(80,GPUBufferUsage.UNIFORM|GPUBufferUsage.COPY_DST,data),group=device.createBindGroup({layout:this.pipeline.getBindGroupLayout(0),entries:[uniform,im,mask,seed,src,dst].map((buffer,binding)=>({binding,resource:{buffer}}))}),pass=encoder.beginComputePass();pass.setPipeline(this.pipeline);pass.setBindGroup(0,group);pass.dispatchWorkgroups(Math.ceil(2*N/64));pass.end();[src,dst]=[dst,src];}
+   encoder.copyBufferToBuffer(src,0,read,0,field.byteLength);const submitted=performance.now();device.queue.submit([encoder.finish()]);await read.mapAsync(GPUMapMode.READ);const output=new Float32Array(read.getMappedRange().slice(0));read.unmap();const error=await device.popErrorScope();if(error)throw Error(error.message);return {output,seeds,modelSeeds,models,wallAnchors,prepareMs:submitted-start,computeReadbackMs:performance.now()-submitted,rounds:jumps.length,radius:opts.planeRadius??8};
   }
  }
  let matcher;
