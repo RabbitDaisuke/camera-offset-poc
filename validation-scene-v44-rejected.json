@@ -1,0 +1,98 @@
+{
+  "finding": "Single-view tag-plane filtering removed 514 stereo measurements on paper 1 but did not remove the alleged paper 2 outliers. Reverted. The paper 2 examples include rectified pixels mapping beyond the original camera image. The whole projected A4 polygon crosses the image boundary and was insufficient as a wall validity mask.",
+  "utc": "2026-11-11T10:50:58.082Z",
+  "version": "20261111-scene-planes-5",
+  "wall": [
+    {
+      "paper": 0,
+      "stats": {
+        "stereo": {
+          "count": 2387,
+          "median": 4.536388441920128,
+          "p95": 19.361140206455982,
+          "rms": 8.657576491446134,
+          "max": 28.400601819157526
+        },
+        "alsc": {
+          "count": 6,
+          "median": 7.762966677546334,
+          "p95": 8.028699085116205,
+          "rms": 6.928532403740098,
+          "max": 8.028699085116205
+        },
+        "inferred": {
+          "count": 24,
+          "median": 12.018844485282797,
+          "p95": 13.22291325777756,
+          "rms": 10.65457898137831,
+          "max": 13.225358910858617
+        }
+      }
+    },
+    {
+      "paper": 1,
+      "stats": {
+        "stereo": {
+          "count": 4464,
+          "median": 5.851530545092985,
+          "p95": 19.750240975180965,
+          "rms": 9.233795446495904,
+          "max": 30.14423693497239
+        },
+        "alsc": {
+          "count": 52,
+          "median": 5.98351430616457,
+          "p95": 20.32205267557496,
+          "rms": 7.7550140313284714,
+          "max": 23.2813117740451
+        },
+        "inferred": {
+          "count": 25,
+          "median": 2.9223970524461866,
+          "p95": 17.200521419634814,
+          "rms": 9.257512765110942,
+          "max": 17.523006235159958
+        }
+      }
+    },
+    {
+      "paper": 2,
+      "stats": {
+        "stereo": {
+          "count": 529,
+          "median": 3.865205480489315,
+          "p95": 11.588930003502744,
+          "rms": 68.87859496560203,
+          "max": 506.89210122493455
+        },
+        "alsc": {
+          "count": 0,
+          "rms": null
+        },
+        "inferred": {
+          "count": 102,
+          "median": 5.290673815434133,
+          "p95": 10.630396391572754,
+          "rms": 6.357849593921317,
+          "max": 11.925720698027616
+        }
+      }
+    }
+  ],
+  "measured": 19178,
+  "matched": 5664,
+  "estimated": 101716,
+  "rejected": 514,
+  "firstRejected": {
+    "x": 420,
+    "y": 176,
+    "id": 517,
+    "residual": 0.07365800588330879,
+    "tolerance": 0.05,
+    "point": [
+      0.5672060106565795,
+      -1.3464143333571903,
+      -0.008337673685659519
+    ]
+  }
+}

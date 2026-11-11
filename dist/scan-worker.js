@@ -1,6 +1,6 @@
 'use strict';
-const SCAN_VERSION='20261111-scene-alsc-1';
-importScripts('opencv.js',...['calibration-core.js','joint-paper.js','multi-paper.js','stereo-calibration.js','geometry-audit.js','gpu-stereo.js','background-planes.js','surface-completion.js','least-squares-stereo.js','joint-depth-solver.js','piecewise-stereo.js'].map(path=>path+'?v='+SCAN_VERSION));
+const SCAN_VERSION='20261111-scene-planes-7';
+importScripts('opencv.js',...['calibration-core.js','joint-paper.js','multi-paper.js','stereo-calibration.js','geometry-audit.js','gpu-stereo.js','background-planes.js','surface-completion.js','least-squares-stereo.js','joint-depth-solver.js','piecewise-stereo.js','plane-propagation.js'].map(path=>path+'?v='+SCAN_VERSION));
 let gpuPromise=null;
 const getGpu=()=>gpuPromise||(gpuPromise=GpuStereo.create().catch(e=>{gpuPromise=null;throw e;}));
 let CV,engine,nativeAPI,cameras=null,rect=null,bgs=null,backgroundDisparity=null,referenceMarkers=null,stabilization=[],calibrationDiagnostics=[],collected=[[],[]],fittedLenses=null;
@@ -43,7 +43,7 @@ function makeRect(images,S){
  const f=(S-10)/Math.max(hiX-loX,hiY-loY),cx=S/2-f*(hiX+loX)/2,cy=S/2-f*(hiY+loY)/2;
  const maps=cameras.map((c,i)=>{const mapX=new CV.Mat(S,S,CV.CV_32FC1),mapY=new CV.Mat(S,S,CV.CV_32FC1),sx=images[i].width/c.width,sy=images[i].height/c.height;
   for(let v=0;v<S;v++)for(let u=0;u<S;u++){const p=mv(c.R,mv(Rt,[(u-cx)/f,(v-cy)/f,1])),j=v*S+u;if(p[2]<=0){mapX.data32F[j]=-1;mapY.data32F[j]=-1;continue;}const a=p[0]/p[2],b=p[1]/p[2],r=a*a+b*b,D=c.D,rad=1+(D[0]||0)*r+(D[1]||0)*r*r+(D[4]||0)*r*r*r;mapX.data32F[j]=(c.K[0]*(a*rad+2*(D[2]||0)*a*b+(D[3]||0)*(r+2*a*a))+c.K[2])*sx;mapY.data32F[j]=(c.K[4]*(b*rad+(D[2]||0)*(r+2*b*b)+2*(D[3]||0)*a*b)+c.K[5])*sy;}return [mapX,mapY];});
- rect={key,S,f,cx,cy,R,Rt,C0,baseline:Math.hypot(...sub(C1,C0)),maps,valid:[new Uint8Array(S*S),new Uint8Array(S*S)]};return rect;
+ rect={key,S,f,cx,cy,R,Rt,C0,baseline:Math.hypot(...sub(C1,C0)),maps,imageSizes:images.map(im=>[im.width,im.height]),valid:[new Uint8Array(S*S),new Uint8Array(S*S)]};return rect;
 }
 function frameShift(im,i){
  const current=engine.detect(im,{},true).markers;currentMarkers[i]=current;
@@ -118,7 +118,7 @@ async function matchSurface(rgbA,rgbB,fa,fb,opts,reference=false){const matching
  const corr=(a,b,x,u,y)=>{const A=textures[a],B=textures[b],p=y*S+x,q=y*S+u,den=st[a].norms[p]*st[b].norms[q];if(den<1e-5)return -2;let v=0;for(let dy=-r;dy<=r;dy++)for(let dx=-r;dx<=r;dx++){const k=((y+dy)*S+x+dx)*3,l=((y+dy)*S+u+dx)*3;v+=A[k]*B[l]+A[k+1]*B[l+1]+A[k+2]*B[l+2];}for(let c=0;c<3;c++)v-=st[a].N*st[a].means[c][p]*st[b].means[c][q];return v/den;};
  const subpixelCorr=(x,u,y)=>{
   const ix=Math.floor(u),fraction=u-ix;if(ix<r||ix+1>=S-r)return -2;
-  const q=y*S+ix;if(foregroundOnly&&(fb.raw[q]!==255||fb.raw[q+1]!==255))return -2;
+  const q=y*S+ix;if(!rect.valid[1][q]||!rect.valid[1][q+1]||(foregroundOnly&&(fb.raw[q]!==255||fb.raw[q+1]!==255)))return -2;
   const sums=[0,0,0],leftMeans=st[0].means,p=y*S+x,N=st[0].N;let crossSum=0,square=0;
   for(let dy=-r;dy<=r;dy++)for(let dx=-r;dx<=r;dx++){
    const a=((y+dy)*S+x+dx)*3,b=((y+dy)*S+ix+dx)*3;
@@ -127,17 +127,22 @@ async function matchSurface(rgbA,rgbB,fa,fb,opts,reference=false){const matching
   for(let c=0;c<3;c++){crossSum-=leftMeans[c][p]*sums[c];square-=sums[c]*sums[c]/N;}
   const norm=Math.sqrt(Math.max(0,square));return norm<Math.sqrt(N*3)*3?-2:crossSum/(st[0].norms[p]*norm);
  };
- const choose=(a,b,x,y,reverse=false)=>{const shadows=b===0?fa.raw:fb.raw,arr=[];let best=-2,bx=-1;const begin=reverse?x+minD:x-maxD,end=reverse?x+maxD:x-minD;for(let u=Math.max(r,begin);u<=Math.min(S-r-1,end);u++){const k=y*S+u;if((!sceneMode&&shadows[k]===127)||st[b].norms[k]<Math.sqrt(st[b].N*3)*3)continue;const v=corr(a,b,x,u,y);arr.push([u,v]);if(v>best){best=v;bx=u;}}let second=-2;for(const [u,v]of arr)if(Math.abs(u-bx)>2)second=Math.max(second,v);return {x:bx,score:best,gap:best-second,candidates:arr.length};};
- const counts={sampled:0,shadow:0,texture:0,aperture:0,correlation:0,ambiguous:0,roundtrip:0,neighborhood:0,geometry:0,background:0};
+ const choose=(a,b,x,y,reverse=false)=>{const shadows=b===0?fa.raw:fb.raw,arr=[];let best=-2,bx=-1;const begin=reverse?x+minD:x-maxD,end=reverse?x+maxD:x-minD;for(let u=Math.max(r,begin);u<=Math.min(S-r-1,end);u++){const k=y*S+u;if(!rect.valid[b][k]||(!sceneMode&&shadows[k]===127)||st[b].norms[k]<Math.sqrt(st[b].N*3)*3)continue;const v=corr(a,b,x,u,y);arr.push([u,v]);if(v>best){best=v;bx=u;}}let second=-2;for(const [u,v]of arr)if(Math.abs(u-bx)>2)second=Math.max(second,v);return {x:bx,score:best,gap:best-second,candidates:arr.length};};
+ const counts={sampled:0,invalidImage:0,shadow:0,texture:0,aperture:0,correlation:0,ambiguous:0,roundtrip:0,neighborhood:0,geometry:0,background:0};
  const backgroundPatch=(i,x,y)=>{if(!exposure[i]?.ok)return false;const a=textures[i],b=textures[i+2],fit=exposure[i].channels;let dot=0,norm=0;for(let dy=-r;dy<=r;dy++)for(let dx=-r;dx<=r;dx++){const j=((y+dy)*S+x+dx)*3;for(let c=0;c<3;c++){const value=(a[j+c]-fit[c].bias)/fit[c].gain;dot+=value*b[j+c];norm+=b[j+c]*b[j+c];}}const alpha=dot/Math.max(1,norm);if(alpha<.25||alpha>1.08)return false;let residual=0;for(let dy=-r;dy<=r;dy++)for(let dx=-r;dx<=r;dx++){const j=((y+dy)*S+x+dx)*3;for(let c=0;c<3;c++)residual+=((a[j+c]-fit[c].bias)/fit[c].gain-Math.min(1,alpha)*b[j+c])**2;}const tolerance=Math.min(12,Math.max(6,median(fit.map(c=>c.sigma))*2.5));return Math.sqrt(residual/(st[0].N*3))<tolerance;};
  const preparedAt=performance.now(),range=Math.min(S-minD-16,maxD-minD+1),dense=opts.method==='sgbm'?(opts.backend==='webgpu'?await (await getGpu()).compute(rgbA,rgbB,S,S,minD,range,nativeAPI,opts.stereoBlock||5):nativeAPI.stereoDisparity(rgbA,rgbB,S,S,minD,range)):null,stereoAt=performance.now();
  for(let y=r;y<S-r;y+=step)for(let x=r;x<S-r;x+=step){
-  const k=y*S+x;counts.sampled++;if(inspectionStage)inspectionStage[k]=1;if(!sceneMode&&fa.raw[k]===127){counts.shadow++;if(inspectionStage)inspectionStage[k]=2;continue;}if(st[0].norms[k]<Math.sqrt(st[0].N*3)*3){counts.texture++;if(inspectionStage)inspectionStage[k]=3;continue;}
+  const k=y*S+x;counts.sampled++;if(inspectionStage)inspectionStage[k]=1;
+  // Rectification adds pixels beyond the original camera image. Those black
+  // border pixels are not observations, even if a patch crosses a real edge.
+  if(!rect.valid[0][k]){counts.invalidImage++;continue;}
+  if(!sceneMode&&fa.raw[k]===127){counts.shadow++;if(inspectionStage)inspectionStage[k]=2;continue;}if(st[0].norms[k]<Math.sqrt(st[0].N*3)*3){counts.texture++;if(inspectionStage)inspectionStage[k]=3;continue;}
   if(eigen&&eigen[0][k]<minimumEigenvalue){counts.aperture++;continue;}
   if(dense){
    const d=dense.left[k]/16,u=Math.round(x-d);
    if(d<minD||d>maxD||u<r||u>=S-r){counts.ambiguous++;if(inspectionStage)inspectionStage[k]=4;continue;}
    const q=y*S+u,back=dense.right[q]/16;
+   if(!rect.valid[1][q]){counts.invalidImage++;continue;}
    if(back<=dense.rightMinimum-1||Math.abs(d+back)>1){counts.roundtrip++;if(inspectionStage)inspectionStage[k]=5;continue;}
    if(!sceneMode&&fb.raw[q]===127){counts.shadow++;if(inspectionStage)inspectionStage[k]=2;continue;}
    if(eigen&&eigen[1][q]<minimumEigenvalue){counts.aperture++;continue;}
@@ -203,17 +208,22 @@ async function matchSurface(rgbA,rgbB,fa,fb,opts,reference=false){const matching
  }
  if(sceneMode)counts.backgroundModel=backgroundPlanes?.report;
  const result={method:dense?(dense.gpuTiming?'WebGPU RGB SGBM 3WAY + OpenCV filtering + RGB NCC validation':'OpenCV StereoSGBM RGB + native uniqueness + RGB NCC validation'):'RGB NCC',backend:dense?.gpuTiming?'webgpu':'cpu',gpuTiming:dense?.gpuTiming||null,patchSize:2*r+1,minimumEigenvalue,points:new Float32Array(points),colors:new Uint8Array(colors),uv:new Float32Array(uv),accepted,counts,...(sceneMode?{labels,classification,classificationSource}:{}),...(reference?{validDisparity}:{}),rayAngle:angles.length?{min:Math.min(...angles),median:median(angles)}:null,depth:depths.length?{min:Math.min(...depths),median:median(depths),max:Math.max(...depths)}:null,disparityRange:[minD,maxD],matchingTiming:{prepareMs:preparedAt-matchingStarted,stereoMs:stereoAt-preparedAt,candidateMs:candidatesAt-stereoAt,filterMs:performance.now()-candidatesAt}};
- if(opts.completion&&!reference&&(foregroundOnly||['bilateral','piecewise','alsc'].includes(opts.completionMethod))){
+ if(opts.completion&&!reference&&(foregroundOnly||['bilateral','piecewise','alsc','photogrammetry','plane-propagation'].includes(opts.completionMethod))){
   const accept=(x,y,u,d,world)=>{
    if(x<r||y<r||u<r||x>=S-r||y>=S-r||u>=S-r)return false;
    const k=y*S+x,rays=cameras.map(c=>sub(world,c.center));
    if(cameras.some((c,i)=>mv(c.R,rays[i])[2]<=0)||Math.atan2(Math.hypot(...cross(...rays)),dot(...rays))*180/Math.PI<1)return false;
+   if(!rect.valid[0][k]||!rect.valid[1][y*S+u])return false;
    if(!foregroundOnly)return true;
    if(Number.isFinite(backgroundDisparity?.[k])&&Math.abs(d-backgroundDisparity[k])<Math.max(2,d*.02))return false;
    if(st.length===4&&(corr(0,2,x,x,y)>.95||corr(1,3,u,u,y)>.95||backgroundPatch(0,x,y)||backgroundPatch(1,u,y)))return false;
    return !localBackground(0,x,y)&&!localBackground(1,u,y);
   };
-  if(opts.completionMethod==='piecewise')await PiecewiseStereo.complete(CV,await getGpu(),result,rgbA,rgbB,fa,fb,rect,opts,accept);
+  if(opts.completionMethod==='photogrammetry'||opts.completionMethod==='plane-propagation'){
+   if(opts.completionMethod==='photogrammetry')await LeastSquaresStereo.complete(await getGpu(),result,rgbA,rgbB,fa,fb,rect,opts,accept);
+   await PlanePropagation.complete(CV,await getGpu(),result,rgbA,rgbB,fa,fb,rect,opts,accept);
+  }
+  else if(opts.completionMethod==='piecewise')await PiecewiseStereo.complete(CV,await getGpu(),result,rgbA,rgbB,fa,fb,rect,opts,accept);
   else if(opts.completionMethod==='bilateral')await JointDepthSolver.complete(CV,await getGpu(),result,rgbA,rgbB,fa,fb,rect,opts,accept);
   else if(opts.completionMethod==='alsc')await LeastSquaresStereo.complete(await getGpu(),result,rgbA,rgbB,fa,fb,rect,opts,accept);
   else await SurfaceCompletion.complete(CV,await getGpu(),result,rgbA,rgbB,fa,fb,rect,opts,accept);
@@ -231,7 +241,7 @@ async function matchSurface(rgbA,rgbB,fa,fb,opts,reference=false){const matching
  }finally{backgroundRGB?.forEach(m=>m.delete());}
 }
 async function analyze(images,opts){if(!cameras||!bgs)throw Error('校正と影判定用の背景が必要です');const start=performance.now();const expected=images.map(im=>`${im.width}x${im.height}`).join('/')+'/'+opts.size;if(rect.key!==expected)throw Error('処理解像度または映像の向きを変更したため、背景を学習し直してください');const rgbs=images.map((im,i)=>warp(im,i));try{const fingerprints={input:images.map(im=>fingerprint(im.data)),rectified:rgbs.map(m=>fingerprint(m.data)),background:bgs.map(b=>fingerprint(b.rgb.data))};const fs=rgbs.map((rgb,i)=>shadowCandidates(rgb,i,images[i])),maskMs=performance.now()-start,result=await matchSurface(rgbs[0].data,rgbs[1].data,fs[0],fs[1],opts);result.fingerprints={...fingerprints,afterMatch:rgbs.map(m=>fingerprint(m.data)),shadow:fs.map(m=>fingerprint(m.raw))};const previews=rgbs.map(imageFromRGB);for(let i=0;i<2;i++)for(let k=0;k<fs[i].raw.length;k++){const p=previews[i].data,j=4*k;if(fs[i].raw[k]===127){p[j]=Math.round(p[j]*.3);p[j+1]=Math.round(p[j+1]*.5);p[j+2]=160;}}
- for(let n=0;n<result.uv.length;n+=4)for(let i=0;i<2;i++){const x=Math.round(result.uv[n+2*i]),y=Math.round(result.uv[n+2*i+1]),k=y*rect.S+x;if(x>=0&&x<rect.S&&y>=0&&y<rect.S){const color=[1,2,4,5].includes(result.pointKinds?.[n/4])?[230,150,20]:result.labels?[[255,180,50],[60,190,255],[70,255,135]][result.labels[n/4]]:[70,255,135];for(let c=0;c<3;c++)previews[i].data[4*k+c]=color[c];}}
+ for(let n=0;n<result.uv.length;n+=4)for(let i=0;i<2;i++){const x=Math.round(result.uv[n+2*i]),y=Math.round(result.uv[n+2*i+1]),k=y*rect.S+x;if(x>=0&&x<rect.S&&y>=0&&y<rect.S){const color=[1,2,4,5,6].includes(result.pointKinds?.[n/4])?[230,150,20]:result.labels?[[255,180,50],[60,190,255],[70,255,135]][result.labels[n/4]]:[70,255,135];for(let c=0;c<3;c++)previews[i].data[4*k+c]=color[c];}}
  return {...result,previews,shadow:fs.map(a=>({pixels:a.shadow})),stabilization,exposure,baseline:rect.baseline,coverage:result.counts.sampled?result.points.length/3/result.counts.sampled:0,ms:performance.now()-start,maskMs,rectification:{f:rect.f,cx:rect.cx,cy:rect.cy,R:rect.R,size:rect.S},cameras};}finally{rgbs.forEach(m=>m.delete());}}
 self.onmessage=async e=>{
  const {id,type,images,opts,value}=e.data;

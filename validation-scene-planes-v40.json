@@ -1,0 +1,68 @@
+{
+  "at": "2026-11-11T10:22:45.526Z",
+  "version": "20261111-scene-planes-1",
+  "foot": {
+    "base": 392,
+    "alsc": 81,
+    "estimated": 1021
+  },
+  "preserved": true,
+  "pointCount": 63714,
+  "completion": {
+    "method": "seeded-slanted-window-plane-propagation",
+    "measured": 34230,
+    "matched": 7506,
+    "estimated": 21978,
+    "counts": {
+      "leftRight": 77805,
+      "photometric": 5546,
+      "geometry": 0,
+      "added": 21978
+    },
+    "seeds": [
+      41309,
+      38371
+    ],
+    "prepareMs": 159.60000000149012,
+    "computeReadbackMs": 210.29999999701977,
+    "rounds": 20,
+    "radius": 8,
+    "priorMatching": {
+      "method": "epipolar-joint-ALSC-region-growing",
+      "sampleStep": 1,
+      "geometricRadiometricCoupling": "Schur complement",
+      "maxIterations": 20,
+      "scope": "scene",
+      "measured": 34230,
+      "matched": 7506,
+      "estimated": 0,
+      "matchedLeft": 52905,
+      "matchedRight": 46637,
+      "lrRejected": 23397,
+      "filterRejected": 0,
+      "rounds": 32,
+      "radius": 10,
+      "prepareMs": 88.89999999850988,
+      "computeReadbackMs": 4994.10000000149,
+      "totalMs": 5112.5
+    },
+    "totalMs": 5624.29999999702
+  },
+  "timing": {
+    "seekMs": 0,
+    "decodePairMs": 82.30000000447035,
+    "workerRoundTripMs": 6556.5,
+    "workerComputeMs": 6544.79999999702,
+    "workerTransferWaitMs": 11.700000002980232,
+    "renderMs": 75.79999999701977,
+    "totalMs": 6714.60000000149
+  },
+  "classification": {
+    "static": 28341,
+    "nearer": 11579,
+    "unknown": 23794,
+    "shadowOnStatic": 4205,
+    "planeAssisted": 26970,
+    "nearerWithPlane": 11557
+  }
+}

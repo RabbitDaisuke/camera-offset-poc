@@ -1,0 +1,233 @@
+{
+  "version": "20261111-scene-alsc-1",
+  "at": "2026-11-11T10:18:22.003Z",
+  "scene149": {
+    "baseline": {
+      "pointCount": 34230,
+      "classification": {
+        "static": 18290,
+        "nearer": 5620,
+        "unknown": 10320,
+        "shadowOnStatic": 2772,
+        "planeAssisted": 12221,
+        "nearerWithPlane": 5605
+      },
+      "timing": {
+        "seekMs": 0.09999999776482582,
+        "decodePairMs": 90.30000000074506,
+        "workerRoundTripMs": 973.5,
+        "workerComputeMs": 960.3000000007451,
+        "workerTransferWaitMs": 13.199999999254942,
+        "renderMs": 55.80000000074506,
+        "totalMs": 1119.699999999255
+      },
+      "options": {
+        "size": 640,
+        "step": 1,
+        "ncc": 0.8,
+        "unique": 0.035,
+        "near": 0.3,
+        "far": 6,
+        "scope": "scene",
+        "method": "sgbm",
+        "backend": "webgpu",
+        "ruler": 100,
+        "radial": true,
+        "refs": [
+          0,
+          1
+        ],
+        "subpixel": true,
+        "completion": false,
+        "patchRadius": 6,
+        "stereoBlock": 9
+      },
+      "timeA": 149.89,
+      "timeB": 166.297089
+    },
+    "alsc": {
+      "pointCount": 41736,
+      "completion": {
+        "method": "epipolar-joint-ALSC-region-growing",
+        "sampleStep": 1,
+        "geometricRadiometricCoupling": "Schur complement",
+        "maxIterations": 20,
+        "scope": "scene",
+        "measured": 34230,
+        "matched": 7506,
+        "estimated": 0,
+        "matchedLeft": 52905,
+        "matchedRight": 46637,
+        "lrRejected": 23397,
+        "filterRejected": 0,
+        "rounds": 32,
+        "radius": 10,
+        "prepareMs": 88.70000000298023,
+        "computeReadbackMs": 3851.599999997765,
+        "totalMs": 4209.400000002235
+      },
+      "classification": {
+        "static": 21444,
+        "nearer": 7495,
+        "unknown": 12797,
+        "shadowOnStatic": 3353,
+        "planeAssisted": 16703,
+        "nearerWithPlane": 7480
+      },
+      "timing": {
+        "seekMs": 0.10000000149011612,
+        "decodePairMs": 81.09999999776483,
+        "workerRoundTripMs": 5177.20000000298,
+        "workerComputeMs": 5166.099999997765,
+        "workerTransferWaitMs": 11.100000005215406,
+        "renderMs": 53.69999999925494,
+        "totalMs": 5312.10000000149
+      },
+      "options": {
+        "size": 640,
+        "step": 1,
+        "ncc": 0.8,
+        "unique": 0.035,
+        "near": 0.3,
+        "far": 6,
+        "scope": "scene",
+        "method": "sgbm",
+        "backend": "webgpu",
+        "ruler": 100,
+        "radial": true,
+        "refs": [
+          0,
+          1
+        ],
+        "subpixel": true,
+        "completion": true,
+        "patchRadius": 6,
+        "stereoBlock": 9,
+        "completionMethod": "alsc",
+        "alscRadius": 10,
+        "alscRounds": 32
+      },
+      "timeA": 149.89,
+      "timeB": 166.297089
+    },
+    "preserved": true,
+    "foot": {
+      "base": 392,
+      "alsc": 81
+    }
+  },
+  "empty60": {
+    "baseline": {
+      "pointCount": 19692,
+      "classification": {
+        "static": 19042,
+        "nearer": 5,
+        "unknown": 645,
+        "shadowOnStatic": 18,
+        "planeAssisted": 1462,
+        "nearerWithPlane": 5
+      },
+      "timing": {
+        "seekMs": 0.10000000149011612,
+        "decodePairMs": 88.09999999776483,
+        "workerRoundTripMs": 809.5,
+        "workerComputeMs": 800.0999999977648,
+        "workerTransferWaitMs": 9.400000002235174,
+        "renderMs": 35.69999999925494,
+        "totalMs": 933.3999999985099
+      },
+      "options": {
+        "size": 640,
+        "step": 1,
+        "ncc": 0.8,
+        "unique": 0.035,
+        "near": 0.3,
+        "far": 6,
+        "scope": "scene",
+        "method": "sgbm",
+        "backend": "webgpu",
+        "ruler": 100,
+        "radial": true,
+        "refs": [
+          0,
+          1
+        ],
+        "subpixel": true,
+        "completion": false,
+        "patchRadius": 6,
+        "stereoBlock": 9,
+        "completionMethod": "alsc",
+        "alscRadius": 10,
+        "alscRounds": 32
+      },
+      "timeA": 60.008333,
+      "timeB": 76.409989
+    },
+    "alsc": {
+      "pointCount": 25356,
+      "completion": {
+        "method": "epipolar-joint-ALSC-region-growing",
+        "sampleStep": 1,
+        "geometricRadiometricCoupling": "Schur complement",
+        "maxIterations": 20,
+        "scope": "scene",
+        "measured": 19692,
+        "matched": 5664,
+        "estimated": 0,
+        "matchedLeft": 27816,
+        "matchedRight": 24537,
+        "lrRejected": 11028,
+        "filterRejected": 0,
+        "rounds": 32,
+        "radius": 10,
+        "prepareMs": 41.100000001490116,
+        "computeReadbackMs": 2415.800000000745,
+        "totalMs": 2479.300000000745
+      },
+      "classification": {
+        "static": 22452,
+        "nearer": 72,
+        "unknown": 2832,
+        "shadowOnStatic": 18,
+        "planeAssisted": 4656,
+        "nearerWithPlane": 72
+      },
+      "timing": {
+        "seekMs": 0.09999999776482582,
+        "decodePairMs": 80.30000000074506,
+        "workerRoundTripMs": 3240.800000000745,
+        "workerComputeMs": 3230.800000000745,
+        "workerTransferWaitMs": 10,
+        "renderMs": 36.80000000074506,
+        "totalMs": 3358
+      },
+      "options": {
+        "size": 640,
+        "step": 1,
+        "ncc": 0.8,
+        "unique": 0.035,
+        "near": 0.3,
+        "far": 6,
+        "scope": "scene",
+        "method": "sgbm",
+        "backend": "webgpu",
+        "ruler": 100,
+        "radial": true,
+        "refs": [
+          0,
+          1
+        ],
+        "subpixel": true,
+        "completion": true,
+        "patchRadius": 6,
+        "stereoBlock": 9,
+        "completionMethod": "alsc",
+        "alscRadius": 10,
+        "alscRounds": 32
+      },
+      "timeA": 60.008333,
+      "timeB": 76.409989
+    },
+    "preserved": true
+  }
+}
