@@ -1,5 +1,5 @@
 'use strict';
-const SCAN_VERSION='20261111-scene-planes-7';
+const SCAN_VERSION='20261111-scene-planes-8';
 importScripts('opencv.js',...['calibration-core.js','joint-paper.js','multi-paper.js','stereo-calibration.js','geometry-audit.js','gpu-stereo.js','background-planes.js','surface-completion.js','least-squares-stereo.js','joint-depth-solver.js','piecewise-stereo.js','plane-propagation.js'].map(path=>path+'?v='+SCAN_VERSION));
 let gpuPromise=null;
 const getGpu=()=>gpuPromise||(gpuPromise=GpuStereo.create().catch(e=>{gpuPromise=null;throw e;}));

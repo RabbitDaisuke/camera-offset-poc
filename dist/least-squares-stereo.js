@@ -11,6 +11,7 @@ self.LeastSquaresStereo=(()=>{
  @group(0) @binding(2) var<storage,read> masks:array<u32>;
  @group(0) @binding(3) var<storage,read> inputMap:array<vec4<f32>>;
  @group(0) @binding(4) var<storage,read_write> outputMap:array<vec4<f32>>;
+ @group(0) @binding(5) var<storage,read_write> attemptedSeeds:array<u32>;
  fn rgb(x:i32,y:i32,side:i32)->vec3<f32>{let v=images[(side*i32(p.size)+y)*i32(p.size)+x];return vec3<f32>(f32(v&255u),f32((v>>8u)&255u),f32((v>>16u)&255u));}
  fn sample(x:f32,y:i32,side:i32)->vec3<f32>{let ix=i32(floor(x));return mix(rgb(ix,y,side),rgb(ix+1,y,side),fract(x));}
  fn invalid()->vec4<f32>{return vec4<f32>(0.,0.,0.,-1.);}
@@ -54,14 +55,17 @@ self.LeastSquaresStereo=(()=>{
  }
  @compute @workgroup_size(64) fn grow(@builtin(global_invocation_id) gid:vec3<u32>){
   let k=gid.x;if(k>=2u*p.size*p.size){return;}outputMap[k]=inputMap[k];if(inputMap[k].w>=0.||masks[k]!=255u){return;}
-  let x=i32(k%p.size);let y=i32(k/p.size%p.size);let side=i32(k/(p.size*p.size));let center=rgb(x,y,side);var candidates:array<vec4<f32>,8>;var ranks:array<f32,8>;var count=0u;
+  let x=i32(k%p.size);let y=i32(k/p.size%p.size);let side=i32(k/(p.size*p.size));let center=rgb(x,y,side);var candidates:array<vec4<f32>,8>;var ranks:array<f32,8>;var flags:array<u32,8>;var count=0u;
   for(var dy=-1;dy<=1;dy++){for(var dx=-1;dx<=1;dx++){
-   if(dx==0&&dy==0){continue;}let xx=x+dx;let yy=y+dy;if(xx<0||yy<0||xx>=i32(p.size)||yy>=i32(p.size)){continue;}
+   if(dx==0&&dy==0){continue;}let flag=1u<<u32((dy+1)*3+dx+1);if(p.pad!=0u&&(attemptedSeeds[k]&flag)!=0u){continue;}let xx=x+dx;let yy=y+dy;if(xx<0||yy<0||xx>=i32(p.size)||yy>=i32(p.size)){continue;}
    let q=(u32(side)*p.size+u32(yy))*p.size+u32(xx);let other=inputMap[q];if(other.w<0.){continue;}
    let colorDistance=dot(abs(center-rgb(xx,yy,side)),vec3<f32>(1));if(colorDistance>105.){continue;}
-   var candidate=other;candidate.x-=other.y*f32(dx)/f32(p.radius)+other.z*f32(dy)/f32(p.radius);candidates[count]=candidate;ranks[count]=other.w+colorDistance/765.;count++;
+   var candidate=other;candidate.x-=other.y*f32(dx)/f32(p.radius)+other.z*f32(dy)/f32(p.radius);candidates[count]=candidate;ranks[count]=other.w+colorDistance/765.;flags[count]=flag;count++;
   }}
-  for(var attempt=0u;attempt<count;attempt++){var selected=0u;var best=1e10;for(var j=0u;j<count;j++){if(ranks[j]<best){best=ranks[j];selected=j;}}ranks[selected]=1e10;let fitted=refine(x,y,side,candidates[selected].xyz);if(fitted.w>=0.){outputMap[k]=fitted;return;}}
+  // Accepted neighbors never change in this image pair. A failed fit from
+  // that exact neighbor has identical inputs in every later round. Cache only
+  // that attempt, not the pixel: newly accepted neighbors are still tested.
+  for(var attempt=0u;attempt<count;attempt++){var selected=0u;var best=1e10;for(var j=0u;j<count;j++){if(ranks[j]<best){best=ranks[j];selected=j;}}ranks[selected]=1e10;attemptedSeeds[k]|=flags[selected];let fitted=refine(x,y,side,candidates[selected].xyz);if(fitted.w>=0.){outputMap[k]=fitted;return;}}
  }
  `;
  class Matcher{
@@ -80,9 +84,10 @@ self.LeastSquaresStereo=(()=>{
     for(let dy=-6;dy<=6;dy++)for(let dx=-6;dx<=6;dx++){const a=x+dx,b=y+dy;if(a<0||b<0||a>=S||b>=S)continue;const q=side*N+b*S+a;if(seedMap[q*4+3]<0)continue;const diff=seedMap[4*q]-seedMap[4*k];if(Math.abs(diff)>12)continue;xx+=dx*dx;xy+=dx*dy;yy+=dy*dy;xd+=dx*diff;yd+=dy*diff;n++;}
     const det=xx*yy-xy*xy;if(n>=6&&det>1){seedMap[4*k+1]=Math.max(-radius,Math.min(radius,(xd*yy-yd*xy)/det*radius));seedMap[4*k+2]=Math.max(-radius,Math.min(radius,(yd*xx-xd*xy)/det*radius));}
    }
-   const parameters=new ArrayBuffer(32);new Uint32Array(parameters).set([S,radius,20,0]);new Float32Array(parameters).set([opts.ncc,1,S-1,3],4);
+   const parameters=new ArrayBuffer(32);new Uint32Array(parameters).set([S,radius,20,Number(opts.alscDeduplicate!==false)]);new Float32Array(parameters).set([opts.ncc,1,S-1,3],4);
    const storage=GPUBufferUsage.STORAGE|GPUBufferUsage.COPY_DST|GPUBufferUsage.COPY_SRC,uniform=create(32,GPUBufferUsage.UNIFORM|GPUBufferUsage.COPY_DST,parameters),image=create(pixels.byteLength,storage,pixels),mask=create(masks.byteLength,storage,masks),seed=create(seedMap.byteLength,storage,seedMap),a=create(seedMap.byteLength,storage),b=create(seedMap.byteLength,storage),read=create(seedMap.byteLength,GPUBufferUsage.MAP_READ|GPUBufferUsage.COPY_DST);
-   const bind=(pipeline,src,dst)=>d.createBindGroup({layout:pipeline.getBindGroupLayout(0),entries:[uniform,image,mask,src,dst].map((buffer,binding)=>({binding,resource:{buffer}}))});
+   const attempted=create(2*N*4,storage);
+   const bind=(pipeline,src,dst)=>d.createBindGroup({layout:pipeline.getBindGroupLayout(0),entries:[uniform,image,mask,src,dst,...(pipeline===this.grow?[attempted]:[])].map((buffer,binding)=>({binding,resource:{buffer}}))});
    const encoder=d.createCommandEncoder(),dispatch=(pipeline,group)=>{const pass=encoder.beginComputePass();pass.setPipeline(pipeline);pass.setBindGroup(0,group);pass.dispatchWorkgroups(Math.ceil(2*N/64));pass.end();};
    d.pushErrorScope('validation');dispatch(this.seed,bind(this.seed,seed,a));let src=a,dst=b;const groups=[bind(this.grow,a,b),bind(this.grow,b,a)],rounds=opts.alscRounds??32;for(let i=0;i<rounds;i++){dispatch(this.grow,groups[i%2]);[src,dst]=[dst,src];}
    encoder.copyBufferToBuffer(src,0,read,0,seedMap.byteLength);const prepared=performance.now();d.queue.submit([encoder.finish()]);await read.mapAsync(GPUMapMode.READ);const values=new Float32Array(read.getMappedRange().slice(0));read.unmap();const error=await d.popErrorScope();if(error)throw Error(error.message);return {values,rounds,radius,prepareMs:prepared-started,computeReadbackMs:performance.now()-prepared};
