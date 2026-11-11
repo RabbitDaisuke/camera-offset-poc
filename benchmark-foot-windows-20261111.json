@@ -1,0 +1,296 @@
+{
+  "time": 149.913,
+  "footPixels": 5768,
+  "scope": "foreground",
+  "defaultUnchanged": true,
+  "runs": [
+    {
+      "block": 5,
+      "radius": 2,
+      "points": 4310,
+      "foot": {
+        "sgbm-invalid": 2110,
+        "left-right": 516,
+        "low-texture": 2659,
+        "rgb-correlation": 288,
+        "island": 36,
+        "accepted": 143,
+        "neighbors": 16
+      },
+      "insideOtherFoot": 118,
+      "footPoints": 143,
+      "gpuMs": 132.579328,
+      "ms": 1585.3999999985099
+    },
+    {
+      "block": 5,
+      "radius": 6,
+      "points": 5807,
+      "foot": {
+        "sgbm-invalid": 3037,
+        "left-right": 1012,
+        "low-texture": 901,
+        "rgb-correlation": 522,
+        "accepted": 253,
+        "island": 43
+      },
+      "insideOtherFoot": 253,
+      "footPoints": 253,
+      "gpuMs": 129.302528,
+      "ms": 1880.5999999977648
+    },
+    {
+      "block": 7,
+      "radius": 2,
+      "points": 4176,
+      "foot": {
+        "left-right": 700,
+        "sgbm-invalid": 1843,
+        "rgb-correlation": 342,
+        "low-texture": 2659,
+        "island": 42,
+        "accepted": 171,
+        "neighbors": 8,
+        "mog-background": 2,
+        "shadow": 1
+      },
+      "insideOtherFoot": 110,
+      "footPoints": 171,
+      "gpuMs": 136.97024,
+      "ms": 1788.4000000022352
+    },
+    {
+      "block": 7,
+      "radius": 6,
+      "points": 6164,
+      "foot": {
+        "left-right": 1177,
+        "sgbm-invalid": 2717,
+        "rgb-correlation": 596,
+        "low-texture": 901,
+        "accepted": 338,
+        "neighbors": 1,
+        "mog-background": 2,
+        "shadow": 1,
+        "island": 35
+      },
+      "insideOtherFoot": 338,
+      "footPoints": 338,
+      "gpuMs": 127.533056,
+      "ms": 2008.800000000745
+    },
+    {
+      "block": 9,
+      "radius": 2,
+      "points": 4027,
+      "foot": {
+        "left-right": 693,
+        "rgb-correlation": 401,
+        "sgbm-invalid": 1727,
+        "low-texture": 2659,
+        "accepted": 213,
+        "island": 65,
+        "neighbors": 9,
+        "mog-background": 1
+      },
+      "insideOtherFoot": 128,
+      "footPoints": 213,
+      "gpuMs": 144.900096,
+      "ms": 1600.699999999255
+    },
+    {
+      "block": 9,
+      "radius": 6,
+      "points": 6347,
+      "foot": {
+        "left-right": 1188,
+        "rgb-correlation": 733,
+        "sgbm-invalid": 2518,
+        "low-texture": 901,
+        "accepted": 391,
+        "neighbors": 1,
+        "mog-background": 1,
+        "island": 35
+      },
+      "insideOtherFoot": 391,
+      "footPoints": 391,
+      "gpuMs": 135.00416,
+      "ms": 2024.5
+    }
+  ],
+  "preserved": {
+    "done": true,
+    "runs": [
+      {
+        "t": 1.16,
+        "n": 1608,
+        "hash": [
+          4276531310,
+          787672670,
+          1697779995
+        ],
+        "equal": true
+      },
+      {
+        "t": 6.27,
+        "n": 2703,
+        "hash": [
+          1816383726,
+          2234561632,
+          1061390937
+        ],
+        "equal": true
+      },
+      {
+        "t": 7.812,
+        "n": 3087,
+        "hash": [
+          3466122900,
+          1762195772,
+          2319547706
+        ],
+        "equal": true
+      },
+      {
+        "t": 12.255,
+        "n": 8175,
+        "hash": [
+          3596551231,
+          744790813,
+          4124629238
+        ],
+        "equal": true
+      },
+      {
+        "t": 15.141,
+        "n": 4964,
+        "hash": [
+          3293198853,
+          460928183,
+          49944149
+        ],
+        "equal": true
+      },
+      {
+        "t": 22.031,
+        "n": 5725,
+        "hash": [
+          2214641534,
+          1977112730,
+          3517564416
+        ],
+        "equal": true
+      },
+      {
+        "t": 38.744,
+        "n": 2080,
+        "hash": [
+          804471350,
+          3698421340,
+          1670288918
+        ],
+        "equal": true
+      },
+      {
+        "t": 79.736,
+        "n": 2389,
+        "hash": [
+          2346915488,
+          1428872770,
+          2346214920
+        ],
+        "equal": true
+      },
+      {
+        "t": 99.177,
+        "n": 3342,
+        "hash": [
+          3275985180,
+          535463697,
+          2273382947
+        ],
+        "equal": true
+      },
+      {
+        "t": 102.533,
+        "n": 3249,
+        "hash": [
+          1822605808,
+          2140824668,
+          722681240
+        ],
+        "equal": true
+      },
+      {
+        "t": 149.913,
+        "n": 4310,
+        "hash": [
+          3653530333,
+          3196551581,
+          4080311212
+        ],
+        "equal": true
+      },
+      {
+        "t": 151.519,
+        "n": 7268,
+        "hash": [
+          2328362866,
+          4117936958,
+          4286855208
+        ],
+        "equal": true
+      },
+      {
+        "t": 152.067,
+        "n": 5864,
+        "hash": [
+          1497005610,
+          1785302748,
+          3415100703
+        ],
+        "equal": true
+      },
+      {
+        "t": 153.82,
+        "n": 7265,
+        "hash": [
+          1524637635,
+          2353125203,
+          142901768
+        ],
+        "equal": true
+      },
+      {
+        "t": 220.585,
+        "n": 5798,
+        "hash": [
+          4150808167,
+          2523062457,
+          2040538435
+        ],
+        "equal": true
+      },
+      {
+        "t": 247.761,
+        "n": 4583,
+        "hash": [
+          1515428745,
+          2722205340,
+          73363122
+        ],
+        "equal": true
+      },
+      {
+        "t": 282.132,
+        "n": 5281,
+        "hash": [
+          3258046625,
+          1043985666,
+          141191400
+        ],
+        "equal": true
+      }
+    ]
+  }
+}

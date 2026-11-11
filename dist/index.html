@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>A4 — カメラ位置校正</title><meta name="description" content="A4の模様を撮影して、カメラの位置と向きを3D空間に配置。印刷、動画入力、レンズ校正、結果保存まで。"><link rel="stylesheet" href="style.css"><script defer src="core.js"></script><script defer src="print.js"></script><script defer src="stereo.js"></script><script defer src="scene.js"></script><script defer src="offline.js"></script><script defer src="app.js"></script></head>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>A4 — カメラ位置校正・表面スキャン</title><meta name="description" content="A4の模様を撮影して、カメラの位置と向きを3D空間に配置。印刷、動画入力、レンズ校正、結果保存まで。"><link rel="stylesheet" href="style.css"><script defer src="core.js"></script><script defer src="print.js"></script><script defer src="stereo.js"></script><script defer src="scene.js"></script><script defer src="offline.js"></script><script defer src="calibration-app.js"></script><script type="module" src="surface-app.js"></script><link rel="stylesheet" href="surface.css"></head>
 <body>
 <header><div class="brand"><span class="brandmark">◎</span><span>A4 CYLINDER<small>CAMERA CALIBRATION</small></span></div><div class="header-right"><span class="pill" id="engine-status">準備しています</span><button id="export" disabled>配置を保存 <span>↗</span></button></div></header>
 <main>
@@ -16,3 +16,4 @@
 <dialog id="lens-dialog"><div class="modal-head"><div><p class="eyebrow">巻く前のA4を使います</p><h2>レンズを調整する</h2></div><button id="close-lens" class="icon" aria-label="閉じる">×</button></div><p class="help">紙を平らに持ち、距離・位置・傾きを変えて6〜20枚撮影してください。画像の追加、動画の一時停止、カメラ撮影が使えます。</p><div class="calibration-layout"><div><canvas id="lens-canvas"></canvas><div class="button-row"><button id="lens-capture" class="primary">このフレームを追加</button><label class="button">画像を追加<input id="lens-files" type="file" accept="image/*" multiple hidden></label></div></div><div><div id="sample-count" class="sample-count">0 <small>/ 6 枚以上</small></div><div id="sample-list" class="sample-list"></div><div class="button-row"><button id="calibrate" disabled>レンズを調整</button><button id="clear-samples" class="quiet">撮り直す</button></div><p id="calibration-message" role="status"></p></div></div></dialog>
 <div id="toast" role="status"></div>
 </body></html>
+

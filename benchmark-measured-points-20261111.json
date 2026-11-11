@@ -1,0 +1,800 @@
+{
+  "times": [
+    1.16,
+    6.27,
+    7.812,
+    12.255,
+    15.141,
+    22.031,
+    38.744,
+    79.736,
+    99.177,
+    102.533,
+    149.913,
+    151.519,
+    152.067,
+    153.82,
+    220.585,
+    247.761,
+    282.132
+  ],
+  "runs": [
+    {
+      "t": 1.16,
+      "before": 356,
+      "after": 1608,
+      "retained": 356,
+      "changed": 0,
+      "subpixel": 92,
+      "occupied8pxCells": [
+        88,
+        134
+      ],
+      "new8pxCells": 46,
+      "beforeMs": 1069.7999999970198,
+      "afterMs": 1199.800000000745,
+      "gpu": {
+        "prepareMs": 15.199999999254942,
+        "gpuMs": 120.651776,
+        "submitAndReadbackMs": 124.69999999925494,
+        "postprocessMs": 54.5,
+        "totalMs": 194.39999999850988,
+        "volumeBytes": 1071751680,
+        "backend": "WebGPU RGB SGBM 3WAY"
+      },
+      "matching": {
+        "prepareMs": 87.60000000149012,
+        "stereoMs": 194.39999999850988,
+        "candidateMs": 19.800000000745058,
+        "filterMs": 176.30000000074506
+      },
+      "triangles": 2414,
+      "counts": {
+        "sampled": 404496,
+        "shadow": 9278,
+        "texture": 324580,
+        "aperture": 0,
+        "correlation": 4200,
+        "ambiguous": 49455,
+        "roundtrip": 10650,
+        "neighborhood": 215,
+        "geometry": 1953,
+        "background": 2223,
+        "backgroundLocal": 8,
+        "isolated3D": 334,
+        "subpixelRecovered": 92
+      }
+    },
+    {
+      "t": 6.27,
+      "before": 636,
+      "after": 2703,
+      "retained": 636,
+      "changed": 0,
+      "subpixel": 153,
+      "occupied8pxCells": [
+        154,
+        188
+      ],
+      "new8pxCells": 34,
+      "beforeMs": 1195,
+      "afterMs": 1311.5,
+      "gpu": {
+        "prepareMs": 15.599999997764826,
+        "gpuMs": 120.520704,
+        "submitAndReadbackMs": 124.80000000074506,
+        "postprocessMs": 52.399999998509884,
+        "totalMs": 192.79999999701977,
+        "volumeBytes": 1071751680,
+        "backend": "WebGPU RGB SGBM 3WAY"
+      },
+      "matching": {
+        "prepareMs": 87.20000000298023,
+        "stereoMs": 192.79999999701977,
+        "candidateMs": 23.300000000745058,
+        "filterMs": 248.5
+      },
+      "triangles": 4742,
+      "counts": {
+        "sampled": 404496,
+        "shadow": 37796,
+        "texture": 278979,
+        "aperture": 0,
+        "correlation": 7820,
+        "ambiguous": 54496,
+        "roundtrip": 11110,
+        "neighborhood": 120,
+        "geometry": 4100,
+        "background": 7102,
+        "isolated3D": 270,
+        "subpixelRecovered": 153
+      }
+    },
+    {
+      "t": 7.812,
+      "before": 677,
+      "after": 3087,
+      "retained": 677,
+      "changed": 0,
+      "subpixel": 270,
+      "occupied8pxCells": [
+        155,
+        201
+      ],
+      "new8pxCells": 46,
+      "beforeMs": 1294.0999999977648,
+      "afterMs": 1333.8999999985099,
+      "gpu": {
+        "prepareMs": 3.899999998509884,
+        "gpuMs": 120.389632,
+        "submitAndReadbackMs": 124.40000000223517,
+        "postprocessMs": 82.09999999776483,
+        "totalMs": 210.39999999850988,
+        "volumeBytes": 1071751680,
+        "backend": "WebGPU RGB SGBM 3WAY"
+      },
+      "matching": {
+        "prepareMs": 76.69999999925494,
+        "stereoMs": 210.39999999850988,
+        "candidateMs": 23.300000000745058,
+        "filterMs": 293
+      },
+      "triangles": 5364,
+      "counts": {
+        "sampled": 404496,
+        "shadow": 5570,
+        "texture": 321117,
+        "aperture": 0,
+        "correlation": 6641,
+        "ambiguous": 41211,
+        "roundtrip": 11699,
+        "neighborhood": 146,
+        "geometry": 10337,
+        "background": 4443,
+        "backgroundLocal": 35,
+        "isolated3D": 245,
+        "subpixelRecovered": 270
+      }
+    },
+    {
+      "t": 12.255,
+      "before": 1861,
+      "after": 8175,
+      "retained": 1861,
+      "changed": 0,
+      "subpixel": 505,
+      "occupied8pxCells": [
+        331,
+        394
+      ],
+      "new8pxCells": 63,
+      "beforeMs": 1170.5999999977648,
+      "afterMs": 1883,
+      "gpu": {
+        "prepareMs": 11.899999998509884,
+        "gpuMs": 120.651776,
+        "submitAndReadbackMs": 126.69999999925494,
+        "postprocessMs": 46.69999999925494,
+        "totalMs": 185.29999999701977,
+        "volumeBytes": 1071751680,
+        "backend": "WebGPU RGB SGBM 3WAY"
+      },
+      "matching": {
+        "prepareMs": 76.90000000223517,
+        "stereoMs": 185.29999999701977,
+        "candidateMs": 27.100000001490116,
+        "filterMs": 770.1000000014901
+      },
+      "triangles": 14919,
+      "counts": {
+        "sampled": 404496,
+        "shadow": 4067,
+        "texture": 307299,
+        "aperture": 0,
+        "correlation": 10083,
+        "ambiguous": 49363,
+        "roundtrip": 10307,
+        "neighborhood": 170,
+        "geometry": 10397,
+        "background": 4326,
+        "backgroundLocal": 19,
+        "isolated3D": 309,
+        "subpixelRecovered": 505
+      }
+    },
+    {
+      "t": 15.141,
+      "before": 1135,
+      "after": 4964,
+      "retained": 1135,
+      "changed": 0,
+      "subpixel": 305,
+      "occupied8pxCells": [
+        209,
+        256
+      ],
+      "new8pxCells": 47,
+      "beforeMs": 1187.4000000022352,
+      "afterMs": 1583.4000000022352,
+      "gpu": {
+        "prepareMs": 9.099999997764826,
+        "gpuMs": 120.389632,
+        "submitAndReadbackMs": 129.10000000149012,
+        "postprocessMs": 67.19999999925494,
+        "totalMs": 205.39999999850988,
+        "volumeBytes": 1071751680,
+        "backend": "WebGPU RGB SGBM 3WAY"
+      },
+      "matching": {
+        "prepareMs": 79.5,
+        "stereoMs": 205.39999999850988,
+        "candidateMs": 15,
+        "filterMs": 469
+      },
+      "triangles": 8820,
+      "counts": {
+        "sampled": 404496,
+        "shadow": 10035,
+        "texture": 299845,
+        "aperture": 0,
+        "correlation": 7260,
+        "ambiguous": 58787,
+        "roundtrip": 13482,
+        "neighborhood": 206,
+        "geometry": 5907,
+        "background": 3667,
+        "backgroundLocal": 28,
+        "isolated3D": 343,
+        "subpixelRecovered": 305
+      }
+    },
+    {
+      "t": 22.031,
+      "before": 1330,
+      "after": 5725,
+      "retained": 1330,
+      "changed": 0,
+      "subpixel": 337,
+      "occupied8pxCells": [
+        244,
+        280
+      ],
+      "new8pxCells": 36,
+      "beforeMs": 1341.4000000022352,
+      "afterMs": 1613.6000000014901,
+      "gpu": {
+        "prepareMs": 3.7000000029802322,
+        "gpuMs": 120.455168,
+        "submitAndReadbackMs": 127.69999999925494,
+        "postprocessMs": 47.30000000074506,
+        "totalMs": 178.70000000298023,
+        "volumeBytes": 1071751680,
+        "backend": "WebGPU RGB SGBM 3WAY"
+      },
+      "matching": {
+        "prepareMs": 75.5,
+        "stereoMs": 178.70000000298023,
+        "candidateMs": 23.399999998509884,
+        "filterMs": 556.3000000007451
+      },
+      "triangles": 10414,
+      "counts": {
+        "sampled": 404496,
+        "shadow": 37824,
+        "texture": 297767,
+        "aperture": 0,
+        "correlation": 7507,
+        "ambiguous": 37693,
+        "roundtrip": 8390,
+        "neighborhood": 130,
+        "geometry": 3115,
+        "background": 6087,
+        "isolated3D": 258,
+        "subpixelRecovered": 337
+      }
+    },
+    {
+      "t": 38.744,
+      "before": 451,
+      "after": 2080,
+      "retained": 451,
+      "changed": 0,
+      "subpixel": 159,
+      "occupied8pxCells": [
+        107,
+        157
+      ],
+      "new8pxCells": 50,
+      "beforeMs": 1100.199999999255,
+      "afterMs": 1217.2999999970198,
+      "gpu": {
+        "prepareMs": 3.800000000745058,
+        "gpuMs": 120.782848,
+        "submitAndReadbackMs": 126.89999999850988,
+        "postprocessMs": 73.40000000223517,
+        "totalMs": 204.10000000149012,
+        "volumeBytes": 1071751680,
+        "backend": "WebGPU RGB SGBM 3WAY"
+      },
+      "matching": {
+        "prepareMs": 74.59999999776483,
+        "stereoMs": 204.10000000149012,
+        "candidateMs": 13,
+        "filterMs": 198.09999999776483
+      },
+      "triangles": 3341,
+      "counts": {
+        "sampled": 404496,
+        "shadow": 34412,
+        "texture": 307409,
+        "aperture": 0,
+        "correlation": 3787,
+        "ambiguous": 44179,
+        "roundtrip": 8994,
+        "neighborhood": 157,
+        "geometry": 982,
+        "background": 2194,
+        "isolated3D": 302,
+        "subpixelRecovered": 159
+      }
+    },
+    {
+      "t": 79.736,
+      "before": 525,
+      "after": 2389,
+      "retained": 525,
+      "changed": 0,
+      "subpixel": 134,
+      "occupied8pxCells": [
+        122,
+        167
+      ],
+      "new8pxCells": 45,
+      "beforeMs": 1102.300000000745,
+      "afterMs": 1249.800000000745,
+      "gpu": {
+        "prepareMs": 3.900000002235174,
+        "gpuMs": 120.520704,
+        "submitAndReadbackMs": 128.39999999850988,
+        "postprocessMs": 63.100000001490116,
+        "totalMs": 195.40000000223517,
+        "volumeBytes": 1071751680,
+        "backend": "WebGPU RGB SGBM 3WAY"
+      },
+      "matching": {
+        "prepareMs": 74.89999999850988,
+        "stereoMs": 195.40000000223517,
+        "candidateMs": 22.099999997764826,
+        "filterMs": 242.70000000298023
+      },
+      "triangles": 4013,
+      "counts": {
+        "sampled": 404496,
+        "shadow": 45371,
+        "texture": 292898,
+        "aperture": 0,
+        "correlation": 4596,
+        "ambiguous": 40248,
+        "roundtrip": 8832,
+        "neighborhood": 213,
+        "geometry": 1883,
+        "background": 7624,
+        "isolated3D": 442,
+        "subpixelRecovered": 134
+      }
+    },
+    {
+      "t": 99.177,
+      "before": 746,
+      "after": 3342,
+      "retained": 746,
+      "changed": 0,
+      "subpixel": 262,
+      "occupied8pxCells": [
+        164,
+        213
+      ],
+      "new8pxCells": 49,
+      "beforeMs": 1323.3999999985099,
+      "afterMs": 1296.699999999255,
+      "gpu": {
+        "prepareMs": 3.900000002235174,
+        "gpuMs": 120.782848,
+        "submitAndReadbackMs": 127.39999999850988,
+        "postprocessMs": 62,
+        "totalMs": 193.30000000074506,
+        "volumeBytes": 1071751680,
+        "backend": "WebGPU RGB SGBM 3WAY"
+      },
+      "matching": {
+        "prepareMs": 77,
+        "stereoMs": 193.40000000223517,
+        "candidateMs": 17.699999999254942,
+        "filterMs": 291.30000000074506
+      },
+      "triangles": 5461,
+      "counts": {
+        "sampled": 404496,
+        "shadow": 40053,
+        "texture": 300090,
+        "aperture": 0,
+        "correlation": 4177,
+        "ambiguous": 41073,
+        "roundtrip": 7345,
+        "neighborhood": 144,
+        "geometry": 1759,
+        "background": 6329,
+        "isolated3D": 184,
+        "subpixelRecovered": 262
+      }
+    },
+    {
+      "t": 102.533,
+      "before": 762,
+      "after": 3249,
+      "retained": 762,
+      "changed": 0,
+      "subpixel": 156,
+      "occupied8pxCells": [
+        167,
+        216
+      ],
+      "new8pxCells": 49,
+      "beforeMs": 1175.9000000022352,
+      "afterMs": 1352.5,
+      "gpu": {
+        "prepareMs": 4,
+        "gpuMs": 120.520704,
+        "submitAndReadbackMs": 128.19999999925494,
+        "postprocessMs": 56.20000000298023,
+        "totalMs": 188.40000000223517,
+        "volumeBytes": 1071751680,
+        "backend": "WebGPU RGB SGBM 3WAY"
+      },
+      "matching": {
+        "prepareMs": 74.80000000074506,
+        "stereoMs": 188.5,
+        "candidateMs": 19.300000000745058,
+        "filterMs": 303
+      },
+      "triangles": 5661,
+      "counts": {
+        "sampled": 404496,
+        "shadow": 46009,
+        "texture": 281797,
+        "aperture": 0,
+        "correlation": 5535,
+        "ambiguous": 47350,
+        "roundtrip": 11432,
+        "neighborhood": 206,
+        "geometry": 1987,
+        "background": 6571,
+        "isolated3D": 360,
+        "subpixelRecovered": 156
+      }
+    },
+    {
+      "t": 149.913,
+      "before": 1000,
+      "after": 4310,
+      "retained": 1000,
+      "changed": 0,
+      "subpixel": 293,
+      "occupied8pxCells": [
+        203,
+        262
+      ],
+      "new8pxCells": 59,
+      "beforeMs": 1273,
+      "afterMs": 1609.800000000745,
+      "gpu": {
+        "prepareMs": 3.800000000745058,
+        "gpuMs": 120.782848,
+        "submitAndReadbackMs": 128.69999999925494,
+        "postprocessMs": 71.5,
+        "totalMs": 204,
+        "volumeBytes": 1071751680,
+        "backend": "WebGPU RGB SGBM 3WAY"
+      },
+      "matching": {
+        "prepareMs": 74.89999999850988,
+        "stereoMs": 204,
+        "candidateMs": 29,
+        "filterMs": 412.20000000298023
+      },
+      "triangles": 7509,
+      "counts": {
+        "sampled": 404496,
+        "shadow": 8621,
+        "texture": 294215,
+        "aperture": 0,
+        "correlation": 13012,
+        "ambiguous": 57486,
+        "roundtrip": 13451,
+        "neighborhood": 314,
+        "geometry": 8931,
+        "background": 3851,
+        "backgroundLocal": 18,
+        "isolated3D": 305,
+        "subpixelRecovered": 293
+      }
+    },
+    {
+      "t": 151.519,
+      "before": 1643,
+      "after": 7268,
+      "retained": 1643,
+      "changed": 0,
+      "subpixel": 456,
+      "occupied8pxCells": [
+        327,
+        424
+      ],
+      "new8pxCells": 97,
+      "beforeMs": 1335.2999999970198,
+      "afterMs": 1781,
+      "gpu": {
+        "prepareMs": 3.900000002235174,
+        "gpuMs": 120.717312,
+        "submitAndReadbackMs": 125.5,
+        "postprocessMs": 47.099999997764826,
+        "totalMs": 176.5,
+        "volumeBytes": 1071751680,
+        "backend": "WebGPU RGB SGBM 3WAY"
+      },
+      "matching": {
+        "prepareMs": 84.09999999776483,
+        "stereoMs": 176.60000000149012,
+        "candidateMs": 17.800000000745058,
+        "filterMs": 637.8999999985099
+      },
+      "triangles": 12718,
+      "counts": {
+        "sampled": 404496,
+        "shadow": 6790,
+        "texture": 312086,
+        "aperture": 0,
+        "correlation": 7000,
+        "ambiguous": 50535,
+        "roundtrip": 11845,
+        "neighborhood": 198,
+        "geometry": 5314,
+        "background": 3161,
+        "backgroundLocal": 3,
+        "isolated3D": 299,
+        "subpixelRecovered": 456
+      }
+    },
+    {
+      "t": 152.067,
+      "before": 1332,
+      "after": 5864,
+      "retained": 1332,
+      "changed": 0,
+      "subpixel": 406,
+      "occupied8pxCells": [
+        283,
+        372
+      ],
+      "new8pxCells": 89,
+      "beforeMs": 1145.5999999977648,
+      "afterMs": 1619.199999999255,
+      "gpu": {
+        "prepareMs": 11,
+        "gpuMs": 120.58624,
+        "submitAndReadbackMs": 124.5,
+        "postprocessMs": 45.100000001490116,
+        "totalMs": 180.60000000149012,
+        "volumeBytes": 1071751680,
+        "backend": "WebGPU RGB SGBM 3WAY"
+      },
+      "matching": {
+        "prepareMs": 74.69999999925494,
+        "stereoMs": 180.60000000149012,
+        "candidateMs": 17.600000001490116,
+        "filterMs": 546.6999999992549
+      },
+      "triangles": 9929,
+      "counts": {
+        "sampled": 404496,
+        "shadow": 7966,
+        "texture": 318443,
+        "aperture": 0,
+        "correlation": 7306,
+        "ambiguous": 46895,
+        "roundtrip": 11501,
+        "neighborhood": 245,
+        "geometry": 2987,
+        "background": 3035,
+        "backgroundLocal": 18,
+        "isolated3D": 254,
+        "subpixelRecovered": 406
+      }
+    },
+    {
+      "t": 153.82,
+      "before": 1713,
+      "after": 7265,
+      "retained": 1713,
+      "changed": 0,
+      "subpixel": 344,
+      "occupied8pxCells": [
+        306,
+        373
+      ],
+      "new8pxCells": 67,
+      "beforeMs": 1245.1000000014901,
+      "afterMs": 1737.3999999985099,
+      "gpu": {
+        "prepareMs": 3.800000000745058,
+        "gpuMs": 120.455168,
+        "submitAndReadbackMs": 128.80000000074506,
+        "postprocessMs": 54.5,
+        "totalMs": 187.10000000149012,
+        "volumeBytes": 1071751680,
+        "backend": "WebGPU RGB SGBM 3WAY"
+      },
+      "matching": {
+        "prepareMs": 79.19999999925494,
+        "stereoMs": 187.10000000149012,
+        "candidateMs": 14.199999999254942,
+        "filterMs": 695.3000000007451
+      },
+      "triangles": 13009,
+      "counts": {
+        "sampled": 404496,
+        "shadow": 8672,
+        "texture": 315683,
+        "aperture": 0,
+        "correlation": 6232,
+        "ambiguous": 50555,
+        "roundtrip": 10567,
+        "neighborhood": 170,
+        "geometry": 1785,
+        "background": 3207,
+        "backgroundLocal": 5,
+        "isolated3D": 360,
+        "subpixelRecovered": 344
+      }
+    },
+    {
+      "t": 220.585,
+      "before": 1341,
+      "after": 5798,
+      "retained": 1341,
+      "changed": 0,
+      "subpixel": 261,
+      "occupied8pxCells": [
+        260,
+        333
+      ],
+      "new8pxCells": 73,
+      "beforeMs": 1253.300000000745,
+      "afterMs": 1613.300000000745,
+      "gpu": {
+        "prepareMs": 4,
+        "gpuMs": 120.782848,
+        "submitAndReadbackMs": 127.10000000149012,
+        "postprocessMs": 55.19999999925494,
+        "totalMs": 186.30000000074506,
+        "volumeBytes": 1071751680,
+        "backend": "WebGPU RGB SGBM 3WAY"
+      },
+      "matching": {
+        "prepareMs": 79.5,
+        "stereoMs": 186.30000000074506,
+        "candidateMs": 14,
+        "filterMs": 595.4000000022352
+      },
+      "triangles": 10203,
+      "counts": {
+        "sampled": 404496,
+        "shadow": 6445,
+        "texture": 315782,
+        "aperture": 0,
+        "correlation": 4111,
+        "ambiguous": 53082,
+        "roundtrip": 14178,
+        "neighborhood": 178,
+        "geometry": 1232,
+        "background": 3257,
+        "backgroundLocal": 55,
+        "isolated3D": 433,
+        "subpixelRecovered": 261
+      }
+    },
+    {
+      "t": 247.761,
+      "before": 1047,
+      "after": 4583,
+      "retained": 1047,
+      "changed": 0,
+      "subpixel": 242,
+      "occupied8pxCells": [
+        222,
+        289
+      ],
+      "new8pxCells": 67,
+      "beforeMs": 1193.5999999977648,
+      "afterMs": 1417.699999999255,
+      "gpu": {
+        "prepareMs": 5.399999998509884,
+        "gpuMs": 120.455168,
+        "submitAndReadbackMs": 126.19999999925494,
+        "postprocessMs": 61.80000000074506,
+        "totalMs": 193.39999999850988,
+        "volumeBytes": 1071751680,
+        "backend": "WebGPU RGB SGBM 3WAY"
+      },
+      "matching": {
+        "prepareMs": 94.30000000074506,
+        "stereoMs": 193.5,
+        "candidateMs": 12.699999999254942,
+        "filterMs": 403.80000000074506
+      },
+      "triangles": 8003,
+      "counts": {
+        "sampled": 404496,
+        "shadow": 9180,
+        "texture": 317245,
+        "aperture": 0,
+        "correlation": 6408,
+        "ambiguous": 50251,
+        "roundtrip": 11460,
+        "neighborhood": 282,
+        "geometry": 1894,
+        "background": 2770,
+        "backgroundLocal": 26,
+        "isolated3D": 423,
+        "subpixelRecovered": 242
+      }
+    },
+    {
+      "t": 282.132,
+      "before": 1240,
+      "after": 5281,
+      "retained": 1240,
+      "changed": 0,
+      "subpixel": 266,
+      "occupied8pxCells": [
+        271,
+        323
+      ],
+      "new8pxCells": 52,
+      "beforeMs": 1155.6000000014901,
+      "afterMs": 1521.6000000014901,
+      "gpu": {
+        "prepareMs": 10.800000000745058,
+        "gpuMs": 122.945536,
+        "submitAndReadbackMs": 128.89999999850988,
+        "postprocessMs": 78.90000000223517,
+        "totalMs": 218.60000000149012,
+        "volumeBytes": 1071751680,
+        "backend": "WebGPU RGB SGBM 3WAY"
+      },
+      "matching": {
+        "prepareMs": 79.20000000298023,
+        "stereoMs": 218.79999999701977,
+        "candidateMs": 20.5,
+        "filterMs": 455.30000000074506
+      },
+      "triangles": 9118,
+      "counts": {
+        "sampled": 404496,
+        "shadow": 6801,
+        "texture": 311039,
+        "aperture": 0,
+        "correlation": 6390,
+        "ambiguous": 55055,
+        "roundtrip": 12674,
+        "neighborhood": 300,
+        "geometry": 3676,
+        "background": 2803,
+        "backgroundLocal": 19,
+        "isolated3D": 477,
+        "subpixelRecovered": 266
+      }
+    }
+  ],
+  "done": true
+}

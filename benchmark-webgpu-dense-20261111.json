@@ -1,0 +1,2328 @@
+{
+  "seed": 1837293851,
+  "selectedTimes": [
+    1.16,
+    6.27,
+    7.812,
+    12.255,
+    15.141,
+    22.031,
+    38.744,
+    79.736,
+    99.177,
+    102.533,
+    149.913,
+    151.519,
+    152.067,
+    153.82,
+    220.585,
+    247.761,
+    282.132
+  ],
+  "baseline": [
+    {
+      "requested": 1.16,
+      "timeA": 1.166667,
+      "timeB": 17.573344,
+      "pointCount": 356,
+      "triangles": 571,
+      "hashes": {
+        "points": 1549990106,
+        "colors": 3863573809,
+        "uv": 1239124826
+      },
+      "counts": {
+        "sampled": 101124,
+        "shadow": 2347,
+        "texture": 81214,
+        "aperture": 0,
+        "correlation": 1166,
+        "ambiguous": 12287,
+        "roundtrip": 2654,
+        "neighborhood": 58,
+        "geometry": 413,
+        "background": 542,
+        "backgroundLocal": 1,
+        "isolated3D": 87
+      },
+      "timing": {
+        "seekMs": 0,
+        "decodePairMs": 96.90000000037253,
+        "workerRoundTripMs": 2701.0999999996275,
+        "workerComputeMs": 2692.4000000003725,
+        "workerTransferWaitMs": 8.699999999254942,
+        "renderMs": 3.099999999627471,
+        "totalMs": 2801.0999999996275
+      },
+      "matching": {
+        "prepareMs": 47.09999999962747,
+        "stereoMs": 2069.0999999996275,
+        "candidateMs": 6.400000000372529,
+        "filterMs": 20.59999999962747
+      },
+      "fingerprints": {
+        "input": [
+          2979228300,
+          1775185932
+        ],
+        "rectified": [
+          2217516531,
+          694765539
+        ],
+        "background": [
+          80980740,
+          2026700301
+        ],
+        "afterMatch": [
+          2217516531,
+          694765539
+        ],
+        "shadow": [
+          2177297025,
+          1895547880
+        ]
+      }
+    },
+    {
+      "requested": 6.27,
+      "timeA": 6.268333,
+      "timeB": 22.666722,
+      "pointCount": 636,
+      "triangles": 1102,
+      "hashes": {
+        "points": 4054797854,
+        "colors": 4017043054,
+        "uv": 632455757
+      },
+      "counts": {
+        "sampled": 101124,
+        "shadow": 9344,
+        "texture": 69852,
+        "aperture": 0,
+        "correlation": 2197,
+        "ambiguous": 13608,
+        "roundtrip": 2802,
+        "neighborhood": 40,
+        "geometry": 943,
+        "background": 1641,
+        "isolated3D": 61
+      },
+      "timing": {
+        "seekMs": 0.09999999962747097,
+        "decodePairMs": 84.5,
+        "workerRoundTripMs": 2759.7999999988824,
+        "workerComputeMs": 2750,
+        "workerTransferWaitMs": 9.799999998882413,
+        "renderMs": 3.100000001490116,
+        "totalMs": 2847.5
+      },
+      "matching": {
+        "prepareMs": 45.19999999925494,
+        "stereoMs": 2071.0999999996275,
+        "candidateMs": 3.200000001117587,
+        "filterMs": 30.399999998509884
+      },
+      "fingerprints": {
+        "input": [
+          4144407917,
+          4139270515
+        ],
+        "rectified": [
+          508334740,
+          2301282834
+        ],
+        "background": [
+          80980740,
+          2026700301
+        ],
+        "afterMatch": [
+          508334740,
+          2301282834
+        ],
+        "shadow": [
+          3748930373,
+          2270062205
+        ]
+      }
+    },
+    {
+      "requested": 7.812,
+      "timeA": 7.818333,
+      "timeB": 24.218533,
+      "pointCount": 677,
+      "triangles": 1194,
+      "hashes": {
+        "points": 1099266168,
+        "colors": 4095974183,
+        "uv": 158495150
+      },
+      "counts": {
+        "sampled": 101124,
+        "shadow": 1389,
+        "texture": 80315,
+        "aperture": 0,
+        "correlation": 1950,
+        "ambiguous": 10299,
+        "roundtrip": 2916,
+        "neighborhood": 49,
+        "geometry": 2401,
+        "background": 1068,
+        "backgroundLocal": 9,
+        "isolated3D": 60
+      },
+      "timing": {
+        "seekMs": 0.09999999962747097,
+        "decodePairMs": 105.90000000037253,
+        "workerRoundTripMs": 2716.800000000745,
+        "workerComputeMs": 2707.5,
+        "workerTransferWaitMs": 9.300000000745058,
+        "renderMs": 3.299999998882413,
+        "totalMs": 2826.0999999996275
+      },
+      "matching": {
+        "prepareMs": 44.59999999962747,
+        "stereoMs": 2058.800000000745,
+        "candidateMs": 1.900000000372529,
+        "filterMs": 33.40000000037253
+      },
+      "fingerprints": {
+        "input": [
+          1827909211,
+          1148757972
+        ],
+        "rectified": [
+          383197131,
+          3033040905
+        ],
+        "background": [
+          80980740,
+          2026700301
+        ],
+        "afterMatch": [
+          383197131,
+          3033040905
+        ],
+        "shadow": [
+          4154466469,
+          3240001397
+        ]
+      }
+    },
+    {
+      "requested": 12.255,
+      "timeA": 12.268333,
+      "timeB": 28.671033,
+      "pointCount": 1861,
+      "triangles": 3462,
+      "hashes": {
+        "points": 221708989,
+        "colors": 2592623538,
+        "uv": 797894699
+      },
+      "counts": {
+        "sampled": 101124,
+        "shadow": 1018,
+        "texture": 76867,
+        "aperture": 0,
+        "correlation": 2892,
+        "ambiguous": 12361,
+        "roundtrip": 2563,
+        "neighborhood": 52,
+        "geometry": 2365,
+        "background": 1053,
+        "backgroundLocal": 4,
+        "isolated3D": 92
+      },
+      "timing": {
+        "seekMs": 0.10000000149011612,
+        "decodePairMs": 85.39999999850988,
+        "workerRoundTripMs": 2800.2000000011176,
+        "workerComputeMs": 2790.7000000011176,
+        "workerTransferWaitMs": 9.5,
+        "renderMs": 3.5,
+        "totalMs": 2889.2000000011176
+      },
+      "matching": {
+        "prepareMs": 44.70000000111759,
+        "stereoMs": 2088,
+        "candidateMs": 3,
+        "filterMs": 82.40000000037253
+      },
+      "fingerprints": {
+        "input": [
+          847046183,
+          4275836471
+        ],
+        "rectified": [
+          3313071762,
+          1499132038
+        ],
+        "background": [
+          80980740,
+          2026700301
+        ],
+        "afterMatch": [
+          3313071762,
+          1499132038
+        ],
+        "shadow": [
+          840029575,
+          3102420085
+        ]
+      }
+    },
+    {
+      "requested": 15.141,
+      "timeA": 15.135,
+      "timeB": 31.538367,
+      "pointCount": 1135,
+      "triangles": 2041,
+      "hashes": {
+        "points": 2548292120,
+        "colors": 3502949513,
+        "uv": 3341405327
+      },
+      "counts": {
+        "sampled": 101124,
+        "shadow": 2492,
+        "texture": 75013,
+        "aperture": 0,
+        "correlation": 2063,
+        "ambiguous": 14707,
+        "roundtrip": 3347,
+        "neighborhood": 65,
+        "geometry": 1315,
+        "background": 905,
+        "backgroundLocal": 6,
+        "isolated3D": 82
+      },
+      "timing": {
+        "seekMs": 0,
+        "decodePairMs": 84.29999999888241,
+        "workerRoundTripMs": 2786.2000000011176,
+        "workerComputeMs": 2776.199999999255,
+        "workerTransferWaitMs": 10.000000001862645,
+        "renderMs": 4.699999999254942,
+        "totalMs": 2875.199999999255
+      },
+      "matching": {
+        "prepareMs": 44.600000001490116,
+        "stereoMs": 2075.199999999255,
+        "candidateMs": 7.199999999254942,
+        "filterMs": 58.80000000074506
+      },
+      "fingerprints": {
+        "input": [
+          255239537,
+          2397911461
+        ],
+        "rectified": [
+          397862211,
+          2461887985
+        ],
+        "background": [
+          80980740,
+          2026700301
+        ],
+        "afterMatch": [
+          397862211,
+          2461887985
+        ],
+        "shadow": [
+          3295602061,
+          512663236
+        ]
+      }
+    },
+    {
+      "requested": 22.031,
+      "timeA": 22.02,
+      "timeB": 38.4196,
+      "pointCount": 1330,
+      "triangles": 2475,
+      "hashes": {
+        "points": 4027991873,
+        "colors": 70237102,
+        "uv": 1047314473
+      },
+      "counts": {
+        "sampled": 101124,
+        "shadow": 9364,
+        "texture": 74541,
+        "aperture": 0,
+        "correlation": 2150,
+        "ambiguous": 9388,
+        "roundtrip": 2075,
+        "neighborhood": 31,
+        "geometry": 749,
+        "background": 1424,
+        "isolated3D": 72
+      },
+      "timing": {
+        "seekMs": 0,
+        "decodePairMs": 100.89999999850988,
+        "workerRoundTripMs": 2804.9000000003725,
+        "workerComputeMs": 2794.7999999988824,
+        "workerTransferWaitMs": 10.100000001490116,
+        "renderMs": 2.900000000372529,
+        "totalMs": 2908.699999999255
+      },
+      "matching": {
+        "prepareMs": 44.59999999962747,
+        "stereoMs": 2089.699999999255,
+        "candidateMs": 3,
+        "filterMs": 63.100000001490116
+      },
+      "fingerprints": {
+        "input": [
+          954233399,
+          2314278032
+        ],
+        "rectified": [
+          1055825765,
+          311430788
+        ],
+        "background": [
+          80980740,
+          2026700301
+        ],
+        "afterMatch": [
+          1055825765,
+          311430788
+        ],
+        "shadow": [
+          4036890179,
+          2810854680
+        ]
+      }
+    },
+    {
+      "requested": 38.744,
+      "timeA": 38.756667,
+      "timeB": 55.150578,
+      "pointCount": 451,
+      "triangles": 748,
+      "hashes": {
+        "points": 3654731667,
+        "colors": 2764579792,
+        "uv": 511469289
+      },
+      "counts": {
+        "sampled": 101124,
+        "shadow": 8551,
+        "texture": 76903,
+        "aperture": 0,
+        "correlation": 1023,
+        "ambiguous": 11067,
+        "roundtrip": 2220,
+        "neighborhood": 34,
+        "geometry": 227,
+        "background": 548,
+        "isolated3D": 100
+      },
+      "timing": {
+        "seekMs": 0.09999999962747097,
+        "decodePairMs": 95,
+        "workerRoundTripMs": 2678.4000000003725,
+        "workerComputeMs": 2667.0999999996275,
+        "workerTransferWaitMs": 11.300000000745058,
+        "renderMs": 1.699999999254942,
+        "totalMs": 2775.199999999255
+      },
+      "matching": {
+        "prepareMs": 43,
+        "stereoMs": 2050.2000000011176,
+        "candidateMs": 6.199999999254942,
+        "filterMs": 24.90000000037253
+      },
+      "fingerprints": {
+        "input": [
+          909691234,
+          2941076702
+        ],
+        "rectified": [
+          1746485715,
+          1360184212
+        ],
+        "background": [
+          80980740,
+          2026700301
+        ],
+        "afterMatch": [
+          1746485715,
+          1360184212
+        ],
+        "shadow": [
+          2850053800,
+          3626342672
+        ]
+      }
+    },
+    {
+      "requested": 79.736,
+      "timeA": 79.728333,
+      "timeB": 96.134789,
+      "pointCount": 525,
+      "triangles": 850,
+      "hashes": {
+        "points": 874518643,
+        "colors": 1163465867,
+        "uv": 457088319
+      },
+      "counts": {
+        "sampled": 101124,
+        "shadow": 11270,
+        "texture": 73402,
+        "aperture": 0,
+        "correlation": 1364,
+        "ambiguous": 10015,
+        "roundtrip": 2180,
+        "neighborhood": 54,
+        "geometry": 455,
+        "background": 1747,
+        "isolated3D": 112
+      },
+      "timing": {
+        "seekMs": 0.09999999962747097,
+        "decodePairMs": 104.59999999962747,
+        "workerRoundTripMs": 2738.0999999996275,
+        "workerComputeMs": 2728.5999999996275,
+        "workerTransferWaitMs": 9.5,
+        "renderMs": 2.300000000745058,
+        "totalMs": 2845.0999999996275
+      },
+      "matching": {
+        "prepareMs": 45.09999999962747,
+        "stereoMs": 2063.699999999255,
+        "candidateMs": 7,
+        "filterMs": 31.600000001490116
+      },
+      "fingerprints": {
+        "input": [
+          3943748780,
+          4123571212
+        ],
+        "rectified": [
+          1294483330,
+          589855440
+        ],
+        "background": [
+          80980740,
+          2026700301
+        ],
+        "afterMatch": [
+          1294483330,
+          589855440
+        ],
+        "shadow": [
+          842809089,
+          1141429013
+        ]
+      }
+    },
+    {
+      "requested": 99.177,
+      "timeA": 99.165,
+      "timeB": 115.564233,
+      "pointCount": 746,
+      "triangles": 1266,
+      "hashes": {
+        "points": 3984126222,
+        "colors": 303175164,
+        "uv": 1911969621
+      },
+      "counts": {
+        "sampled": 101124,
+        "shadow": 10010,
+        "texture": 75104,
+        "aperture": 0,
+        "correlation": 1261,
+        "ambiguous": 10226,
+        "roundtrip": 1842,
+        "neighborhood": 45,
+        "geometry": 408,
+        "background": 1441,
+        "isolated3D": 41
+      },
+      "timing": {
+        "seekMs": 0.09999999962747097,
+        "decodePairMs": 87.90000000037253,
+        "workerRoundTripMs": 2708.199999999255,
+        "workerComputeMs": 2698.9000000003725,
+        "workerTransferWaitMs": 9.299999998882413,
+        "renderMs": 2.800000000745058,
+        "totalMs": 2799
+      },
+      "matching": {
+        "prepareMs": 43.899999998509884,
+        "stereoMs": 2038.4000000003725,
+        "candidateMs": 3.200000001117587,
+        "filterMs": 40.19999999925494
+      },
+      "fingerprints": {
+        "input": [
+          3731057281,
+          526604054
+        ],
+        "rectified": [
+          511941631,
+          3909436870
+        ],
+        "background": [
+          80980740,
+          2026700301
+        ],
+        "afterMatch": [
+          511941631,
+          3909436870
+        ],
+        "shadow": [
+          2361502053,
+          3158586727
+        ]
+      }
+    },
+    {
+      "requested": 102.533,
+      "timeA": 102.531667,
+      "timeB": 118.9375,
+      "pointCount": 762,
+      "triangles": 1364,
+      "hashes": {
+        "points": 1426873971,
+        "colors": 4070389853,
+        "uv": 1066073854
+      },
+      "counts": {
+        "sampled": 101124,
+        "shadow": 11475,
+        "texture": 70527,
+        "aperture": 0,
+        "correlation": 1572,
+        "ambiguous": 11808,
+        "roundtrip": 2854,
+        "neighborhood": 62,
+        "geometry": 494,
+        "background": 1487,
+        "isolated3D": 83
+      },
+      "timing": {
+        "seekMs": 0,
+        "decodePairMs": 83.89999999850988,
+        "workerRoundTripMs": 2763.9000000003725,
+        "workerComputeMs": 2754.5999999996275,
+        "workerTransferWaitMs": 9.300000000745058,
+        "renderMs": 3,
+        "totalMs": 2850.7999999988824
+      },
+      "matching": {
+        "prepareMs": 44.40000000037253,
+        "stereoMs": 2065.5999999996275,
+        "candidateMs": 2.699999999254942,
+        "filterMs": 41.80000000074506
+      },
+      "fingerprints": {
+        "input": [
+          3892100466,
+          2604633381
+        ],
+        "rectified": [
+          2466635495,
+          3249630050
+        ],
+        "background": [
+          80980740,
+          2026700301
+        ],
+        "afterMatch": [
+          2466635495,
+          3249630050
+        ],
+        "shadow": [
+          3903759409,
+          3968478102
+        ]
+      }
+    },
+    {
+      "requested": 149.913,
+      "timeA": 149.89,
+      "timeB": 166.297089,
+      "pointCount": 1000,
+      "triangles": 1793,
+      "hashes": {
+        "points": 1179059539,
+        "colors": 1199462341,
+        "uv": 402723140
+      },
+      "counts": {
+        "sampled": 101124,
+        "shadow": 2126,
+        "texture": 73630,
+        "aperture": 0,
+        "correlation": 3509,
+        "ambiguous": 14346,
+        "roundtrip": 3375,
+        "neighborhood": 81,
+        "geometry": 2046,
+        "background": 926,
+        "backgroundLocal": 5,
+        "isolated3D": 85
+      },
+      "timing": {
+        "seekMs": 0.10000000149011612,
+        "decodePairMs": 91.39999999850988,
+        "workerRoundTripMs": 2803.7000000011176,
+        "workerComputeMs": 2794.699999999255,
+        "workerTransferWaitMs": 9.000000001862645,
+        "renderMs": 3,
+        "totalMs": 2898.2000000011176
+      },
+      "matching": {
+        "prepareMs": 43.30000000074506,
+        "stereoMs": 2047.5,
+        "candidateMs": 3.400000000372529,
+        "filterMs": 47
+      },
+      "fingerprints": {
+        "input": [
+          826920303,
+          2049744311
+        ],
+        "rectified": [
+          1115750409,
+          4281143425
+        ],
+        "background": [
+          80980740,
+          2026700301
+        ],
+        "afterMatch": [
+          1115750409,
+          4281143425
+        ],
+        "shadow": [
+          2988821470,
+          2305207411
+        ]
+      }
+    },
+    {
+      "requested": 151.519,
+      "timeA": 151.523333,
+      "timeB": 167.916278,
+      "pointCount": 1643,
+      "triangles": 3024,
+      "hashes": {
+        "points": 2846942417,
+        "colors": 2425146672,
+        "uv": 3442138782
+      },
+      "counts": {
+        "sampled": 101124,
+        "shadow": 1694,
+        "texture": 78094,
+        "aperture": 0,
+        "correlation": 2014,
+        "ambiguous": 12602,
+        "roundtrip": 2969,
+        "neighborhood": 56,
+        "geometry": 1205,
+        "background": 752,
+        "backgroundLocal": 1,
+        "isolated3D": 95
+      },
+      "timing": {
+        "seekMs": 0.09999999962747097,
+        "decodePairMs": 101.90000000037253,
+        "workerRoundTripMs": 2806.300000000745,
+        "workerComputeMs": 2795.699999999255,
+        "workerTransferWaitMs": 10.600000001490116,
+        "renderMs": 3.199999999254942,
+        "totalMs": 2912
+      },
+      "matching": {
+        "prepareMs": 44,
+        "stereoMs": 2066.2000000011176,
+        "candidateMs": 2.900000000372529,
+        "filterMs": 74.5
+      },
+      "fingerprints": {
+        "input": [
+          4056714633,
+          2955063078
+        ],
+        "rectified": [
+          820339264,
+          3099503088
+        ],
+        "background": [
+          80980740,
+          2026700301
+        ],
+        "afterMatch": [
+          820339264,
+          3099503088
+        ],
+        "shadow": [
+          2184596236,
+          1822308953
+        ]
+      }
+    },
+    {
+      "requested": 152.067,
+      "timeA": 152.056667,
+      "timeB": 168.456011,
+      "pointCount": 1332,
+      "triangles": 2432,
+      "hashes": {
+        "points": 2966287175,
+        "colors": 448307941,
+        "uv": 2418966604
+      },
+      "counts": {
+        "sampled": 101124,
+        "shadow": 1952,
+        "texture": 79689,
+        "aperture": 0,
+        "correlation": 2043,
+        "ambiguous": 11696,
+        "roundtrip": 2880,
+        "neighborhood": 73,
+        "geometry": 677,
+        "background": 712,
+        "backgroundLocal": 5,
+        "isolated3D": 70
+      },
+      "timing": {
+        "seekMs": 0.09999999962747097,
+        "decodePairMs": 85.59999999962747,
+        "workerRoundTripMs": 2784.9000000003725,
+        "workerComputeMs": 2775,
+        "workerTransferWaitMs": 9.900000000372529,
+        "renderMs": 3.599999999627471,
+        "totalMs": 2874.199999999255
+      },
+      "matching": {
+        "prepareMs": 44.899999998509884,
+        "stereoMs": 2075.4000000003725,
+        "candidateMs": 1.700000001117587,
+        "filterMs": 59.59999999962747
+      },
+      "fingerprints": {
+        "input": [
+          3289647035,
+          3578270963
+        ],
+        "rectified": [
+          1325891788,
+          3132519680
+        ],
+        "background": [
+          80980740,
+          2026700301
+        ],
+        "afterMatch": [
+          1325891788,
+          3132519680
+        ],
+        "shadow": [
+          3377426985,
+          2934393263
+        ]
+      }
+    },
+    {
+      "requested": 153.82,
+      "timeA": 153.806667,
+      "timeB": 170.210022,
+      "pointCount": 1713,
+      "triangles": 3198,
+      "hashes": {
+        "points": 1348025469,
+        "colors": 3164677656,
+        "uv": 2667888787
+      },
+      "counts": {
+        "sampled": 101124,
+        "shadow": 2118,
+        "texture": 78986,
+        "aperture": 0,
+        "correlation": 1741,
+        "ambiguous": 12633,
+        "roundtrip": 2630,
+        "neighborhood": 43,
+        "geometry": 396,
+        "background": 780,
+        "backgroundLocal": 1,
+        "isolated3D": 84
+      },
+      "timing": {
+        "seekMs": 0.09999999962747097,
+        "decodePairMs": 84.90000000037253,
+        "workerRoundTripMs": 2764.699999999255,
+        "workerComputeMs": 2755.0999999996275,
+        "workerTransferWaitMs": 9.599999999627471,
+        "renderMs": 3,
+        "totalMs": 2852.699999999255
+      },
+      "matching": {
+        "prepareMs": 43.79999999888241,
+        "stereoMs": 2041.4000000003725,
+        "candidateMs": 3.099999999627471,
+        "filterMs": 77.5
+      },
+      "fingerprints": {
+        "input": [
+          404315592,
+          2621307611
+        ],
+        "rectified": [
+          1999208579,
+          4231839141
+        ],
+        "background": [
+          80980740,
+          2026700301
+        ],
+        "afterMatch": [
+          1999208579,
+          4231839141
+        ],
+        "shadow": [
+          238215223,
+          1920168087
+        ]
+      }
+    },
+    {
+      "requested": 220.585,
+      "timeA": 220.6,
+      "timeB": 236.998767,
+      "pointCount": 1341,
+      "triangles": 2488,
+      "hashes": {
+        "points": 1911371119,
+        "colors": 1289545380,
+        "uv": 2807994179
+      },
+      "counts": {
+        "sampled": 101124,
+        "shadow": 1572,
+        "texture": 79022,
+        "aperture": 0,
+        "correlation": 1154,
+        "ambiguous": 13249,
+        "roundtrip": 3543,
+        "neighborhood": 41,
+        "geometry": 282,
+        "background": 781,
+        "backgroundLocal": 13,
+        "isolated3D": 139
+      },
+      "timing": {
+        "seekMs": 0,
+        "decodePairMs": 83.69999999925494,
+        "workerRoundTripMs": 2750,
+        "workerComputeMs": 2739.800000000745,
+        "workerTransferWaitMs": 10.199999999254942,
+        "renderMs": 3.100000001490116,
+        "totalMs": 2836.800000000745
+      },
+      "matching": {
+        "prepareMs": 45.30000000074506,
+        "stereoMs": 2062.5999999996275,
+        "candidateMs": 1.5,
+        "filterMs": 64.20000000111759
+      },
+      "fingerprints": {
+        "input": [
+          1780798106,
+          3323465046
+        ],
+        "rectified": [
+          3237154342,
+          77849778
+        ],
+        "background": [
+          80980740,
+          2026700301
+        ],
+        "afterMatch": [
+          3237154342,
+          77849778
+        ],
+        "shadow": [
+          3762024353,
+          421574789
+        ]
+      }
+    },
+    {
+      "requested": 247.761,
+      "timeA": 247.753333,
+      "timeB": 264.152978,
+      "pointCount": 1047,
+      "triangles": 1890,
+      "hashes": {
+        "points": 2714109712,
+        "colors": 1791067347,
+        "uv": 2232612171
+      },
+      "counts": {
+        "sampled": 101124,
+        "shadow": 2281,
+        "texture": 79383,
+        "aperture": 0,
+        "correlation": 1706,
+        "ambiguous": 12537,
+        "roundtrip": 2891,
+        "neighborhood": 75,
+        "geometry": 414,
+        "background": 678,
+        "backgroundLocal": 5,
+        "isolated3D": 112
+      },
+      "timing": {
+        "seekMs": 0,
+        "decodePairMs": 101.10000000149012,
+        "workerRoundTripMs": 2688.5999999996275,
+        "workerComputeMs": 2678.0999999996275,
+        "workerTransferWaitMs": 10.5,
+        "renderMs": 3.400000000372529,
+        "totalMs": 2793.10000000149
+      },
+      "matching": {
+        "prepareMs": 42.5,
+        "stereoMs": 2015.4000000003725,
+        "candidateMs": 2.699999999254942,
+        "filterMs": 50.30000000074506
+      },
+      "fingerprints": {
+        "input": [
+          440858113,
+          2853445693
+        ],
+        "rectified": [
+          1976771577,
+          2680442234
+        ],
+        "background": [
+          80980740,
+          2026700301
+        ],
+        "afterMatch": [
+          1976771577,
+          2680442234
+        ],
+        "shadow": [
+          1577872282,
+          1988569188
+        ]
+      }
+    },
+    {
+      "requested": 282.132,
+      "timeA": 282.125,
+      "timeB": 298.525556,
+      "pointCount": 1240,
+      "triangles": 2261,
+      "hashes": {
+        "points": 2565716758,
+        "colors": 595977473,
+        "uv": 1255509295
+      },
+      "counts": {
+        "sampled": 101124,
+        "shadow": 1719,
+        "texture": 77869,
+        "aperture": 0,
+        "correlation": 1810,
+        "ambiguous": 13672,
+        "roundtrip": 3125,
+        "neighborhood": 90,
+        "geometry": 850,
+        "background": 675,
+        "backgroundLocal": 5,
+        "isolated3D": 74
+      },
+      "timing": {
+        "seekMs": 0,
+        "decodePairMs": 100.19999999925494,
+        "workerRoundTripMs": 2744,
+        "workerComputeMs": 2734.2999999988824,
+        "workerTransferWaitMs": 9.700000001117587,
+        "renderMs": 2.300000000745058,
+        "totalMs": 2846.5
+      },
+      "matching": {
+        "prepareMs": 44.09999999962747,
+        "stereoMs": 2049.300000000745,
+        "candidateMs": 2.799999998882413,
+        "filterMs": 56.70000000111759
+      },
+      "fingerprints": {
+        "input": [
+          2271735162,
+          3576233993
+        ],
+        "rectified": [
+          1819573499,
+          857588902
+        ],
+        "background": [
+          80980740,
+          2026700301
+        ],
+        "afterMatch": [
+          1819573499,
+          857588902
+        ],
+        "shadow": [
+          1995310172,
+          2961690809
+        ]
+      }
+    }
+  ],
+  "runs": [
+    {
+      "requested": 1.16,
+      "timeA": 1.166667,
+      "timeB": 17.573344,
+      "pointCount": 356,
+      "triangles": 571,
+      "hashes": {
+        "points": 1549990106,
+        "colors": 3863573809,
+        "uv": 1239124826
+      },
+      "equal": true,
+      "counts": {
+        "sampled": 101124,
+        "shadow": 2347,
+        "texture": 81214,
+        "aperture": 0,
+        "correlation": 1166,
+        "ambiguous": 12287,
+        "roundtrip": 2654,
+        "neighborhood": 58,
+        "geometry": 413,
+        "background": 542,
+        "backgroundLocal": 1,
+        "isolated3D": 87
+      },
+      "timing": {
+        "seekMs": 0,
+        "decodePairMs": 82.5,
+        "workerRoundTripMs": 917.0999999996275,
+        "workerComputeMs": 906.6000000014901,
+        "workerTransferWaitMs": 10.499999998137355,
+        "renderMs": 5,
+        "totalMs": 1004.5999999996275
+      },
+      "matching": {
+        "prepareMs": 106.09999999962747,
+        "stereoMs": 163.19999999925494,
+        "candidateMs": 5.400000000372529,
+        "filterMs": 32.20000000111759
+      },
+      "gpu": {
+        "prepareMs": 5.599999999627471,
+        "gpuMs": 123.928576,
+        "submitAndReadbackMs": 130.90000000037253,
+        "postprocessMs": 26.59999999962747,
+        "totalMs": 163.09999999962747,
+        "volumeBytes": 1071751680,
+        "backend": "WebGPU RGB SGBM 3WAY"
+      },
+      "fingerprints": {
+        "input": [
+          2979228300,
+          1775185932
+        ],
+        "rectified": [
+          2217516531,
+          694765539
+        ],
+        "background": [
+          80980740,
+          2026700301
+        ],
+        "afterMatch": [
+          2217516531,
+          694765539
+        ],
+        "shadow": [
+          2177297025,
+          1895547880
+        ]
+      }
+    },
+    {
+      "requested": 6.27,
+      "timeA": 6.268333,
+      "timeB": 22.666722,
+      "pointCount": 636,
+      "triangles": 1102,
+      "hashes": {
+        "points": 4054797854,
+        "colors": 4017043054,
+        "uv": 632455757
+      },
+      "equal": true,
+      "counts": {
+        "sampled": 101124,
+        "shadow": 9344,
+        "texture": 69852,
+        "aperture": 0,
+        "correlation": 2197,
+        "ambiguous": 13608,
+        "roundtrip": 2802,
+        "neighborhood": 40,
+        "geometry": 943,
+        "background": 1641,
+        "isolated3D": 61
+      },
+      "timing": {
+        "seekMs": 0,
+        "decodePairMs": 83.89999999850988,
+        "workerRoundTripMs": 902,
+        "workerComputeMs": 894,
+        "workerTransferWaitMs": 8,
+        "renderMs": 3.5,
+        "totalMs": 989.3999999985099
+      },
+      "matching": {
+        "prepareMs": 43.09999999962747,
+        "stereoMs": 157.80000000074506,
+        "candidateMs": 4.799999998882413,
+        "filterMs": 38.30000000074506
+      },
+      "gpu": {
+        "prepareMs": 2.099999999627471,
+        "gpuMs": 122.290176,
+        "submitAndReadbackMs": 128.5,
+        "postprocessMs": 27.200000001117587,
+        "totalMs": 157.80000000074506,
+        "volumeBytes": 1071751680,
+        "backend": "WebGPU RGB SGBM 3WAY"
+      },
+      "fingerprints": {
+        "input": [
+          4144407917,
+          4139270515
+        ],
+        "rectified": [
+          508334740,
+          2301282834
+        ],
+        "background": [
+          80980740,
+          2026700301
+        ],
+        "afterMatch": [
+          508334740,
+          2301282834
+        ],
+        "shadow": [
+          3748930373,
+          2270062205
+        ]
+      }
+    },
+    {
+      "requested": 7.812,
+      "timeA": 7.818333,
+      "timeB": 24.218533,
+      "pointCount": 677,
+      "triangles": 1194,
+      "hashes": {
+        "points": 1099266168,
+        "colors": 4095974183,
+        "uv": 158495150
+      },
+      "equal": true,
+      "counts": {
+        "sampled": 101124,
+        "shadow": 1389,
+        "texture": 80315,
+        "aperture": 0,
+        "correlation": 1950,
+        "ambiguous": 10299,
+        "roundtrip": 2916,
+        "neighborhood": 49,
+        "geometry": 2401,
+        "background": 1068,
+        "backgroundLocal": 9,
+        "isolated3D": 60
+      },
+      "timing": {
+        "seekMs": 0.09999999962747097,
+        "decodePairMs": 96.30000000074506,
+        "workerRoundTripMs": 894.7999999988824,
+        "workerComputeMs": 886.2000000011176,
+        "workerTransferWaitMs": 8.599999997764826,
+        "renderMs": 5,
+        "totalMs": 996.1999999992549
+      },
+      "matching": {
+        "prepareMs": 42.80000000074506,
+        "stereoMs": 156.19999999925494,
+        "candidateMs": 5.400000000372529,
+        "filterMs": 40.5
+      },
+      "gpu": {
+        "prepareMs": 2.099999999627471,
+        "gpuMs": 121.700352,
+        "submitAndReadbackMs": 127.19999999925494,
+        "postprocessMs": 26.90000000037253,
+        "totalMs": 156.19999999925494,
+        "volumeBytes": 1071751680,
+        "backend": "WebGPU RGB SGBM 3WAY"
+      },
+      "fingerprints": {
+        "input": [
+          1827909211,
+          1148757972
+        ],
+        "rectified": [
+          383197131,
+          3033040905
+        ],
+        "background": [
+          80980740,
+          2026700301
+        ],
+        "afterMatch": [
+          383197131,
+          3033040905
+        ],
+        "shadow": [
+          4154466469,
+          3240001397
+        ]
+      }
+    },
+    {
+      "requested": 12.255,
+      "timeA": 12.268333,
+      "timeB": 28.671033,
+      "pointCount": 1861,
+      "triangles": 3462,
+      "hashes": {
+        "points": 221708989,
+        "colors": 2592623538,
+        "uv": 797894699
+      },
+      "equal": true,
+      "counts": {
+        "sampled": 101124,
+        "shadow": 1018,
+        "texture": 76867,
+        "aperture": 0,
+        "correlation": 2892,
+        "ambiguous": 12361,
+        "roundtrip": 2563,
+        "neighborhood": 52,
+        "geometry": 2365,
+        "background": 1053,
+        "backgroundLocal": 4,
+        "isolated3D": 92
+      },
+      "timing": {
+        "seekMs": 0,
+        "decodePairMs": 86.69999999925494,
+        "workerRoundTripMs": 907.2000000011176,
+        "workerComputeMs": 898.6000000014901,
+        "workerTransferWaitMs": 8.599999999627471,
+        "renderMs": 5.199999999254942,
+        "totalMs": 999.0999999996275
+      },
+      "matching": {
+        "prepareMs": 43.40000000037253,
+        "stereoMs": 160.30000000074506,
+        "candidateMs": 2.099999999627471,
+        "filterMs": 87.59999999962747
+      },
+      "gpu": {
+        "prepareMs": 2.300000000745058,
+        "gpuMs": 121.831424,
+        "submitAndReadbackMs": 128.69999999925494,
+        "postprocessMs": 29.300000000745058,
+        "totalMs": 160.30000000074506,
+        "volumeBytes": 1071751680,
+        "backend": "WebGPU RGB SGBM 3WAY"
+      },
+      "fingerprints": {
+        "input": [
+          847046183,
+          4275836471
+        ],
+        "rectified": [
+          3313071762,
+          1499132038
+        ],
+        "background": [
+          80980740,
+          2026700301
+        ],
+        "afterMatch": [
+          3313071762,
+          1499132038
+        ],
+        "shadow": [
+          840029575,
+          3102420085
+        ]
+      }
+    },
+    {
+      "requested": 15.141,
+      "timeA": 15.135,
+      "timeB": 31.538367,
+      "pointCount": 1135,
+      "triangles": 2041,
+      "hashes": {
+        "points": 2548292120,
+        "colors": 3502949513,
+        "uv": 3341405327
+      },
+      "equal": true,
+      "counts": {
+        "sampled": 101124,
+        "shadow": 2492,
+        "texture": 75013,
+        "aperture": 0,
+        "correlation": 2063,
+        "ambiguous": 14707,
+        "roundtrip": 3347,
+        "neighborhood": 65,
+        "geometry": 1315,
+        "background": 905,
+        "backgroundLocal": 6,
+        "isolated3D": 82
+      },
+      "timing": {
+        "seekMs": 0,
+        "decodePairMs": 83.19999999925494,
+        "workerRoundTripMs": 885.8000000007451,
+        "workerComputeMs": 877,
+        "workerTransferWaitMs": 8.800000000745058,
+        "renderMs": 5.800000000745058,
+        "totalMs": 974.8000000007451
+      },
+      "matching": {
+        "prepareMs": 45.69999999925494,
+        "stereoMs": 159.7000000011176,
+        "candidateMs": 2,
+        "filterMs": 56.399999998509884
+      },
+      "gpu": {
+        "prepareMs": 4.800000000745058,
+        "gpuMs": 121.831424,
+        "submitAndReadbackMs": 128,
+        "postprocessMs": 26.90000000037253,
+        "totalMs": 159.7000000011176,
+        "volumeBytes": 1071751680,
+        "backend": "WebGPU RGB SGBM 3WAY"
+      },
+      "fingerprints": {
+        "input": [
+          255239537,
+          2397911461
+        ],
+        "rectified": [
+          397862211,
+          2461887985
+        ],
+        "background": [
+          80980740,
+          2026700301
+        ],
+        "afterMatch": [
+          397862211,
+          2461887985
+        ],
+        "shadow": [
+          3295602061,
+          512663236
+        ]
+      }
+    },
+    {
+      "requested": 22.031,
+      "timeA": 22.02,
+      "timeB": 38.4196,
+      "pointCount": 1330,
+      "triangles": 2475,
+      "hashes": {
+        "points": 4027991873,
+        "colors": 70237102,
+        "uv": 1047314473
+      },
+      "equal": true,
+      "counts": {
+        "sampled": 101124,
+        "shadow": 9364,
+        "texture": 74541,
+        "aperture": 0,
+        "correlation": 2150,
+        "ambiguous": 9388,
+        "roundtrip": 2075,
+        "neighborhood": 31,
+        "geometry": 749,
+        "background": 1424,
+        "isolated3D": 72
+      },
+      "timing": {
+        "seekMs": 0.09999999962747097,
+        "decodePairMs": 94.29999999888241,
+        "workerRoundTripMs": 881,
+        "workerComputeMs": 872,
+        "workerTransferWaitMs": 9,
+        "renderMs": 3.600000001490116,
+        "totalMs": 979
+      },
+      "matching": {
+        "prepareMs": 44.19999999925494,
+        "stereoMs": 156.80000000074506,
+        "candidateMs": 2.099999999627471,
+        "filterMs": 62.40000000037253
+      },
+      "gpu": {
+        "prepareMs": 2.200000001117587,
+        "gpuMs": 122.814464,
+        "submitAndReadbackMs": 128.7999999988824,
+        "postprocessMs": 25.800000000745058,
+        "totalMs": 156.80000000074506,
+        "volumeBytes": 1071751680,
+        "backend": "WebGPU RGB SGBM 3WAY"
+      },
+      "fingerprints": {
+        "input": [
+          954233399,
+          2314278032
+        ],
+        "rectified": [
+          1055825765,
+          311430788
+        ],
+        "background": [
+          80980740,
+          2026700301
+        ],
+        "afterMatch": [
+          1055825765,
+          311430788
+        ],
+        "shadow": [
+          4036890179,
+          2810854680
+        ]
+      }
+    },
+    {
+      "requested": 38.744,
+      "timeA": 38.756667,
+      "timeB": 55.150578,
+      "pointCount": 451,
+      "triangles": 748,
+      "hashes": {
+        "points": 3654731667,
+        "colors": 2764579792,
+        "uv": 511469289
+      },
+      "equal": true,
+      "counts": {
+        "sampled": 101124,
+        "shadow": 8551,
+        "texture": 76903,
+        "aperture": 0,
+        "correlation": 1023,
+        "ambiguous": 11067,
+        "roundtrip": 2220,
+        "neighborhood": 34,
+        "geometry": 227,
+        "background": 548,
+        "isolated3D": 100
+      },
+      "timing": {
+        "seekMs": 0,
+        "decodePairMs": 89,
+        "workerRoundTripMs": 808.9000000003725,
+        "workerComputeMs": 800.9000000003725,
+        "workerTransferWaitMs": 8,
+        "renderMs": 2.300000000745058,
+        "totalMs": 900.2000000011176
+      },
+      "matching": {
+        "prepareMs": 44.29999999888241,
+        "stereoMs": 155.40000000037253,
+        "candidateMs": 1.5,
+        "filterMs": 23.800000000745058
+      },
+      "gpu": {
+        "prepareMs": 3.299999998882413,
+        "gpuMs": 121.831424,
+        "submitAndReadbackMs": 126.70000000111759,
+        "postprocessMs": 25.299999998882413,
+        "totalMs": 155.2999999988824,
+        "volumeBytes": 1071751680,
+        "backend": "WebGPU RGB SGBM 3WAY"
+      },
+      "fingerprints": {
+        "input": [
+          909691234,
+          2941076702
+        ],
+        "rectified": [
+          1746485715,
+          1360184212
+        ],
+        "background": [
+          80980740,
+          2026700301
+        ],
+        "afterMatch": [
+          1746485715,
+          1360184212
+        ],
+        "shadow": [
+          2850053800,
+          3626342672
+        ]
+      }
+    },
+    {
+      "requested": 79.736,
+      "timeA": 79.728333,
+      "timeB": 96.134789,
+      "pointCount": 525,
+      "triangles": 850,
+      "hashes": {
+        "points": 874518643,
+        "colors": 1163465867,
+        "uv": 457088319
+      },
+      "equal": true,
+      "counts": {
+        "sampled": 101124,
+        "shadow": 11270,
+        "texture": 73402,
+        "aperture": 0,
+        "correlation": 1364,
+        "ambiguous": 10015,
+        "roundtrip": 2180,
+        "neighborhood": 54,
+        "geometry": 455,
+        "background": 1747,
+        "isolated3D": 112
+      },
+      "timing": {
+        "seekMs": 0.10000000149011612,
+        "decodePairMs": 100.5,
+        "workerRoundTripMs": 859.5,
+        "workerComputeMs": 850.2999999988824,
+        "workerTransferWaitMs": 9.200000001117587,
+        "renderMs": 2.699999999254942,
+        "totalMs": 962.8000000007451
+      },
+      "matching": {
+        "prepareMs": 43.79999999888241,
+        "stereoMs": 157.59999999962747,
+        "candidateMs": 1.700000001117587,
+        "filterMs": 29.59999999962747
+      },
+      "gpu": {
+        "prepareMs": 3.200000001117587,
+        "gpuMs": 122.290176,
+        "submitAndReadbackMs": 128.90000000037253,
+        "postprocessMs": 25.399999998509884,
+        "totalMs": 157.5,
+        "volumeBytes": 1071751680,
+        "backend": "WebGPU RGB SGBM 3WAY"
+      },
+      "fingerprints": {
+        "input": [
+          3943748780,
+          4123571212
+        ],
+        "rectified": [
+          1294483330,
+          589855440
+        ],
+        "background": [
+          80980740,
+          2026700301
+        ],
+        "afterMatch": [
+          1294483330,
+          589855440
+        ],
+        "shadow": [
+          842809089,
+          1141429013
+        ]
+      }
+    },
+    {
+      "requested": 99.177,
+      "timeA": 99.165,
+      "timeB": 115.564233,
+      "pointCount": 746,
+      "triangles": 1266,
+      "hashes": {
+        "points": 3984126222,
+        "colors": 303175164,
+        "uv": 1911969621
+      },
+      "equal": true,
+      "counts": {
+        "sampled": 101124,
+        "shadow": 10010,
+        "texture": 75104,
+        "aperture": 0,
+        "correlation": 1261,
+        "ambiguous": 10226,
+        "roundtrip": 1842,
+        "neighborhood": 45,
+        "geometry": 408,
+        "background": 1441,
+        "isolated3D": 41
+      },
+      "timing": {
+        "seekMs": 0,
+        "decodePairMs": 88,
+        "workerRoundTripMs": 828.0999999996275,
+        "workerComputeMs": 819.7999999988824,
+        "workerTransferWaitMs": 8.300000000745058,
+        "renderMs": 2.300000000745058,
+        "totalMs": 918.4000000003725
+      },
+      "matching": {
+        "prepareMs": 44.69999999925494,
+        "stereoMs": 158.40000000037253,
+        "candidateMs": 1.599999999627471,
+        "filterMs": 35.70000000111759
+      },
+      "gpu": {
+        "prepareMs": 2.200000001117587,
+        "gpuMs": 123.011072,
+        "submitAndReadbackMs": 129,
+        "postprocessMs": 27.199999999254942,
+        "totalMs": 158.40000000037253,
+        "volumeBytes": 1071751680,
+        "backend": "WebGPU RGB SGBM 3WAY"
+      },
+      "fingerprints": {
+        "input": [
+          3731057281,
+          526604054
+        ],
+        "rectified": [
+          511941631,
+          3909436870
+        ],
+        "background": [
+          80980740,
+          2026700301
+        ],
+        "afterMatch": [
+          511941631,
+          3909436870
+        ],
+        "shadow": [
+          2361502053,
+          3158586727
+        ]
+      }
+    },
+    {
+      "requested": 102.533,
+      "timeA": 102.531667,
+      "timeB": 118.9375,
+      "pointCount": 762,
+      "triangles": 1364,
+      "hashes": {
+        "points": 1426873971,
+        "colors": 4070389853,
+        "uv": 1066073854
+      },
+      "equal": true,
+      "counts": {
+        "sampled": 101124,
+        "shadow": 11475,
+        "texture": 70527,
+        "aperture": 0,
+        "correlation": 1572,
+        "ambiguous": 11808,
+        "roundtrip": 2854,
+        "neighborhood": 62,
+        "geometry": 494,
+        "background": 1487,
+        "isolated3D": 83
+      },
+      "timing": {
+        "seekMs": 0.09999999962747097,
+        "decodePairMs": 90.80000000074506,
+        "workerRoundTripMs": 865.1999999992549,
+        "workerComputeMs": 856.1999999992549,
+        "workerTransferWaitMs": 9,
+        "renderMs": 3,
+        "totalMs": 959.0999999996275
+      },
+      "matching": {
+        "prepareMs": 43.399999998509884,
+        "stereoMs": 161.5,
+        "candidateMs": 1.700000001117587,
+        "filterMs": 36.59999999962747
+      },
+      "gpu": {
+        "prepareMs": 7.300000000745058,
+        "gpuMs": 122.159104,
+        "submitAndReadbackMs": 128.80000000074506,
+        "postprocessMs": 25.299999998882413,
+        "totalMs": 161.40000000037253,
+        "volumeBytes": 1071751680,
+        "backend": "WebGPU RGB SGBM 3WAY"
+      },
+      "fingerprints": {
+        "input": [
+          3892100466,
+          2604633381
+        ],
+        "rectified": [
+          2466635495,
+          3249630050
+        ],
+        "background": [
+          80980740,
+          2026700301
+        ],
+        "afterMatch": [
+          2466635495,
+          3249630050
+        ],
+        "shadow": [
+          3903759409,
+          3968478102
+        ]
+      }
+    },
+    {
+      "requested": 149.913,
+      "timeA": 149.89,
+      "timeB": 166.297089,
+      "pointCount": 1000,
+      "triangles": 1793,
+      "hashes": {
+        "points": 1179059539,
+        "colors": 1199462341,
+        "uv": 402723140
+      },
+      "equal": true,
+      "counts": {
+        "sampled": 101124,
+        "shadow": 2126,
+        "texture": 73630,
+        "aperture": 0,
+        "correlation": 3509,
+        "ambiguous": 14346,
+        "roundtrip": 3375,
+        "neighborhood": 81,
+        "geometry": 2046,
+        "background": 926,
+        "backgroundLocal": 5,
+        "isolated3D": 85
+      },
+      "timing": {
+        "seekMs": 0.09999999962747097,
+        "decodePairMs": 90.10000000149012,
+        "workerRoundTripMs": 943.5999999996275,
+        "workerComputeMs": 934.5999999996275,
+        "workerTransferWaitMs": 9,
+        "renderMs": 3.5,
+        "totalMs": 1037.300000000745
+      },
+      "matching": {
+        "prepareMs": 42.90000000037253,
+        "stereoMs": 162,
+        "candidateMs": 5,
+        "filterMs": 52.5
+      },
+      "gpu": {
+        "prepareMs": 4.099999999627471,
+        "gpuMs": 122.159104,
+        "submitAndReadbackMs": 129.7000000011176,
+        "postprocessMs": 28.199999999254942,
+        "totalMs": 162,
+        "volumeBytes": 1071751680,
+        "backend": "WebGPU RGB SGBM 3WAY"
+      },
+      "fingerprints": {
+        "input": [
+          826920303,
+          2049744311
+        ],
+        "rectified": [
+          1115750409,
+          4281143425
+        ],
+        "background": [
+          80980740,
+          2026700301
+        ],
+        "afterMatch": [
+          1115750409,
+          4281143425
+        ],
+        "shadow": [
+          2988821470,
+          2305207411
+        ]
+      }
+    },
+    {
+      "requested": 151.519,
+      "timeA": 151.523333,
+      "timeB": 167.916278,
+      "pointCount": 1643,
+      "triangles": 3024,
+      "hashes": {
+        "points": 2846942417,
+        "colors": 2425146672,
+        "uv": 3442138782
+      },
+      "equal": true,
+      "counts": {
+        "sampled": 101124,
+        "shadow": 1694,
+        "texture": 78094,
+        "aperture": 0,
+        "correlation": 2014,
+        "ambiguous": 12602,
+        "roundtrip": 2969,
+        "neighborhood": 56,
+        "geometry": 1205,
+        "background": 752,
+        "backgroundLocal": 1,
+        "isolated3D": 95
+      },
+      "timing": {
+        "seekMs": 0,
+        "decodePairMs": 102.79999999888241,
+        "workerRoundTripMs": 902,
+        "workerComputeMs": 893.2000000011176,
+        "workerTransferWaitMs": 8.799999998882413,
+        "renderMs": 3.700000001117587,
+        "totalMs": 1008.5
+      },
+      "matching": {
+        "prepareMs": 44.09999999962747,
+        "stereoMs": 158.7000000011176,
+        "candidateMs": 1.900000000372529,
+        "filterMs": 76.59999999962747
+      },
+      "gpu": {
+        "prepareMs": 4.400000000372529,
+        "gpuMs": 121.831424,
+        "submitAndReadbackMs": 127.80000000074506,
+        "postprocessMs": 26.5,
+        "totalMs": 158.7000000011176,
+        "volumeBytes": 1071751680,
+        "backend": "WebGPU RGB SGBM 3WAY"
+      },
+      "fingerprints": {
+        "input": [
+          4056714633,
+          2955063078
+        ],
+        "rectified": [
+          820339264,
+          3099503088
+        ],
+        "background": [
+          80980740,
+          2026700301
+        ],
+        "afterMatch": [
+          820339264,
+          3099503088
+        ],
+        "shadow": [
+          2184596236,
+          1822308953
+        ]
+      }
+    },
+    {
+      "requested": 152.067,
+      "timeA": 152.056667,
+      "timeB": 168.456011,
+      "pointCount": 1332,
+      "triangles": 2432,
+      "hashes": {
+        "points": 2966287175,
+        "colors": 448307941,
+        "uv": 2418966604
+      },
+      "equal": true,
+      "counts": {
+        "sampled": 101124,
+        "shadow": 1952,
+        "texture": 79689,
+        "aperture": 0,
+        "correlation": 2043,
+        "ambiguous": 11696,
+        "roundtrip": 2880,
+        "neighborhood": 73,
+        "geometry": 677,
+        "background": 712,
+        "backgroundLocal": 5,
+        "isolated3D": 70
+      },
+      "timing": {
+        "seekMs": 0.09999999962747097,
+        "decodePairMs": 83,
+        "workerRoundTripMs": 892.6999999992549,
+        "workerComputeMs": 885,
+        "workerTransferWaitMs": 7.699999999254942,
+        "renderMs": 3.400000000372529,
+        "totalMs": 979.1999999992549
+      },
+      "matching": {
+        "prepareMs": 45.30000000074506,
+        "stereoMs": 167,
+        "candidateMs": 1.900000000372529,
+        "filterMs": 62.90000000037253
+      },
+      "gpu": {
+        "prepareMs": 4.300000000745058,
+        "gpuMs": 122.093568,
+        "submitAndReadbackMs": 126.69999999925494,
+        "postprocessMs": 36,
+        "totalMs": 167,
+        "volumeBytes": 1071751680,
+        "backend": "WebGPU RGB SGBM 3WAY"
+      },
+      "fingerprints": {
+        "input": [
+          3289647035,
+          3578270963
+        ],
+        "rectified": [
+          1325891788,
+          3132519680
+        ],
+        "background": [
+          80980740,
+          2026700301
+        ],
+        "afterMatch": [
+          1325891788,
+          3132519680
+        ],
+        "shadow": [
+          3377426985,
+          2934393263
+        ]
+      }
+    },
+    {
+      "requested": 153.82,
+      "timeA": 153.806667,
+      "timeB": 170.210022,
+      "pointCount": 1713,
+      "triangles": 3198,
+      "hashes": {
+        "points": 1348025469,
+        "colors": 3164677656,
+        "uv": 2667888787
+      },
+      "equal": true,
+      "counts": {
+        "sampled": 101124,
+        "shadow": 2118,
+        "texture": 78986,
+        "aperture": 0,
+        "correlation": 1741,
+        "ambiguous": 12633,
+        "roundtrip": 2630,
+        "neighborhood": 43,
+        "geometry": 396,
+        "background": 780,
+        "backgroundLocal": 1,
+        "isolated3D": 84
+      },
+      "timing": {
+        "seekMs": 0,
+        "decodePairMs": 83.80000000074506,
+        "workerRoundTripMs": 932,
+        "workerComputeMs": 924.2000000011176,
+        "workerTransferWaitMs": 7.799999998882413,
+        "renderMs": 3.699999999254942,
+        "totalMs": 1019.5
+      },
+      "matching": {
+        "prepareMs": 43.5,
+        "stereoMs": 164.59999999962747,
+        "candidateMs": 5.200000001117587,
+        "filterMs": 80.69999999925494
+      },
+      "gpu": {
+        "prepareMs": 4.5,
+        "gpuMs": 121.765888,
+        "submitAndReadbackMs": 129.30000000074506,
+        "postprocessMs": 30.799999998882413,
+        "totalMs": 164.59999999962747,
+        "volumeBytes": 1071751680,
+        "backend": "WebGPU RGB SGBM 3WAY"
+      },
+      "fingerprints": {
+        "input": [
+          404315592,
+          2621307611
+        ],
+        "rectified": [
+          1999208579,
+          4231839141
+        ],
+        "background": [
+          80980740,
+          2026700301
+        ],
+        "afterMatch": [
+          1999208579,
+          4231839141
+        ],
+        "shadow": [
+          238215223,
+          1920168087
+        ]
+      }
+    },
+    {
+      "requested": 220.585,
+      "timeA": 220.6,
+      "timeB": 236.998767,
+      "pointCount": 1341,
+      "triangles": 2488,
+      "hashes": {
+        "points": 1911371119,
+        "colors": 1289545380,
+        "uv": 2807994179
+      },
+      "equal": true,
+      "counts": {
+        "sampled": 101124,
+        "shadow": 1572,
+        "texture": 79022,
+        "aperture": 0,
+        "correlation": 1154,
+        "ambiguous": 13249,
+        "roundtrip": 3543,
+        "neighborhood": 41,
+        "geometry": 282,
+        "background": 781,
+        "backgroundLocal": 13,
+        "isolated3D": 139
+      },
+      "timing": {
+        "seekMs": 0.09999999962747097,
+        "decodePairMs": 82.20000000111759,
+        "workerRoundTripMs": 891.7999999988824,
+        "workerComputeMs": 883.8000000007451,
+        "workerTransferWaitMs": 7.999999998137355,
+        "renderMs": 3.800000000745058,
+        "totalMs": 977.9000000003725
+      },
+      "matching": {
+        "prepareMs": 42.80000000074506,
+        "stereoMs": 169,
+        "candidateMs": 5.599999999627471,
+        "filterMs": 64.30000000074506
+      },
+      "gpu": {
+        "prepareMs": 2.099999999627471,
+        "gpuMs": 121.765888,
+        "submitAndReadbackMs": 127.5,
+        "postprocessMs": 39.40000000037253,
+        "totalMs": 169,
+        "volumeBytes": 1071751680,
+        "backend": "WebGPU RGB SGBM 3WAY"
+      },
+      "fingerprints": {
+        "input": [
+          1780798106,
+          3323465046
+        ],
+        "rectified": [
+          3237154342,
+          77849778
+        ],
+        "background": [
+          80980740,
+          2026700301
+        ],
+        "afterMatch": [
+          3237154342,
+          77849778
+        ],
+        "shadow": [
+          3762024353,
+          421574789
+        ]
+      }
+    },
+    {
+      "requested": 247.761,
+      "timeA": 247.753333,
+      "timeB": 264.152978,
+      "pointCount": 1047,
+      "triangles": 1890,
+      "hashes": {
+        "points": 2714109712,
+        "colors": 1791067347,
+        "uv": 2232612171
+      },
+      "equal": true,
+      "counts": {
+        "sampled": 101124,
+        "shadow": 2281,
+        "texture": 79383,
+        "aperture": 0,
+        "correlation": 1706,
+        "ambiguous": 12537,
+        "roundtrip": 2891,
+        "neighborhood": 75,
+        "geometry": 414,
+        "background": 678,
+        "backgroundLocal": 5,
+        "isolated3D": 112
+      },
+      "timing": {
+        "seekMs": 0.09999999962747097,
+        "decodePairMs": 97,
+        "workerRoundTripMs": 850.2000000011176,
+        "workerComputeMs": 840.5,
+        "workerTransferWaitMs": 9.700000001117587,
+        "renderMs": 4.099999999627471,
+        "totalMs": 951.4000000003725
+      },
+      "matching": {
+        "prepareMs": 46.29999999888241,
+        "stereoMs": 158.30000000074506,
+        "candidateMs": 2.199999999254942,
+        "filterMs": 49.40000000037253
+      },
+      "gpu": {
+        "prepareMs": 7.300000000745058,
+        "gpuMs": 122.55232,
+        "submitAndReadbackMs": 127.69999999925494,
+        "postprocessMs": 23.300000000745058,
+        "totalMs": 158.30000000074506,
+        "volumeBytes": 1071751680,
+        "backend": "WebGPU RGB SGBM 3WAY"
+      },
+      "fingerprints": {
+        "input": [
+          440858113,
+          2853445693
+        ],
+        "rectified": [
+          1976771577,
+          2680442234
+        ],
+        "background": [
+          80980740,
+          2026700301
+        ],
+        "afterMatch": [
+          1976771577,
+          2680442234
+        ],
+        "shadow": [
+          1577872282,
+          1988569188
+        ]
+      }
+    },
+    {
+      "requested": 282.132,
+      "timeA": 282.125,
+      "timeB": 298.525556,
+      "pointCount": 1240,
+      "triangles": 2261,
+      "hashes": {
+        "points": 2565716758,
+        "colors": 595977473,
+        "uv": 1255509295
+      },
+      "equal": true,
+      "counts": {
+        "sampled": 101124,
+        "shadow": 1719,
+        "texture": 77869,
+        "aperture": 0,
+        "correlation": 1810,
+        "ambiguous": 13672,
+        "roundtrip": 3125,
+        "neighborhood": 90,
+        "geometry": 850,
+        "background": 675,
+        "backgroundLocal": 5,
+        "isolated3D": 74
+      },
+      "timing": {
+        "seekMs": 0.10000000149011612,
+        "decodePairMs": 102,
+        "workerRoundTripMs": 867.6999999992549,
+        "workerComputeMs": 859.6999999992549,
+        "workerTransferWaitMs": 8,
+        "renderMs": 3.199999999254942,
+        "totalMs": 973
+      },
+      "matching": {
+        "prepareMs": 43.5,
+        "stereoMs": 156.19999999925494,
+        "candidateMs": 2,
+        "filterMs": 59
+      },
+      "gpu": {
+        "prepareMs": 2,
+        "gpuMs": 121.962496,
+        "submitAndReadbackMs": 127.40000000037253,
+        "postprocessMs": 26.799999998882413,
+        "totalMs": 156.19999999925494,
+        "volumeBytes": 1071751680,
+        "backend": "WebGPU RGB SGBM 3WAY"
+      },
+      "fingerprints": {
+        "input": [
+          2271735162,
+          3576233993
+        ],
+        "rectified": [
+          1819573499,
+          857588902
+        ],
+        "background": [
+          80980740,
+          2026700301
+        ],
+        "afterMatch": [
+          1819573499,
+          857588902
+        ],
+        "shadow": [
+          1995310172,
+          2961690809
+        ]
+      }
+    }
+  ],
+  "done": true,
+  "error": null
+}

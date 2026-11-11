@@ -1,0 +1,1446 @@
+{
+  "times": [
+    1.16,
+    6.27,
+    7.812,
+    12.255,
+    15.141,
+    22.031,
+    38.744,
+    79.736,
+    99.177,
+    102.533,
+    149.913,
+    151.519,
+    152.067,
+    153.82,
+    220.585,
+    247.761,
+    282.132
+  ],
+  "runs": [
+    {
+      "requested": 1.16,
+      "pointCount": 5732,
+      "measuredCount": 360,
+      "completion": {
+        "method": "OpenCV seeded GrabCut + RGB guided / nearest seed depth",
+        "inferredCount": 5372,
+        "seedCount": 360,
+        "reach": 0.2,
+        "rejected": {
+          "unsupported": 839,
+          "spread": 257,
+          "range": 84,
+          "rightMask": 3256,
+          "background": 10
+        },
+        "regionPixels": [
+          40464,
+          39867
+        ],
+        "segmentationDetails": [
+          {
+            "modelMs": 48.900000000001455,
+            "iterations": [
+              240.39999999999418,
+              179.8000000000029,
+              166.5
+            ],
+            "roiPixels": 142263
+          },
+          {
+            "modelMs": 53.200000000004366,
+            "iterations": [
+              737.5,
+              348.09999999999854,
+              212.3000000000029
+            ],
+            "roiPixels": 147532
+          }
+        ],
+        "segmentationMs": 2035.199999999255,
+        "filterMs": 104.40000000037253,
+        "totalMs": 2159.2999999988824
+      },
+      "counts": {
+        "sampled": 101124,
+        "shadow": 2338,
+        "texture": 81224,
+        "aperture": 0,
+        "correlation": 1194,
+        "ambiguous": 12221,
+        "roundtrip": 2674,
+        "neighborhood": 61,
+        "geometry": 418,
+        "background": 539,
+        "backgroundLocal": 1,
+        "isolated3D": 95
+      },
+      "timing": {
+        "seekMs": 0.09999999962747097,
+        "decodePairMs": 111.30000000074506,
+        "workerRoundTripMs": 2930.2999999988824,
+        "workerComputeMs": 2918.699999999255,
+        "workerTransferWaitMs": 11.599999999627471,
+        "renderMs": 19.59999999962747,
+        "totalMs": 3061.2999999988824
+      },
+      "matching": {
+        "prepareMs": 79.59999999962747,
+        "stereoMs": 190.40000000037253,
+        "candidateMs": 12.299999998882413,
+        "filterMs": 52
+      },
+      "gpu": {
+        "prepareMs": 10.199999999254942,
+        "gpuMs": 127.598592,
+        "submitAndReadbackMs": 134.60000000149012,
+        "postprocessMs": 45.59999999962747,
+        "totalMs": 190.40000000037253,
+        "volumeBytes": 1071751680,
+        "backend": "WebGPU RGB SGBM 3WAY"
+      },
+      "maskMs": 341.59999999962747
+    },
+    {
+      "requested": 6.27,
+      "pointCount": 5514,
+      "measuredCount": 644,
+      "completion": {
+        "method": "OpenCV seeded GrabCut + RGB guided / nearest seed depth",
+        "inferredCount": 4870,
+        "seedCount": 644,
+        "reach": 0.2,
+        "rejected": {
+          "unsupported": 38,
+          "spread": 175,
+          "range": 108,
+          "rightMask": 1296,
+          "background": 0
+        },
+        "regionPixels": [
+          27948,
+          29208
+        ],
+        "segmentationDetails": [
+          {
+            "modelMs": 43.599999999998545,
+            "iterations": [
+              215.20000000000437,
+              189,
+              197.5
+            ],
+            "roiPixels": 130284
+          },
+          {
+            "modelMs": 55.30000000000291,
+            "iterations": [
+              369.1999999999971,
+              234.8000000000029,
+              245.20000000000437
+            ],
+            "roiPixels": 128592
+          }
+        ],
+        "segmentationMs": 1602.199999999255,
+        "filterMs": 110.30000000074506,
+        "totalMs": 1727.7999999988824
+      },
+      "counts": {
+        "sampled": 101124,
+        "shadow": 9777,
+        "texture": 69463,
+        "aperture": 0,
+        "correlation": 2170,
+        "ambiguous": 13635,
+        "roundtrip": 2757,
+        "neighborhood": 34,
+        "geometry": 872,
+        "background": 1714,
+        "isolated3D": 58
+      },
+      "timing": {
+        "seekMs": 0.2000000011175871,
+        "decodePairMs": 113.29999999888241,
+        "workerRoundTripMs": 2516.2000000011176,
+        "workerComputeMs": 2501.7999999988824,
+        "workerTransferWaitMs": 14.400000002235174,
+        "renderMs": 12.699999999254942,
+        "totalMs": 2642.4000000003725
+      },
+      "matching": {
+        "prepareMs": 81.19999999925494,
+        "stereoMs": 181.30000000074506,
+        "candidateMs": 9.800000000745058,
+        "filterMs": 73.09999999962747
+      },
+      "gpu": {
+        "prepareMs": 8.100000001490116,
+        "gpuMs": 128.385024,
+        "submitAndReadbackMs": 131.59999999962747,
+        "postprocessMs": 41.59999999962747,
+        "totalMs": 181.30000000074506,
+        "volumeBytes": 1071751680,
+        "backend": "WebGPU RGB SGBM 3WAY"
+      },
+      "maskMs": 331.69999999925494
+    },
+    {
+      "requested": 7.812,
+      "pointCount": 6178,
+      "measuredCount": 721,
+      "completion": {
+        "method": "OpenCV seeded GrabCut + RGB guided / nearest seed depth",
+        "inferredCount": 5457,
+        "seedCount": 721,
+        "reach": 0.2,
+        "rejected": {
+          "unsupported": 40,
+          "spread": 413,
+          "range": 157,
+          "rightMask": 4194,
+          "background": 0
+        },
+        "regionPixels": [
+          43549,
+          30646
+        ],
+        "segmentationDetails": [
+          {
+            "modelMs": 49,
+            "iterations": [
+              286,
+              269.29999999999563,
+              249.3000000000029
+            ],
+            "roiPixels": 139308
+          },
+          {
+            "modelMs": 46.10000000000582,
+            "iterations": [
+              297.59999999999854,
+              209.59999999999854,
+              194.3000000000029
+            ],
+            "roiPixels": 126336
+          }
+        ],
+        "segmentationMs": 1650.9000000003725,
+        "filterMs": 87,
+        "totalMs": 1749
+      },
+      "counts": {
+        "sampled": 101124,
+        "shadow": 1471,
+        "texture": 80140,
+        "aperture": 0,
+        "correlation": 1932,
+        "ambiguous": 10285,
+        "roundtrip": 2896,
+        "neighborhood": 55,
+        "geometry": 2590,
+        "background": 980,
+        "backgroundLocal": 12,
+        "isolated3D": 54
+      },
+      "timing": {
+        "seekMs": 0,
+        "decodePairMs": 118.09999999962747,
+        "workerRoundTripMs": 2607.699999999255,
+        "workerComputeMs": 2590.0999999996275,
+        "workerTransferWaitMs": 17.59999999962747,
+        "renderMs": 12.200000001117587,
+        "totalMs": 2738
+      },
+      "matching": {
+        "prepareMs": 83,
+        "stereoMs": 198.40000000037253,
+        "candidateMs": 10.400000000372529,
+        "filterMs": 84.59999999962747
+      },
+      "gpu": {
+        "prepareMs": 11,
+        "gpuMs": 127.46752,
+        "submitAndReadbackMs": 133.2000000011176,
+        "postprocessMs": 54.19999999925494,
+        "totalMs": 198.40000000037253,
+        "volumeBytes": 1071751680,
+        "backend": "WebGPU RGB SGBM 3WAY"
+      },
+      "maskMs": 375.09999999962747
+    },
+    {
+      "requested": 12.255,
+      "pointCount": 7246,
+      "measuredCount": 1875,
+      "completion": {
+        "method": "OpenCV seeded GrabCut + RGB guided / nearest seed depth",
+        "inferredCount": 5371,
+        "seedCount": 1875,
+        "reach": 0.2,
+        "rejected": {
+          "unsupported": 40,
+          "spread": 219,
+          "range": 66,
+          "rightMask": 2089,
+          "background": 0
+        },
+        "regionPixels": [
+          38218,
+          65573
+        ],
+        "segmentationDetails": [
+          {
+            "modelMs": 57.80000000000291,
+            "iterations": [
+              392.09999999999854,
+              307.5,
+              291.20000000000437
+            ],
+            "roiPixels": 151250
+          },
+          {
+            "modelMs": 59,
+            "iterations": [
+              476.6999999999971,
+              458,
+              457.20000000000437
+            ],
+            "roiPixels": 169950
+          }
+        ],
+        "segmentationMs": 2554.699999999255,
+        "filterMs": 145.59999999962747,
+        "totalMs": 2712.9000000003725
+      },
+      "counts": {
+        "sampled": 101124,
+        "shadow": 1028,
+        "texture": 76881,
+        "aperture": 0,
+        "correlation": 2910,
+        "ambiguous": 12361,
+        "roundtrip": 2518,
+        "neighborhood": 44,
+        "geometry": 2356,
+        "background": 1042,
+        "backgroundLocal": 2,
+        "isolated3D": 109
+      },
+      "timing": {
+        "seekMs": 0.09999999962747097,
+        "decodePairMs": 145.69999999925494,
+        "workerRoundTripMs": 3647.5,
+        "workerComputeMs": 3630.4000000003725,
+        "workerTransferWaitMs": 17.09999999962747,
+        "renderMs": 17.40000000037253,
+        "totalMs": 3810.699999999255
+      },
+      "matching": {
+        "prepareMs": 79.30000000074506,
+        "stereoMs": 205.69999999925494,
+        "candidateMs": 3.800000000745058,
+        "filterMs": 171.40000000037253
+      },
+      "gpu": {
+        "prepareMs": 6.599999999627471,
+        "gpuMs": 127.991808,
+        "submitAndReadbackMs": 135.09999999962747,
+        "postprocessMs": 64,
+        "totalMs": 205.69999999925494,
+        "volumeBytes": 1071751680,
+        "backend": "WebGPU RGB SGBM 3WAY"
+      },
+      "maskMs": 337.09999999962747
+    },
+    {
+      "requested": 15.141,
+      "pointCount": 5633,
+      "measuredCount": 1149,
+      "completion": {
+        "method": "OpenCV seeded GrabCut + RGB guided / nearest seed depth",
+        "inferredCount": 4484,
+        "seedCount": 1149,
+        "reach": 0.2,
+        "rejected": {
+          "unsupported": 158,
+          "spread": 42,
+          "range": 21,
+          "rightMask": 1010,
+          "background": 0
+        },
+        "regionPixels": [
+          26879,
+          49094
+        ],
+        "segmentationDetails": [
+          {
+            "modelMs": 77.79999999999563,
+            "iterations": [
+              558.9000000000015,
+              313.20000000000437,
+              354
+            ],
+            "roiPixels": 228665
+          },
+          {
+            "modelMs": 120.30000000000291,
+            "iterations": [
+              633,
+              412.8999999999942,
+              521.6000000000058
+            ],
+            "roiPixels": 184034
+          }
+        ],
+        "segmentationMs": 3081.699999999255,
+        "filterMs": 88,
+        "totalMs": 3183.699999999255
+      },
+      "counts": {
+        "sampled": 101124,
+        "shadow": 2498,
+        "texture": 75000,
+        "aperture": 0,
+        "correlation": 2064,
+        "ambiguous": 14699,
+        "roundtrip": 3351,
+        "neighborhood": 71,
+        "geometry": 1314,
+        "background": 904,
+        "backgroundLocal": 8,
+        "isolated3D": 74
+      },
+      "timing": {
+        "seekMs": 0.09999999962747097,
+        "decodePairMs": 98.90000000037253,
+        "workerRoundTripMs": 4000.5,
+        "workerComputeMs": 3986.800000000745,
+        "workerTransferWaitMs": 13.699999999254942,
+        "renderMs": 11.599999999627471,
+        "totalMs": 4111.0999999996275
+      },
+      "matching": {
+        "prepareMs": 86,
+        "stereoMs": 206.80000000074506,
+        "candidateMs": 3.099999999627471,
+        "filterMs": 112.30000000074506
+      },
+      "gpu": {
+        "prepareMs": 8.099999999627471,
+        "gpuMs": 134.67648,
+        "submitAndReadbackMs": 141.30000000074506,
+        "postprocessMs": 57.40000000037253,
+        "totalMs": 206.80000000074506,
+        "volumeBytes": 1071751680,
+        "backend": "WebGPU RGB SGBM 3WAY"
+      },
+      "maskMs": 314.40000000037253
+    },
+    {
+      "requested": 22.031,
+      "pointCount": 6662,
+      "measuredCount": 1150,
+      "completion": {
+        "method": "OpenCV seeded GrabCut + RGB guided / nearest seed depth",
+        "inferredCount": 5512,
+        "seedCount": 1150,
+        "reach": 0.2,
+        "rejected": {
+          "unsupported": 3,
+          "spread": 24,
+          "range": 35,
+          "rightMask": 3782,
+          "background": 0
+        },
+        "regionPixels": [
+          41793,
+          38566
+        ],
+        "segmentationDetails": [
+          {
+            "modelMs": 53.30000000000291,
+            "iterations": [
+              743,
+              519.1999999999971,
+              398.1000000000058
+            ],
+            "roiPixels": 159329
+          },
+          {
+            "modelMs": 65.69999999999709,
+            "iterations": [
+              551.3000000000029,
+              345.29999999999563,
+              296.20000000000437
+            ],
+            "roiPixels": 157077
+          }
+        ],
+        "segmentationMs": 3026.39999999851,
+        "filterMs": 121.80000000074506,
+        "totalMs": 3159.5999999996275
+      },
+      "counts": {
+        "sampled": 101124,
+        "shadow": 2719,
+        "texture": 79244,
+        "aperture": 0,
+        "correlation": 2153,
+        "ambiguous": 10311,
+        "roundtrip": 2440,
+        "neighborhood": 53,
+        "geometry": 2036,
+        "background": 957,
+        "backgroundLocal": 1,
+        "isolated3D": 61
+      },
+      "timing": {
+        "seekMs": 0.2000000011175871,
+        "decodePairMs": 106.79999999888241,
+        "workerRoundTripMs": 3922.300000000745,
+        "workerComputeMs": 3909.699999999255,
+        "workerTransferWaitMs": 12.600000001490116,
+        "renderMs": 10.900000000372529,
+        "totalMs": 4040.2000000011176
+      },
+      "matching": {
+        "prepareMs": 72.69999999925494,
+        "stereoMs": 180.2000000011176,
+        "candidateMs": 3.5,
+        "filterMs": 99.29999999888241
+      },
+      "gpu": {
+        "prepareMs": 7.5,
+        "gpuMs": 129.4336,
+        "submitAndReadbackMs": 134,
+        "postprocessMs": 38.70000000111759,
+        "totalMs": 180.2000000011176,
+        "volumeBytes": 1071751680,
+        "backend": "WebGPU RGB SGBM 3WAY"
+      },
+      "maskMs": 313.40000000037253
+    },
+    {
+      "requested": 38.744,
+      "pointCount": 4231,
+      "measuredCount": 445,
+      "completion": {
+        "method": "OpenCV seeded GrabCut + RGB guided / nearest seed depth",
+        "inferredCount": 3786,
+        "seedCount": 445,
+        "reach": 0.2,
+        "rejected": {
+          "unsupported": 279,
+          "spread": 553,
+          "range": 0,
+          "rightMask": 729,
+          "background": 0
+        },
+        "regionPixels": [
+          22904,
+          30246
+        ],
+        "segmentationDetails": [
+          {
+            "modelMs": 54.80000000000291,
+            "iterations": [
+              354,
+              118.19999999999709,
+              121
+            ],
+            "roiPixels": 164697
+          },
+          {
+            "modelMs": 55.60000000000582,
+            "iterations": [
+              380.79999999999563,
+              396.20000000000437,
+              359.3000000000029
+            ],
+            "roiPixels": 167895
+          }
+        ],
+        "segmentationMs": 1901.699999999255,
+        "filterMs": 98,
+        "totalMs": 2010.5999999996275
+      },
+      "counts": {
+        "sampled": 101124,
+        "shadow": 8519,
+        "texture": 76924,
+        "aperture": 0,
+        "correlation": 1043,
+        "ambiguous": 11095,
+        "roundtrip": 2193,
+        "neighborhood": 30,
+        "geometry": 220,
+        "background": 553,
+        "isolated3D": 102
+      },
+      "timing": {
+        "seekMs": 0,
+        "decodePairMs": 122.5,
+        "workerRoundTripMs": 2832.5999999996275,
+        "workerComputeMs": 2818.9000000003725,
+        "workerTransferWaitMs": 13.699999999254942,
+        "renderMs": 7.100000001490116,
+        "totalMs": 2962.2000000011176
+      },
+      "matching": {
+        "prepareMs": 88.59999999962747,
+        "stereoMs": 194.90000000037253,
+        "candidateMs": 4.099999999627471,
+        "filterMs": 51.30000000074506
+      },
+      "gpu": {
+        "prepareMs": 13.300000000745058,
+        "gpuMs": 131.072,
+        "submitAndReadbackMs": 139.19999999925494,
+        "postprocessMs": 42.40000000037253,
+        "totalMs": 194.90000000037253,
+        "volumeBytes": 1071751680,
+        "backend": "WebGPU RGB SGBM 3WAY"
+      },
+      "maskMs": 374.40000000037253
+    },
+    {
+      "requested": 79.736,
+      "pointCount": 6764,
+      "measuredCount": 549,
+      "completion": {
+        "method": "OpenCV seeded GrabCut + RGB guided / nearest seed depth",
+        "inferredCount": 6215,
+        "seedCount": 549,
+        "reach": 0.2,
+        "rejected": {
+          "unsupported": 212,
+          "spread": 13,
+          "range": 85,
+          "rightMask": 793,
+          "background": 0
+        },
+        "regionPixels": [
+          31228,
+          41622
+        ],
+        "segmentationDetails": [
+          {
+            "modelMs": 54,
+            "iterations": [
+              190.5,
+              170.1999999999971,
+              127.30000000000291
+            ],
+            "roiPixels": 128733
+          },
+          {
+            "modelMs": 46.799999999995634,
+            "iterations": [
+              336.1000000000058,
+              211.40000000000146,
+              231.89999999999418
+            ],
+            "roiPixels": 133386
+          }
+        ],
+        "segmentationMs": 1411.0999999996275,
+        "filterMs": 102.5,
+        "totalMs": 1525.7999999988824
+      },
+      "counts": {
+        "sampled": 101124,
+        "shadow": 10310,
+        "texture": 74250,
+        "aperture": 0,
+        "correlation": 1363,
+        "ambiguous": 9881,
+        "roundtrip": 2350,
+        "neighborhood": 41,
+        "geometry": 512,
+        "background": 1761,
+        "isolated3D": 107
+      },
+      "timing": {
+        "seekMs": 0.09999999962747097,
+        "decodePairMs": 122.40000000037253,
+        "workerRoundTripMs": 2362.7999999988824,
+        "workerComputeMs": 2347.5,
+        "workerTransferWaitMs": 15.299999998882413,
+        "renderMs": 12.099999999627471,
+        "totalMs": 2497.39999999851
+      },
+      "matching": {
+        "prepareMs": 72.59999999962747,
+        "stereoMs": 185.30000000074506,
+        "candidateMs": 3.099999999627471,
+        "filterMs": 52.70000000111759
+      },
+      "gpu": {
+        "prepareMs": 7.300000000745058,
+        "gpuMs": 128.516096,
+        "submitAndReadbackMs": 137.40000000037253,
+        "postprocessMs": 40.59999999962747,
+        "totalMs": 185.30000000074506,
+        "volumeBytes": 1071751680,
+        "backend": "WebGPU RGB SGBM 3WAY"
+      },
+      "maskMs": 418.5
+    },
+    {
+      "requested": 99.177,
+      "pointCount": 8748,
+      "measuredCount": 809,
+      "completion": {
+        "method": "OpenCV seeded GrabCut + RGB guided / nearest seed depth",
+        "inferredCount": 7939,
+        "seedCount": 809,
+        "reach": 0.2,
+        "rejected": {
+          "unsupported": 17,
+          "spread": 0,
+          "range": 17,
+          "rightMask": 5864,
+          "background": 0
+        },
+        "regionPixels": [
+          58293,
+          36550
+        ],
+        "segmentationDetails": [
+          {
+            "modelMs": 85.30000000000291,
+            "iterations": [
+              338.3000000000029,
+              418.1999999999971,
+              386.6999999999971
+            ],
+            "roiPixels": 191955
+          },
+          {
+            "modelMs": 52.80000000000291,
+            "iterations": [
+              368.6999999999971,
+              271,
+              279
+            ],
+            "roiPixels": 135228
+          }
+        ],
+        "segmentationMs": 2264.9000000003725,
+        "filterMs": 170.80000000074506,
+        "totalMs": 2451.4000000003725
+      },
+      "counts": {
+        "sampled": 101124,
+        "shadow": 12473,
+        "texture": 73294,
+        "aperture": 0,
+        "correlation": 1244,
+        "ambiguous": 9816,
+        "roundtrip": 1731,
+        "neighborhood": 35,
+        "geometry": 274,
+        "background": 1402,
+        "isolated3D": 46
+      },
+      "timing": {
+        "seekMs": 0,
+        "decodePairMs": 110.40000000037253,
+        "workerRoundTripMs": 3288.699999999255,
+        "workerComputeMs": 3274.9000000003725,
+        "workerTransferWaitMs": 13.799999998882413,
+        "renderMs": 14.700000001117587,
+        "totalMs": 3413.800000000745
+      },
+      "matching": {
+        "prepareMs": 106.60000000149012,
+        "stereoMs": 181.09999999962747,
+        "candidateMs": 9.400000000372529,
+        "filterMs": 69.79999999888241
+      },
+      "gpu": {
+        "prepareMs": 12.399999998509884,
+        "gpuMs": 123.797504,
+        "submitAndReadbackMs": 129.7000000011176,
+        "postprocessMs": 39,
+        "totalMs": 181.09999999962747,
+        "volumeBytes": 1071751680,
+        "backend": "WebGPU RGB SGBM 3WAY"
+      },
+      "maskMs": 366.19999999925494
+    },
+    {
+      "requested": 102.533,
+      "pointCount": 8162,
+      "measuredCount": 827,
+      "completion": {
+        "method": "OpenCV seeded GrabCut + RGB guided / nearest seed depth",
+        "inferredCount": 7335,
+        "seedCount": 827,
+        "reach": 0.2,
+        "rejected": {
+          "unsupported": 124,
+          "spread": 25,
+          "range": 0,
+          "rightMask": 1929,
+          "background": 0
+        },
+        "regionPixels": [
+          40664,
+          31434
+        ],
+        "segmentationDetails": [
+          {
+            "modelMs": 68.60000000000582,
+            "iterations": [
+              226.60000000000582,
+              226.6999999999971,
+              202.89999999999418
+            ],
+            "roiPixels": 157707
+          },
+          {
+            "modelMs": 60.19999999999709,
+            "iterations": [
+              247.10000000000582,
+              223.3000000000029,
+              242
+            ],
+            "roiPixels": 134343
+          }
+        ],
+        "segmentationMs": 1545.5,
+        "filterMs": 159.59999999962747,
+        "totalMs": 1721.9000000003725
+      },
+      "counts": {
+        "sampled": 101124,
+        "shadow": 9864,
+        "texture": 71978,
+        "aperture": 0,
+        "correlation": 1619,
+        "ambiguous": 11931,
+        "roundtrip": 2788,
+        "neighborhood": 42,
+        "geometry": 571,
+        "background": 1409,
+        "isolated3D": 95
+      },
+      "timing": {
+        "seekMs": 0.09999999962747097,
+        "decodePairMs": 106.5,
+        "workerRoundTripMs": 2568.5,
+        "workerComputeMs": 2552.9000000003725,
+        "workerTransferWaitMs": 15.599999999627471,
+        "renderMs": 19.5,
+        "totalMs": 2694.5999999996275
+      },
+      "matching": {
+        "prepareMs": 88.40000000037253,
+        "stereoMs": 210.89999999850988,
+        "candidateMs": 5.100000001490116,
+        "filterMs": 78.5
+      },
+      "gpu": {
+        "prepareMs": 11.299999998882413,
+        "gpuMs": 127.533056,
+        "submitAndReadbackMs": 137.80000000074506,
+        "postprocessMs": 61.79999999888241,
+        "totalMs": 210.89999999850988,
+        "volumeBytes": 1071751680,
+        "backend": "WebGPU RGB SGBM 3WAY"
+      },
+      "maskMs": 338.90000000037253
+    },
+    {
+      "requested": 149.913,
+      "pointCount": 7572,
+      "measuredCount": 1094,
+      "completion": {
+        "method": "OpenCV seeded GrabCut + RGB guided / nearest seed depth",
+        "inferredCount": 6478,
+        "seedCount": 1094,
+        "reach": 0.2,
+        "rejected": {
+          "unsupported": 279,
+          "spread": 95,
+          "range": 25,
+          "rightMask": 1677,
+          "background": 0
+        },
+        "regionPixels": [
+          38389,
+          49315
+        ],
+        "segmentationDetails": [
+          {
+            "modelMs": 59.19999999999709,
+            "iterations": [
+              648,
+              509.8999999999942,
+              541.8000000000029
+            ],
+            "roiPixels": 169023
+          },
+          {
+            "modelMs": 135.39999999999418,
+            "iterations": [
+              427.3999999999942,
+              227.90000000000873,
+              244.3000000000029
+            ],
+            "roiPixels": 211689
+          }
+        ],
+        "segmentationMs": 2880.4000000003725,
+        "filterMs": 91.70000000111759,
+        "totalMs": 2984.2000000011176
+      },
+      "counts": {
+        "sampled": 101124,
+        "shadow": 2482,
+        "texture": 73708,
+        "aperture": 0,
+        "correlation": 3422,
+        "ambiguous": 14175,
+        "roundtrip": 3261,
+        "neighborhood": 63,
+        "geometry": 1807,
+        "background": 1033,
+        "backgroundLocal": 1,
+        "isolated3D": 79
+      },
+      "timing": {
+        "seekMs": 0.09999999962747097,
+        "decodePairMs": 117.69999999925494,
+        "workerRoundTripMs": 3946.60000000149,
+        "workerComputeMs": 3928.10000000149,
+        "workerTransferWaitMs": 18.5,
+        "renderMs": 12.599999999627471,
+        "totalMs": 4077
+      },
+      "matching": {
+        "prepareMs": 75.90000000037253,
+        "stereoMs": 230.80000000074506,
+        "candidateMs": 8.199999999254942,
+        "filterMs": 122.59999999962747
+      },
+      "gpu": {
+        "prepareMs": 8.199999999254942,
+        "gpuMs": 131.530752,
+        "submitAndReadbackMs": 139.5,
+        "postprocessMs": 83,
+        "totalMs": 230.69999999925494,
+        "volumeBytes": 1071751680,
+        "backend": "WebGPU RGB SGBM 3WAY"
+      },
+      "maskMs": 420.40000000037253
+    },
+    {
+      "requested": 151.519,
+      "pointCount": 13248,
+      "measuredCount": 1641,
+      "completion": {
+        "method": "OpenCV seeded GrabCut + RGB guided / nearest seed depth",
+        "inferredCount": 11607,
+        "seedCount": 1641,
+        "reach": 0.2,
+        "rejected": {
+          "unsupported": 98,
+          "spread": 798,
+          "range": 0,
+          "rightMask": 4241,
+          "background": 0
+        },
+        "regionPixels": [
+          73356,
+          47996
+        ],
+        "segmentationDetails": [
+          {
+            "modelMs": 63.09999999999127,
+            "iterations": [
+              418.1000000000058,
+              366,
+              297.6000000000058
+            ],
+            "roiPixels": 184110
+          },
+          {
+            "modelMs": 68.30000000000291,
+            "iterations": [
+              793.7999999999884,
+              323.6000000000058,
+              256.5
+            ],
+            "roiPixels": 185820
+          }
+        ],
+        "segmentationMs": 2651,
+        "filterMs": 81.70000000111759,
+        "totalMs": 2748.10000000149
+      },
+      "counts": {
+        "sampled": 101124,
+        "shadow": 1710,
+        "texture": 78102,
+        "aperture": 0,
+        "correlation": 1988,
+        "ambiguous": 12695,
+        "roundtrip": 2892,
+        "neighborhood": 56,
+        "geometry": 1199,
+        "background": 745,
+        "isolated3D": 96
+      },
+      "timing": {
+        "seekMs": 0.09999999962747097,
+        "decodePairMs": 130.7000000011176,
+        "workerRoundTripMs": 3656.5999999996275,
+        "workerComputeMs": 3642.7999999988824,
+        "workerTransferWaitMs": 13.800000000745058,
+        "renderMs": 19.199999999254942,
+        "totalMs": 3806.5999999996275
+      },
+      "matching": {
+        "prepareMs": 85.80000000074506,
+        "stereoMs": 206.80000000074506,
+        "candidateMs": 10.399999998509884,
+        "filterMs": 146.90000000037253
+      },
+      "gpu": {
+        "prepareMs": 7.300000000745058,
+        "gpuMs": 127.729664,
+        "submitAndReadbackMs": 137.40000000037253,
+        "postprocessMs": 62,
+        "totalMs": 206.7000000011176,
+        "volumeBytes": 1071751680,
+        "backend": "WebGPU RGB SGBM 3WAY"
+      },
+      "maskMs": 367.7999999988824
+    },
+    {
+      "requested": 152.067,
+      "pointCount": 11630,
+      "measuredCount": 1349,
+      "completion": {
+        "method": "OpenCV seeded GrabCut + RGB guided / nearest seed depth",
+        "inferredCount": 10281,
+        "seedCount": 1349,
+        "reach": 0.2,
+        "rejected": {
+          "unsupported": 1,
+          "spread": 737,
+          "range": 0,
+          "rightMask": 1333,
+          "background": 13
+        },
+        "regionPixels": [
+          54638,
+          37358
+        ],
+        "segmentationDetails": [
+          {
+            "modelMs": 84.59999999999127,
+            "iterations": [
+              812.5,
+              289.5,
+              260.3000000000029
+            ],
+            "roiPixels": 185575
+          },
+          {
+            "modelMs": 66.40000000000873,
+            "iterations": [
+              375,
+              295.09999999999127,
+              249.10000000000582
+            ],
+            "roiPixels": 147318
+          }
+        ],
+        "segmentationMs": 2491.60000000149,
+        "filterMs": 98.89999999850988,
+        "totalMs": 2604.60000000149
+      },
+      "counts": {
+        "sampled": 101124,
+        "shadow": 1937,
+        "texture": 79685,
+        "aperture": 0,
+        "correlation": 2073,
+        "ambiguous": 11755,
+        "roundtrip": 2832,
+        "neighborhood": 66,
+        "geometry": 662,
+        "background": 712,
+        "backgroundLocal": 6,
+        "isolated3D": 53
+      },
+      "timing": {
+        "seekMs": 0.19999999925494194,
+        "decodePairMs": 117.5,
+        "workerRoundTripMs": 3386.9000000003725,
+        "workerComputeMs": 3373.10000000149,
+        "workerTransferWaitMs": 13.799999998882413,
+        "renderMs": 18,
+        "totalMs": 3522.5999999996275
+      },
+      "matching": {
+        "prepareMs": 77.59999999962747,
+        "stereoMs": 183.7000000011176,
+        "candidateMs": 9.299999998882413,
+        "filterMs": 116.59999999962747
+      },
+      "gpu": {
+        "prepareMs": 3.900000000372529,
+        "gpuMs": 128.712704,
+        "submitAndReadbackMs": 133.7000000011176,
+        "postprocessMs": 46,
+        "totalMs": 183.60000000149012,
+        "volumeBytes": 1071751680,
+        "backend": "WebGPU RGB SGBM 3WAY"
+      },
+      "maskMs": 305.30000000074506
+    },
+    {
+      "requested": 153.82,
+      "pointCount": 11695,
+      "measuredCount": 1717,
+      "completion": {
+        "method": "OpenCV seeded GrabCut + RGB guided / nearest seed depth",
+        "inferredCount": 9978,
+        "seedCount": 1717,
+        "reach": 0.2,
+        "rejected": {
+          "unsupported": 224,
+          "spread": 690,
+          "range": 0,
+          "rightMask": 1371,
+          "background": 14
+        },
+        "regionPixels": [
+          55600,
+          66867
+        ],
+        "segmentationDetails": [
+          {
+            "modelMs": 99.19999999999709,
+            "iterations": [
+              776.4000000000087,
+              474.59999999999127,
+              369
+            ],
+            "roiPixels": 169764
+          },
+          {
+            "modelMs": 81.90000000000873,
+            "iterations": [
+              677.2999999999884,
+              410.20000000001164,
+              368.6999999999971
+            ],
+            "roiPixels": 182736
+          }
+        ],
+        "segmentationMs": 3339.7000000011176,
+        "filterMs": 91.5,
+        "totalMs": 3454.800000000745
+      },
+      "counts": {
+        "sampled": 101124,
+        "shadow": 2124,
+        "texture": 78981,
+        "aperture": 0,
+        "correlation": 1713,
+        "ambiguous": 12659,
+        "roundtrip": 2606,
+        "neighborhood": 43,
+        "geometry": 412,
+        "background": 783,
+        "backgroundLocal": 1,
+        "isolated3D": 86
+      },
+      "timing": {
+        "seekMs": 0.2000000011175871,
+        "decodePairMs": 101.59999999962747,
+        "workerRoundTripMs": 4393.9000000003725,
+        "workerComputeMs": 4381.199999999255,
+        "workerTransferWaitMs": 12.700000001117587,
+        "renderMs": 15.899999998509884,
+        "totalMs": 4511.5999999996275
+      },
+      "matching": {
+        "prepareMs": 76.19999999925494,
+        "stereoMs": 198.10000000149012,
+        "candidateMs": 3.899999998509884,
+        "filterMs": 145.30000000074506
+      },
+      "gpu": {
+        "prepareMs": 8.399999998509884,
+        "gpuMs": 124.256256,
+        "submitAndReadbackMs": 136.40000000037253,
+        "postprocessMs": 53.20000000111759,
+        "totalMs": 198,
+        "volumeBytes": 1071751680,
+        "backend": "WebGPU RGB SGBM 3WAY"
+      },
+      "maskMs": 400.40000000037253
+    },
+    {
+      "requested": 220.585,
+      "pointCount": 11701,
+      "measuredCount": 1368,
+      "completion": {
+        "method": "OpenCV seeded GrabCut + RGB guided / nearest seed depth",
+        "inferredCount": 10333,
+        "seedCount": 1368,
+        "reach": 0.2,
+        "rejected": {
+          "unsupported": 99,
+          "spread": 426,
+          "range": 0,
+          "rightMask": 3216,
+          "background": 0
+        },
+        "regionPixels": [
+          61572,
+          56077
+        ],
+        "segmentationDetails": [
+          {
+            "modelMs": 61.5,
+            "iterations": [
+              324,
+              263.3000000000029,
+              244.6999999999971
+            ],
+            "roiPixels": 162378
+          },
+          {
+            "modelMs": 119.20000000001164,
+            "iterations": [
+              699.7999999999884,
+              372.6000000000058,
+              320.5
+            ],
+            "roiPixels": 176886
+          }
+        ],
+        "segmentationMs": 2474.5999999996275,
+        "filterMs": 124.70000000111759,
+        "totalMs": 2617.300000000745
+      },
+      "counts": {
+        "sampled": 101124,
+        "shadow": 1581,
+        "texture": 79026,
+        "aperture": 0,
+        "correlation": 1166,
+        "ambiguous": 13209,
+        "roundtrip": 3525,
+        "neighborhood": 55,
+        "geometry": 283,
+        "background": 793,
+        "backgroundLocal": 12,
+        "isolated3D": 118
+      },
+      "timing": {
+        "seekMs": 0.10000000149011612,
+        "decodePairMs": 108.79999999888241,
+        "workerRoundTripMs": 3449.2000000011176,
+        "workerComputeMs": 3436.5999999996275,
+        "workerTransferWaitMs": 12.600000001490116,
+        "renderMs": 17.199999999254942,
+        "totalMs": 3575.300000000745
+      },
+      "matching": {
+        "prepareMs": 75.5,
+        "stereoMs": 181.7000000011176,
+        "candidateMs": 3,
+        "filterMs": 141.59999999962747
+      },
+      "gpu": {
+        "prepareMs": 4.099999999627471,
+        "gpuMs": 128.057344,
+        "submitAndReadbackMs": 134.60000000149012,
+        "postprocessMs": 43,
+        "totalMs": 181.7000000011176,
+        "volumeBytes": 1071751680,
+        "backend": "WebGPU RGB SGBM 3WAY"
+      },
+      "maskMs": 317.59999999962747
+    },
+    {
+      "requested": 247.761,
+      "pointCount": 10224,
+      "measuredCount": 1069,
+      "completion": {
+        "method": "OpenCV seeded GrabCut + RGB guided / nearest seed depth",
+        "inferredCount": 9155,
+        "seedCount": 1069,
+        "reach": 0.2,
+        "rejected": {
+          "unsupported": 616,
+          "spread": 50,
+          "range": 0,
+          "rightMask": 1862,
+          "background": 0
+        },
+        "regionPixels": [
+          50670,
+          46132
+        ],
+        "segmentationDetails": [
+          {
+            "modelMs": 65,
+            "iterations": [
+              873.6999999999971,
+              349.8000000000029,
+              278.70000000001164
+            ],
+            "roiPixels": 185250
+          },
+          {
+            "modelMs": 59.39999999999418,
+            "iterations": [
+              532,
+              214.39999999999418,
+              197.60000000000582
+            ],
+            "roiPixels": 157320
+          }
+        ],
+        "segmentationMs": 2632.2000000011176,
+        "filterMs": 122,
+        "totalMs": 2767.5
+      },
+      "counts": {
+        "sampled": 101124,
+        "shadow": 2287,
+        "texture": 79362,
+        "aperture": 0,
+        "correlation": 1729,
+        "ambiguous": 12530,
+        "roundtrip": 2855,
+        "neighborhood": 74,
+        "geometry": 426,
+        "background": 681,
+        "backgroundLocal": 7,
+        "isolated3D": 111
+      },
+      "timing": {
+        "seekMs": 0.2000000011175871,
+        "decodePairMs": 127.59999999962747,
+        "workerRoundTripMs": 3542.300000000745,
+        "workerComputeMs": 3530,
+        "workerTransferWaitMs": 12.300000000745058,
+        "renderMs": 16.09999999962747,
+        "totalMs": 3686.2000000011176
+      },
+      "matching": {
+        "prepareMs": 77,
+        "stereoMs": 201.40000000037253,
+        "candidateMs": 2.700000001117587,
+        "filterMs": 98.29999999888241
+      },
+      "gpu": {
+        "prepareMs": 16.300000000745058,
+        "gpuMs": 128.45056,
+        "submitAndReadbackMs": 134.5,
+        "postprocessMs": 50.59999999962747,
+        "totalMs": 201.40000000037253,
+        "volumeBytes": 1071751680,
+        "backend": "WebGPU RGB SGBM 3WAY"
+      },
+      "maskMs": 306.2999999988824
+    },
+    {
+      "requested": 282.132,
+      "pointCount": 11814,
+      "measuredCount": 1231,
+      "completion": {
+        "method": "OpenCV seeded GrabCut + RGB guided / nearest seed depth",
+        "inferredCount": 10583,
+        "seedCount": 1231,
+        "reach": 0.2,
+        "rejected": {
+          "unsupported": 174,
+          "spread": 1342,
+          "range": 0,
+          "rightMask": 4553,
+          "background": 0
+        },
+        "regionPixels": [
+          71387,
+          52763
+        ],
+        "segmentationDetails": [
+          {
+            "modelMs": 59.40000000000873,
+            "iterations": [
+              388.3000000000029,
+              324.1999999999971,
+              274.6000000000058
+            ],
+            "roiPixels": 169680
+          },
+          {
+            "modelMs": 61.10000000000582,
+            "iterations": [
+              776.6000000000058,
+              399.29999999998836,
+              371.40000000000873
+            ],
+            "roiPixels": 169120
+          }
+        ],
+        "segmentationMs": 2721,
+        "filterMs": 121.5,
+        "totalMs": 2858.300000000745
+      },
+      "counts": {
+        "sampled": 101124,
+        "shadow": 1723,
+        "texture": 77854,
+        "aperture": 0,
+        "correlation": 1753,
+        "ambiguous": 13682,
+        "roundtrip": 3191,
+        "neighborhood": 80,
+        "geometry": 847,
+        "background": 674,
+        "backgroundLocal": 6,
+        "isolated3D": 89
+      },
+      "timing": {
+        "seekMs": 0.09999999962747097,
+        "decodePairMs": 122.59999999962747,
+        "workerRoundTripMs": 3727.10000000149,
+        "workerComputeMs": 3715.9000000003725,
+        "workerTransferWaitMs": 11.200000001117587,
+        "renderMs": 17.399999998509884,
+        "totalMs": 3867.199999999255
+      },
+      "matching": {
+        "prepareMs": 74.19999999925494,
+        "stereoMs": 220.2000000011176,
+        "candidateMs": 4,
+        "filterMs": 125.09999999962747
+      },
+      "gpu": {
+        "prepareMs": 4.400000000372529,
+        "gpuMs": 123.53536,
+        "submitAndReadbackMs": 127.09999999962747,
+        "postprocessMs": 88.70000000111759,
+        "totalMs": 220.2000000011176,
+        "volumeBytes": 1071751680,
+        "backend": "WebGPU RGB SGBM 3WAY"
+      },
+      "maskMs": 342.90000000037253
+    }
+  ],
+  "done": true
+}

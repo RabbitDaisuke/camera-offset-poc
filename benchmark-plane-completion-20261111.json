@@ -1,0 +1,84 @@
+{
+  "time": 149.913,
+  "footPixels": 5768,
+  "defaultEnabled": false,
+  "goalMet": false,
+  "current": {
+    "points": 24499,
+    "ms": 4703.900000002235,
+    "completion": {
+      "measured": 6347,
+      "estimated": 18152,
+      "colorSupported": 16039,
+      "disconnected": 3459,
+      "models": 101,
+      "lrRejected": 11515,
+      "modelMs": 332,
+      "prepareMs": 85.5,
+      "computeReadbackMs": 50.400000002235174,
+      "totalMs": 2429.5
+    },
+    "foot": {
+      "measured": 391,
+      "estimated": 2040,
+      "insideRight": 2328,
+      "rows": [
+        2,
+        419,
+        513,
+        456,
+        563,
+        317,
+        161
+      ]
+    }
+  },
+  "old": {
+    "done": true,
+    "runs": [
+      {
+        "radius": 6,
+        "estimatedFoot": 94,
+        "estimated": 2115,
+        "ms": 2496.099999997765,
+        "completionMs": 610.1999999992549
+      },
+      {
+        "radius": 10,
+        "estimatedFoot": 45,
+        "estimated": 3164,
+        "ms": 2549.60000000149,
+        "completionMs": 699.8000000007451
+      },
+      {
+        "radius": 24,
+        "estimatedFoot": 0,
+        "estimated": 3138,
+        "ms": 2353.2999999970198,
+        "completionMs": 654.3999999985099
+      },
+      {
+        "radius": 32,
+        "estimatedFoot": 0,
+        "estimated": 2651,
+        "ms": 2488.800000000745,
+        "completionMs": 633.5
+      }
+    ]
+  },
+  "first": {
+    "measured": 391,
+    "estimated": 0,
+    "insideRight": 391,
+    "rows": [
+      0,
+      106,
+      36,
+      46,
+      65,
+      138,
+      0
+    ],
+    "coverage": 0.0677877947295423
+  }
+}

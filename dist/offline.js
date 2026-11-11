@@ -29,7 +29,15 @@
   const visible=s=>s.cts/track.timescale+timelineOffset>=-1e-6&&s.cts/track.timescale+timelineOffset<duration-1e-6;
   const matrix=trak.tkhd.matrix||[65536,0,0,0,65536,0,0,0,1073741824];
   const rotation=((Math.round(Math.atan2(matrix[1],matrix[0])*180/Math.PI/90)*90)%360+360)%360;
-  return {track,samples,description,timelineOffset,duration,rotation,total:samples.filter(visible).length,
+  const audioTrack=info.audioTracks?.[0];let audio=null;
+  if(audioTrack){
+   const audioTrak=parser.getTrackById(audioTrack.id),audioEntry=audioTrak.mdia.minf.stbl.stsd.entries[0];
+   const descriptor=(audioEntry.esds||audioEntry.wave?.esds)?.esd;
+   const findSpecific=d=>d?.tag===5?d.data:(d?.descs||[]).map(findSpecific).find(Boolean);
+   let offset=0;for(const edit of audioTrak.edts?.elst?.entries||[]){if(edit.media_time===-1)offset+=edit.segment_duration/info.timescale;else{offset-=edit.media_time/audioTrack.timescale;break;}}
+   audio={track:audioTrack,samples:parser.getTrackSamplesInfo(audioTrack.id),timelineOffset:offset,config:{codec:audioTrack.codec,sampleRate:audioTrack.audio.sample_rate,numberOfChannels:audioTrack.audio.channel_count,description:findSpecific(descriptor)}};
+  }
+  return {track,samples,description,timelineOffset,duration,rotation,audio,total:samples.filter(visible).length,
    config:{codec:track.codec,codedWidth:track.video.width,codedHeight:track.video.height,description,hardwareAcceleration:'prefer-hardware'}};
  }
  async function run(file,{signal,onFrame,onProgress=()=>{},maxFrames=Infinity}={}){
@@ -64,5 +72,42 @@
    const result={processed,total:meta.total,decoded,seconds:meta.duration,elapsed:(performance.now()-started)/1000,complete:true,codec:meta.track.codec};onProgress(result);return result;
   }finally{finished=true;if(decoder.state!=='closed')decoder.close();await consume;for(const frame of queue)frame.close();queue.length=0;}
  }
- root.A4Offline={inspect,run};
+ const fileMetadata=new WeakMap();
+ async function metadata(file){if(!fileMetadata.has(file))fileMetadata.set(file,inspect(file));return fileMetadata.get(file);}
+ function selectFrame(meta,seconds){
+  let index=-1,distance=Infinity;
+  for(let i=0;i<meta.samples.length;i++){const t=meta.samples[i].cts/meta.track.timescale+meta.timelineOffset;if(t<0||t>=meta.duration)continue;const d=Math.abs(t-seconds);if(d<distance){distance=d;index=i;}}
+  if(index<0)throw Error('指定時刻の映像フレームがありません');
+  return {index,seconds:Math.round(meta.samples[index].cts*1e6/meta.track.timescale)/1e6+meta.timelineOffset};
+ }
+ async function nearestTime(file,seconds){return selectFrame(await metadata(file),seconds).seconds;}
+ async function frameAt(file,seconds){
+  const started=performance.now(),meta=await metadata(file),selected=selectFrame(meta,seconds).index,metadataMs=performance.now()-started;
+  let first=selected;while(first>0&&!meta.samples[first].is_sync)first--;
+  let end=selected+1;while(end<meta.samples.length&&!meta.samples[end].is_sync)end++;
+  let chosen=null,chosenDistance=Infinity,failure=null,waiting=null,decoded=0,queueWaitMs=0;
+  const decoder=new VideoDecoder({output:frame=>{decoded++;const d=Math.abs(frame.timestamp/1e6+meta.timelineOffset-seconds);if(d<chosenDistance){chosen?.close();chosen=frame;chosenDistance=d;}else frame.close();},error:e=>{failure=e;waiting?.();}});
+  // Wake only when the decoder consumes input, rather than adding 8ms sleeps
+  // repeatedly even when hardware decode has already completed.
+  const drain=async()=>{while(decoder.decodeQueueSize>6){if(failure)throw failure;const t=performance.now();await new Promise(resolve=>{const wake=()=>{decoder.removeEventListener('dequeue',wake);waiting=null;resolve();};waiting=wake;decoder.addEventListener('dequeue',wake,{once:true});if(decoder.decodeQueueSize<=6||failure)wake();});queueWaitMs+=performance.now()-t;}if(failure)throw failure;};
+  const support=await VideoDecoder.isConfigSupported(meta.config);if(!support.supported)throw Error('指定時刻のフレームデコードを利用できません');decoder.configure(support.config);
+  let readMs=0,decodeMs=0;
+  try{
+   // Read contiguous encoded data in bounded blocks instead of one asynchronous
+   // file operation for every frame. Audio interleaving is retained by offsets.
+   let cache=new Uint8Array(),cacheStart=-1;const decoding=performance.now();
+   for(let i=first;i<end;i++){await drain();const s=meta.samples[i];
+    if(s.offset<cacheStart||s.offset+s.size>cacheStart+cache.length){const t=performance.now();cacheStart=s.offset;cache=new Uint8Array(await file.slice(cacheStart,Math.min(file.size,cacheStart+Math.max(4*1024*1024,s.size))).arrayBuffer());readMs+=performance.now()-t;}
+    const bytes=cache.subarray(s.offset-cacheStart,s.offset-cacheStart+s.size);if(bytes.length!==s.size)throw Error('動画の一部を読み取れませんでした。');
+    decoder.decode(new EncodedVideoChunk({type:s.is_sync?'key':'delta',timestamp:Math.round(s.cts*1e6/s.timescale),duration:Math.round(s.duration*1e6/s.timescale),data:bytes}));}
+   await decoder.flush();if(failure)throw failure;if(!chosen)throw Error('指定時刻の映像をデコードできません');
+   decodeMs=performance.now()-decoding;const copying=performance.now();
+   const rotated=meta.rotation===90||meta.rotation===270,canvas=document.createElement('canvas');canvas.width=rotated?chosen.displayHeight:chosen.displayWidth;canvas.height=rotated?chosen.displayWidth:chosen.displayHeight;
+   const ctx=canvas.getContext('2d',{willReadFrequently:true});ctx.translate(canvas.width/2,canvas.height/2);ctx.rotate(meta.rotation*Math.PI/180);ctx.drawImage(chosen,-chosen.displayWidth/2,-chosen.displayHeight/2);
+   const image=ctx.getImageData(0,0,canvas.width,canvas.height);
+   return {image,requested:seconds,seconds:chosen.timestamp/1e6+meta.timelineOffset,timestampUs:chosen.timestamp,errorSeconds:chosenDistance,index:selected,timing:{totalMs:performance.now()-started,metadataMs,readMs,decodeMs,queueWaitMs,copyMs:performance.now()-copying,decodedFrames:decoded,fixedWaitMs:0}};
+  }finally{chosen?.close();if(decoder.state!=='closed')decoder.close();}
+ }
+ root.A4Offline={inspect,run,frameAt,nearestTime};
 })(globalThis);
+

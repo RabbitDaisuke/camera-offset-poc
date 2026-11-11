@@ -13,3 +13,4 @@
  }
  root.A4Print={pdf};if(typeof module!=='undefined')module.exports=root.A4Print;
 })(typeof self!=='undefined'?self:globalThis);
+

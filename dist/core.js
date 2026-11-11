@@ -62,16 +62,12 @@
       const cv=this.cv,groups=[];
       for(const profile of Object.values(spec.profiles)){
         let remaining=markers.filter(m=>m.id>=profile.firstId&&m.id<profile.firstId+profile.count);
-        while(remaining.length>=2){
-          const a=cv.matFromArray(remaining.length*4,1,cv.CV_32FC2,remaining.flatMap(m=>tagUV(m.id).flat())),b=cv.matFromArray(remaining.length*4,1,cv.CV_32FC2,remaining.flatMap(m=>m.corners.flat())),mask=new cv.Mat();let H;
-          try{
-            H=cv.findHomography(a,b,cv.RANSAC,3,mask,1000,.995);if(H.empty())break;
-            const seen=new Set(),selected=remaining.filter((m,j)=>{if(seen.has(m.id)||[0,1,2,3].filter(k=>mask.data[j*4+k]).length<3)return false;seen.add(m.id);return true;});
-            if(selected.length<2)break;
-            const pts=selected.flatMap(m=>m.corners),xs=pts.map(p=>p[0]),ys=pts.map(p=>p[1]),x=Math.min(...xs),y=Math.min(...ys),width=Math.max(...xs)-x,height=Math.max(...ys)-y;
-            groups.push({markers:selected,profile:profile.firstId,bounds:{x,y,width,height},center:[x+width/2,y+height/2]});
-            remaining=remaining.filter(m=>!selected.includes(m));
-          }finally{H?.delete();a.delete();b.delete();mask.delete();}
+        const homography=ms=>{const a=cv.matFromArray(ms.length*4,1,cv.CV_32FC2,ms.flatMap(m=>tagUV(m.id).flat())),b=cv.matFromArray(ms.length*4,1,cv.CV_32FC2,ms.flatMap(m=>m.corners.flat()));try{const H=cv.findHomography(a,b,0);try{return H.empty()?null:Array.from(H.data64F);}finally{H.delete();}}finally{a.delete();b.delete();}};
+        const select=(H,tolerance)=>{const best=new Map();for(const m of remaining){const uv=tagUV(m.id);let sq=0;for(let k=0;k<4;k++){const [u,v]=uv[k],z=H[6]*u+H[7]*v+H[8];sq+=((H[0]*u+H[1]*v+H[2])/z-m.corners[k][0])**2+((H[3]*u+H[4]*v+H[5])/z-m.corners[k][1])**2;}const error=Math.sqrt(sq/4);if(error<tolerance&&(!best.has(m.id)||best.get(m.id).error>error))best.set(m.id,{m,error});}return [...best.values()];};
+        while(remaining.length>=2){let best=null;
+          for(const seed of remaining){let H=homography([seed]);if(!H)continue;const edge=Math.max(...seed.corners.map((p,i)=>Math.hypot(p[0]-seed.corners[(i+1)%4][0],p[1]-seed.corners[(i+1)%4][1])));let selected=select(H,Math.max(4,edge*.18));if(selected.length<2)continue;H=homography(selected.map(x=>x.m));selected=H?select(H,4):[];if(selected.length<2)continue;const error=selected.reduce((s,x)=>s+x.error,0)/selected.length;if(!best||selected.length>best.selected.length||selected.length===best.selected.length&&error<best.error)best={selected,error};}
+          if(!best)break;const chosen=best.selected.map(x=>x.m),pts=chosen.flatMap(m=>m.corners),xs=pts.map(p=>p[0]),ys=pts.map(p=>p[1]),x=Math.min(...xs),y=Math.min(...ys),width=Math.max(...xs)-x,height=Math.max(...ys)-y;
+          groups.push({markers:chosen,profile:profile.firstId,bounds:{x,y,width,height},center:[x+width/2,y+height/2]});remaining=remaining.filter(m=>!chosen.includes(m));
         }
       }
       return groups.sort((a,b)=>a.center[1]-b.center[1]);
@@ -127,19 +123,30 @@
       const rt=transpose(best.pose.R);for(const o of observations)if(!best.used.has(o)){const id=Math.max(...state.boards.map(b=>b.id))+1;state.boards.push({id,profile:o.g.profile,bounds:o.g.bounds,R:matmul(rt,o.p.R),t:mul(rt,o.p.t.map((v,i)=>v-best.pose.t[i]))});}
       const chosen=best.matches.find(m=>m.board.id===state.anchor)||best.matches[0];state.active=state.boards.indexOf(chosen.board);return chosen.observed.g;
     }
+    recover(detection,settings){
+      const state=this.tracks.get(settings.streamKey||'single');if(!state||state.width!==detection.width||state.height!==detection.height)return {recovered:false};
+      const groups=this.boards(detection.markers),k=intrinsics(state.width,state.height,settings);state.lastFullSearch=performance.now();
+      if(state.autoLens&&!settings.calibration)Object.assign(k,{K:state.autoLens.K,D:state.autoLens.D});
+      const scale=(settings.ruler||100)/100,local=g=>g.markers.map(m=>({...m,object:tagUV(m.id).map(([u,v])=>[(u-148.5)*scale,(105-v)*scale,0])}));
+      let chosen=null;if(state.boards.length)chosen=this.relocalize(groups,state,k,local);
+      else if(groups.length){state.pendingBounds=(groups[settings.referenceIndex||0]||groups[0]).bounds;}
+      return {recovered:!!chosen,nextBounds:chosen?.bounds||state.pendingBounds||null};
+    }
     plane(image,settings,k,motionImage) {
       const input=settings.inputRegion,w=input?.sourceWidth||image.width,h=input?.sourceHeight||image.height;
       const key=settings.streamKey||'single',previous=this.tracks.get(key),valid=previous&&previous.width===w&&previous.height===h;
       const state=valid?previous:{width:w,height:h,misses:0,boards:[],active:0};
       if(settings.autoFov&&!settings.calibration&&state.autoLens)Object.assign(k,{K:state.autoLens.K,D:state.autoLens.D,source:'a4-estimated',autoLens:state.autoLens});
-      if(settings.forceSearch)state.wantFullSearch=true;const searchDue=state.boards.length&&(state.wantFullSearch||state.lastMeasured&&performance.now()-state.lastMeasured>=30000&&performance.now()-(state.lastFullSearch||0)>=30000);
+      if(settings.forceSearch)state.wantFullSearch=true;const searchDue=(state.boards.length||state.pendingBounds)&&(state.wantFullSearch||!settings.backgroundSearch&&performance.now()-(state.lastFullSearch||0)>=30000&&(!state.lastMeasured||performance.now()-state.lastMeasured>=30000));
       if(searchDue&&input){state.wantFullSearch=true;this.tracks.set(key,state);return {markers:[],rejected:[],pose:null,requestFullSearch:true,nextBounds:null,boardCount:state.boards.length,boards:state.boards.map(b=>({id:b.id,profile:b.profile,bounds:b.bounds,R:b.R,t:b.t})),reference:state.anchor,held:!!state.lastPose&&!state.movedSincePose,holdAgeMs:performance.now()-state.lastMeasured,movedSincePose:!!state.movedSincePose,lost:true,search:'全体を確認',timing:{prepareMs:0,detectMs:0}};}
       const motion=motionImage?this.background(motionImage,state,w,h):{status:'uncertain',points:0,ms:0};if(motion.status==='moving')state.movedSincePose=true;
-      const active=searchDue?null:state.boards[state.active],region=!input&&(active||state.pendingBounds)?this.region(active?.bounds||state.pendingBounds,w,h,state.misses?2:1):null;
+      const active=searchDue?null:state.boards[state.active],region=!searchDue&&!input&&(active||state.pendingBounds)?this.region(active?.bounds||state.pendingBounds,w,h,state.misses?2:1):null;
       if(searchDue){state.lastFullSearch=performance.now();state.wantFullSearch=false;}
       const presence=active&&state.misses?this.presence(image,active,input):1;
-      const skipped=active&&state.misses&&presence<.68&&motion.status!=='moving'&&state.misses%15!==0;
+      const skipped=active&&state.misses&&presence<.68&&motion.status!=='moving'&&state.misses%15!==0||settings.backgroundSearch&&state.searchedFrame&&!region&&!input&&!settings.forceSearch&&!active&&!state.pendingBounds;
       let d=skipped?{markers:[],rejected:[],timing:{prepareMs:0,detectMs:0},search:'復帰待ち'}:this.detect(image,{...settings,fastRoi:!!active&&active.markerPx>=32&&!state.misses},false,region,0);
+      if(!skipped)state.searchedFrame=true;
+      if(!skipped&&!region&&!input)state.lastFullSearch=performance.now();
       if(input){d.markers.forEach(m=>m.corners=m.corners.map(p=>[p[0]+input.x,p[1]+input.y]));d.rejected=d.rejected.map(a=>a.map((v,i)=>v+(i%2?input.y:input.x)));d.region=input;d.search='追跡';}
       const scale=(settings.ruler||100)/100,local=g=>g.markers.map(m=>({...m,object:tagUV(m.id).map(([u,v])=>[(u-148.5)*scale,(105-v)*scale,0])}));
       let groups=this.boards(d.markers),chosen,board=active;
@@ -216,6 +223,7 @@
       }finally{resources.reverse().forEach(x=>x.delete());}
     }
   }
-  root.A4Core={spec,profileFor,tagUV,point,project,intrinsics,mul,transpose,Engine};
+  root.A4Core={spec,profileFor,tagUV,point,project,intrinsics,mul,transpose,orientation,Engine};
   if(typeof module!=='undefined')module.exports=root.A4Core;
 })(typeof self!=='undefined'?self:globalThis);
+

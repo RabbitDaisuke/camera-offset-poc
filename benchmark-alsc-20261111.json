@@ -1,0 +1,2063 @@
+{
+  "foot": {
+    "utc": "2026-11-11T08:04:57.332Z",
+    "options": {
+      "size": 640,
+      "step": 1,
+      "ncc": 0.8,
+      "unique": 0.035,
+      "near": 0.3,
+      "far": 6,
+      "scope": "foreground",
+      "method": "sgbm",
+      "backend": "webgpu",
+      "ruler": 100,
+      "radial": true,
+      "refs": [
+        0,
+        1
+      ],
+      "subpixel": true,
+      "completion": true,
+      "patchRadius": 6,
+      "stereoBlock": 9,
+      "completionMethod": "alsc",
+      "alscRadius": 10,
+      "alscRounds": 32,
+      "inspectRegion": [
+        [
+          485.6009480654542,
+          449.7152429584862
+        ],
+        [
+          468.9815294135279,
+          450.70592906216257
+        ],
+        [
+          434.0484058991158,
+          422.5111732141538
+        ],
+        [
+          430.08001222910576,
+          397.3568876638102
+        ],
+        [
+          434.6107844546504,
+          328.77354674416995
+        ],
+        [
+          447.4782716709069,
+          314.81191694460847
+        ],
+        [
+          460.8761106823009,
+          317.1379129584572
+        ],
+        [
+          472.9076900918553,
+          335.47497107563953
+        ],
+        [
+          484.9810301880766,
+          392.86573154598364
+        ]
+      ]
+    },
+    "foot": {
+      "original": 391,
+      "alsc": 96,
+      "originalInsideRight": 391,
+      "alscInsideRight": 96
+    },
+    "completion": {
+      "method": "epipolar-ALSC-region-growing",
+      "measured": 6374,
+      "matched": 2019,
+      "estimated": 0,
+      "matchedLeft": 16501,
+      "matchedRight": 12633,
+      "lrRejected": 9796,
+      "filterRejected": 554,
+      "rounds": 32,
+      "radius": 10,
+      "prepareMs": 57.599999997764826,
+      "computeReadbackMs": 92.30000000074506,
+      "totalMs": 638.5
+    },
+    "timing": {
+      "seekMs": 0.30000000074505806,
+      "decodePairMs": 91.10000000149012,
+      "workerRoundTripMs": 2846.099999997765,
+      "workerComputeMs": 2824.900000002235,
+      "workerTransferWaitMs": 21.19999999552965,
+      "renderMs": 35.600000001490116,
+      "totalMs": 2973.10000000149
+    },
+    "fingerprints": {
+      "input": [
+        826920303,
+        2049744311
+      ],
+      "rectified": [
+        1115750409,
+        4281143425
+      ],
+      "background": [
+        80980740,
+        2026700301
+      ],
+      "afterMatch": [
+        1115750409,
+        4281143425
+      ],
+      "shadow": [
+        2988821470,
+        2305207411
+      ]
+    }
+  },
+  "benchmark": {
+    "started": "2026-11-11T08:05:23.338Z",
+    "runs": [
+      {
+        "time": 1.16,
+        "baseline": {
+          "pointCount": 2994,
+          "timing": {
+            "seekMs": 0.20000000298023224,
+            "decodePairMs": 117.69999999925494,
+            "workerRoundTripMs": 1362,
+            "workerComputeMs": 1350.5,
+            "workerTransferWaitMs": 11.5,
+            "renderMs": 16.300000000745058,
+            "totalMs": 1496.2000000029802
+          },
+          "gpu": {
+            "prepareMs": 22.699999999254942,
+            "gpuMs": 132.841472,
+            "submitAndReadbackMs": 153.69999999925494,
+            "postprocessMs": 79.5,
+            "totalMs": 255.89999999850988,
+            "volumeBytes": 1083594240,
+            "backend": "WebGPU RGB SGBM 3WAY"
+          },
+          "measuredHashes": [
+            3566643373,
+            3632621478,
+            4180637511
+          ],
+          "fingerprints": {
+            "input": [
+              2979228300,
+              1775185932
+            ],
+            "rectified": [
+              2217516531,
+              694765539
+            ],
+            "background": [
+              80980740,
+              2026700301
+            ],
+            "afterMatch": [
+              2217516531,
+              694765539
+            ],
+            "shadow": [
+              2177297025,
+              1895547880
+            ]
+          }
+        },
+        "alsc": {
+          "pointCount": 5187,
+          "completion": {
+            "method": "epipolar-ALSC-region-growing",
+            "measured": 2994,
+            "matched": 2193,
+            "estimated": 0,
+            "matchedLeft": 12384,
+            "matchedRight": 13204,
+            "lrRejected": 8235,
+            "filterRejected": 0,
+            "rounds": 32,
+            "radius": 10,
+            "prepareMs": 36,
+            "computeReadbackMs": 79.70000000298023,
+            "totalMs": 351.30000000074506
+          },
+          "timing": {
+            "seekMs": 0.10000000149011612,
+            "decodePairMs": 102.69999999925494,
+            "workerRoundTripMs": 1655.800000000745,
+            "workerComputeMs": 1643.2000000029802,
+            "workerTransferWaitMs": 12.599999997764826,
+            "renderMs": 19.600000001490116,
+            "totalMs": 1778.2000000029802
+          },
+          "gpu": {
+            "prepareMs": 13.099999997764826,
+            "gpuMs": 130.351104,
+            "submitAndReadbackMs": 138.10000000149012,
+            "postprocessMs": 46.100000001490116,
+            "totalMs": 197.30000000074506,
+            "volumeBytes": 1083594240,
+            "backend": "WebGPU RGB SGBM 3WAY"
+          },
+          "measuredHashes": [
+            3566643373,
+            3632621478,
+            4180637511
+          ],
+          "fingerprints": {
+            "input": [
+              2979228300,
+              1775185932
+            ],
+            "rectified": [
+              2217516531,
+              694765539
+            ],
+            "background": [
+              80980740,
+              2026700301
+            ],
+            "afterMatch": [
+              2217516531,
+              694765539
+            ],
+            "shadow": [
+              2177297025,
+              1895547880
+            ]
+          }
+        }
+      },
+      {
+        "time": 6.27,
+        "baseline": {
+          "pointCount": 4499,
+          "timing": {
+            "seekMs": 0.10000000149011612,
+            "decodePairMs": 109.10000000149012,
+            "workerRoundTripMs": 1611.699999999255,
+            "workerComputeMs": 1598.5,
+            "workerTransferWaitMs": 13.199999999254942,
+            "renderMs": 12.199999999254942,
+            "totalMs": 1733.1000000014901
+          },
+          "gpu": {
+            "prepareMs": 8.199999999254942,
+            "gpuMs": 132.38272,
+            "submitAndReadbackMs": 141.69999999925494,
+            "postprocessMs": 43.70000000298023,
+            "totalMs": 193.60000000149012,
+            "volumeBytes": 1083594240,
+            "backend": "WebGPU RGB SGBM 3WAY"
+          },
+          "measuredHashes": [
+            3504469020,
+            1059993186,
+            2086920872
+          ],
+          "fingerprints": {
+            "input": [
+              4144407917,
+              4139270515
+            ],
+            "rectified": [
+              508334740,
+              2301282834
+            ],
+            "background": [
+              80980740,
+              2026700301
+            ],
+            "afterMatch": [
+              508334740,
+              2301282834
+            ],
+            "shadow": [
+              3748930373,
+              2270062205
+            ]
+          }
+        },
+        "alsc": {
+          "pointCount": 6865,
+          "completion": {
+            "method": "epipolar-ALSC-region-growing",
+            "measured": 4499,
+            "matched": 2366,
+            "estimated": 0,
+            "matchedLeft": 13648,
+            "matchedRight": 16085,
+            "lrRejected": 7702,
+            "filterRejected": 815,
+            "rounds": 32,
+            "radius": 10,
+            "prepareMs": 41.5,
+            "computeReadbackMs": 78.19999999925494,
+            "totalMs": 337
+          },
+          "timing": {
+            "seekMs": 0,
+            "decodePairMs": 88.89999999850988,
+            "workerRoundTripMs": 1915.3999999985099,
+            "workerComputeMs": 1903.6000000014901,
+            "workerTransferWaitMs": 11.799999997019768,
+            "renderMs": 12.700000002980232,
+            "totalMs": 2017
+          },
+          "gpu": {
+            "prepareMs": 12.400000002235174,
+            "gpuMs": 130.547712,
+            "submitAndReadbackMs": 136.30000000074506,
+            "postprocessMs": 84.09999999776483,
+            "totalMs": 232.80000000074506,
+            "volumeBytes": 1083594240,
+            "backend": "WebGPU RGB SGBM 3WAY"
+          },
+          "measuredHashes": [
+            3504469020,
+            1059993186,
+            2086920872
+          ],
+          "fingerprints": {
+            "input": [
+              4144407917,
+              4139270515
+            ],
+            "rectified": [
+              508334740,
+              2301282834
+            ],
+            "background": [
+              80980740,
+              2026700301
+            ],
+            "afterMatch": [
+              508334740,
+              2301282834
+            ],
+            "shadow": [
+              3748930373,
+              2270062205
+            ]
+          }
+        }
+      },
+      {
+        "time": 7.812,
+        "baseline": {
+          "pointCount": 5259,
+          "timing": {
+            "seekMs": 0.19999999925494194,
+            "decodePairMs": 119.5,
+            "workerRoundTripMs": 1525.800000000745,
+            "workerComputeMs": 1498.5,
+            "workerTransferWaitMs": 27.300000000745058,
+            "renderMs": 10.300000000745058,
+            "totalMs": 1655.800000000745
+          },
+          "gpu": {
+            "prepareMs": 5.399999998509884,
+            "gpuMs": 134.02112,
+            "submitAndReadbackMs": 139.19999999925494,
+            "postprocessMs": 36.20000000298023,
+            "totalMs": 180.80000000074506,
+            "volumeBytes": 1083594240,
+            "backend": "WebGPU RGB SGBM 3WAY"
+          },
+          "measuredHashes": [
+            3728841533,
+            91541224,
+            3701718315
+          ],
+          "fingerprints": {
+            "input": [
+              1827909211,
+              1148757972
+            ],
+            "rectified": [
+              383197131,
+              3033040905
+            ],
+            "background": [
+              80980740,
+              2026700301
+            ],
+            "afterMatch": [
+              383197131,
+              3033040905
+            ],
+            "shadow": [
+              4154466469,
+              3240001397
+            ]
+          }
+        },
+        "alsc": {
+          "pointCount": 8069,
+          "completion": {
+            "method": "epipolar-ALSC-region-growing",
+            "measured": 5259,
+            "matched": 2810,
+            "estimated": 0,
+            "matchedLeft": 17060,
+            "matchedRight": 16846,
+            "lrRejected": 11288,
+            "filterRejected": 0,
+            "rounds": 32,
+            "radius": 10,
+            "prepareMs": 46.099999997764826,
+            "computeReadbackMs": 82.40000000223517,
+            "totalMs": 375
+          },
+          "timing": {
+            "seekMs": 0,
+            "decodePairMs": 96.59999999776483,
+            "workerRoundTripMs": 2078.800000000745,
+            "workerComputeMs": 2066.5,
+            "workerTransferWaitMs": 12.300000000745058,
+            "renderMs": 20.400000002235174,
+            "totalMs": 2195.800000000745
+          },
+          "gpu": {
+            "prepareMs": 12.399999998509884,
+            "gpuMs": 133.496832,
+            "submitAndReadbackMs": 138.5,
+            "postprocessMs": 55.30000000074506,
+            "totalMs": 206.19999999925494,
+            "volumeBytes": 1083594240,
+            "backend": "WebGPU RGB SGBM 3WAY"
+          },
+          "measuredHashes": [
+            3728841533,
+            91541224,
+            3701718315
+          ],
+          "fingerprints": {
+            "input": [
+              1827909211,
+              1148757972
+            ],
+            "rectified": [
+              383197131,
+              3033040905
+            ],
+            "background": [
+              80980740,
+              2026700301
+            ],
+            "afterMatch": [
+              383197131,
+              3033040905
+            ],
+            "shadow": [
+              4154466469,
+              3240001397
+            ]
+          }
+        }
+      },
+      {
+        "time": 12.255,
+        "baseline": {
+          "pointCount": 11216,
+          "timing": {
+            "seekMs": 0,
+            "decodePairMs": 102.80000000074506,
+            "workerRoundTripMs": 2366.7999999970198,
+            "workerComputeMs": 2352.10000000149,
+            "workerTransferWaitMs": 14.699999995529652,
+            "renderMs": 21.400000002235174,
+            "totalMs": 2491
+          },
+          "gpu": {
+            "prepareMs": 15.100000001490116,
+            "gpuMs": 138.543104,
+            "submitAndReadbackMs": 144.39999999850988,
+            "postprocessMs": 83.30000000074506,
+            "totalMs": 242.80000000074506,
+            "volumeBytes": 1083594240,
+            "backend": "WebGPU RGB SGBM 3WAY"
+          },
+          "measuredHashes": [
+            843680717,
+            983836639,
+            396068183
+          ],
+          "fingerprints": {
+            "input": [
+              847046183,
+              4275836471
+            ],
+            "rectified": [
+              3313071762,
+              1499132038
+            ],
+            "background": [
+              80980740,
+              2026700301
+            ],
+            "afterMatch": [
+              3313071762,
+              1499132038
+            ],
+            "shadow": [
+              840029575,
+              3102420085
+            ]
+          }
+        },
+        "alsc": {
+          "pointCount": 14193,
+          "completion": {
+            "method": "epipolar-ALSC-region-growing",
+            "measured": 11216,
+            "matched": 2977,
+            "estimated": 0,
+            "matchedLeft": 23010,
+            "matchedRight": 23684,
+            "lrRejected": 11922,
+            "filterRejected": 1162,
+            "rounds": 32,
+            "radius": 10,
+            "prepareMs": 82.09999999776483,
+            "computeReadbackMs": 104.40000000223517,
+            "totalMs": 439.5999999977648
+          },
+          "timing": {
+            "seekMs": 0.09999999776482582,
+            "decodePairMs": 111.30000000074506,
+            "workerRoundTripMs": 2618,
+            "workerComputeMs": 2604.5,
+            "workerTransferWaitMs": 13.5,
+            "renderMs": 18.600000001490116,
+            "totalMs": 2748
+          },
+          "gpu": {
+            "prepareMs": 3.7000000029802322,
+            "gpuMs": 137.756672,
+            "submitAndReadbackMs": 148.5,
+            "postprocessMs": 70.29999999701977,
+            "totalMs": 222.5,
+            "volumeBytes": 1083594240,
+            "backend": "WebGPU RGB SGBM 3WAY"
+          },
+          "measuredHashes": [
+            843680717,
+            983836639,
+            396068183
+          ],
+          "fingerprints": {
+            "input": [
+              847046183,
+              4275836471
+            ],
+            "rectified": [
+              3313071762,
+              1499132038
+            ],
+            "background": [
+              80980740,
+              2026700301
+            ],
+            "afterMatch": [
+              3313071762,
+              1499132038
+            ],
+            "shadow": [
+              840029575,
+              3102420085
+            ]
+          }
+        }
+      },
+      {
+        "time": 15.141,
+        "baseline": {
+          "pointCount": 8136,
+          "timing": {
+            "seekMs": 0.10000000149011612,
+            "decodePairMs": 116.80000000074506,
+            "workerRoundTripMs": 1885.2999999970198,
+            "workerComputeMs": 1871.2000000029802,
+            "workerTransferWaitMs": 14.099999994039536,
+            "renderMs": 13.900000002235174,
+            "totalMs": 2016.1000000014901
+          },
+          "gpu": {
+            "prepareMs": 13.199999999254942,
+            "gpuMs": 137.29792,
+            "submitAndReadbackMs": 148.39999999850988,
+            "postprocessMs": 57.30000000074506,
+            "totalMs": 218.89999999850988,
+            "volumeBytes": 1083594240,
+            "backend": "WebGPU RGB SGBM 3WAY"
+          },
+          "measuredHashes": [
+            511345500,
+            3001304472,
+            1995386584
+          ],
+          "fingerprints": {
+            "input": [
+              255239537,
+              2397911461
+            ],
+            "rectified": [
+              397862211,
+              2461887985
+            ],
+            "background": [
+              80980740,
+              2026700301
+            ],
+            "afterMatch": [
+              397862211,
+              2461887985
+            ],
+            "shadow": [
+              3295602061,
+              512663236
+            ]
+          }
+        },
+        "alsc": {
+          "pointCount": 11023,
+          "completion": {
+            "method": "epipolar-ALSC-region-growing",
+            "measured": 8136,
+            "matched": 2887,
+            "estimated": 0,
+            "matchedLeft": 20586,
+            "matchedRight": 20852,
+            "lrRejected": 11970,
+            "filterRejected": 532,
+            "rounds": 32,
+            "radius": 10,
+            "prepareMs": 60.100000001490116,
+            "computeReadbackMs": 101.60000000149012,
+            "totalMs": 446.6000000014901
+          },
+          "timing": {
+            "seekMs": 0.10000000149011612,
+            "decodePairMs": 95.10000000149012,
+            "workerRoundTripMs": 2249.5,
+            "workerComputeMs": 2237.199999999255,
+            "workerTransferWaitMs": 12.300000000745058,
+            "renderMs": 22.299999997019768,
+            "totalMs": 2367
+          },
+          "gpu": {
+            "prepareMs": 4,
+            "gpuMs": 136.249344,
+            "submitAndReadbackMs": 142.5,
+            "postprocessMs": 83,
+            "totalMs": 229.5,
+            "volumeBytes": 1083594240,
+            "backend": "WebGPU RGB SGBM 3WAY"
+          },
+          "measuredHashes": [
+            511345500,
+            3001304472,
+            1995386584
+          ],
+          "fingerprints": {
+            "input": [
+              255239537,
+              2397911461
+            ],
+            "rectified": [
+              397862211,
+              2461887985
+            ],
+            "background": [
+              80980740,
+              2026700301
+            ],
+            "afterMatch": [
+              397862211,
+              2461887985
+            ],
+            "shadow": [
+              3295602061,
+              512663236
+            ]
+          }
+        }
+      },
+      {
+        "time": 22.031,
+        "baseline": {
+          "pointCount": 8214,
+          "timing": {
+            "seekMs": 0.10000000149011612,
+            "decodePairMs": 126.80000000074506,
+            "workerRoundTripMs": 1926.3999999985099,
+            "workerComputeMs": 1915.699999999255,
+            "workerTransferWaitMs": 10.699999999254942,
+            "renderMs": 14.699999999254942,
+            "totalMs": 2068
+          },
+          "gpu": {
+            "prepareMs": 15,
+            "gpuMs": 143.327232,
+            "submitAndReadbackMs": 150.39999999850988,
+            "postprocessMs": 52.100000001490116,
+            "totalMs": 217.5,
+            "volumeBytes": 1083594240,
+            "backend": "WebGPU RGB SGBM 3WAY"
+          },
+          "measuredHashes": [
+            1153150145,
+            1302275727,
+            2908947204
+          ],
+          "fingerprints": {
+            "input": [
+              954233399,
+              2314278032
+            ],
+            "rectified": [
+              1055825765,
+              311430788
+            ],
+            "background": [
+              80980740,
+              2026700301
+            ],
+            "afterMatch": [
+              1055825765,
+              311430788
+            ],
+            "shadow": [
+              4036890179,
+              2810854680
+            ]
+          }
+        },
+        "alsc": {
+          "pointCount": 10446,
+          "completion": {
+            "method": "epipolar-ALSC-region-growing",
+            "measured": 8214,
+            "matched": 2232,
+            "estimated": 0,
+            "matchedLeft": 13829,
+            "matchedRight": 12198,
+            "lrRejected": 5467,
+            "filterRejected": 399,
+            "rounds": 32,
+            "radius": 10,
+            "prepareMs": 66.10000000149012,
+            "computeReadbackMs": 79.30000000074506,
+            "totalMs": 367.69999999925494
+          },
+          "timing": {
+            "seekMs": 0.10000000149011612,
+            "decodePairMs": 106.30000000074506,
+            "workerRoundTripMs": 2342.599999997765,
+            "workerComputeMs": 2329.800000000745,
+            "workerTransferWaitMs": 12.799999997019768,
+            "renderMs": 16.100000001490116,
+            "totalMs": 2465.10000000149
+          },
+          "gpu": {
+            "prepareMs": 7.5,
+            "gpuMs": 136.380416,
+            "submitAndReadbackMs": 144.69999999925494,
+            "postprocessMs": 84,
+            "totalMs": 236.19999999925494,
+            "volumeBytes": 1083594240,
+            "backend": "WebGPU RGB SGBM 3WAY"
+          },
+          "measuredHashes": [
+            1153150145,
+            1302275727,
+            2908947204
+          ],
+          "fingerprints": {
+            "input": [
+              954233399,
+              2314278032
+            ],
+            "rectified": [
+              1055825765,
+              311430788
+            ],
+            "background": [
+              80980740,
+              2026700301
+            ],
+            "afterMatch": [
+              1055825765,
+              311430788
+            ],
+            "shadow": [
+              4036890179,
+              2810854680
+            ]
+          }
+        }
+      },
+      {
+        "time": 38.744,
+        "baseline": {
+          "pointCount": 3105,
+          "timing": {
+            "seekMs": 0,
+            "decodePairMs": 110.5,
+            "workerRoundTripMs": 1422.4000000022352,
+            "workerComputeMs": 1408.5,
+            "workerTransferWaitMs": 13.900000002235174,
+            "renderMs": 7.399999998509884,
+            "totalMs": 1540.300000000745
+          },
+          "gpu": {
+            "prepareMs": 16.800000000745058,
+            "gpuMs": 136.052736,
+            "submitAndReadbackMs": 148.19999999925494,
+            "postprocessMs": 40.100000001490116,
+            "totalMs": 205.10000000149012,
+            "volumeBytes": 1083594240,
+            "backend": "WebGPU RGB SGBM 3WAY"
+          },
+          "measuredHashes": [
+            2764379730,
+            3919134491,
+            2441643324
+          ],
+          "fingerprints": {
+            "input": [
+              909691234,
+              2941076702
+            ],
+            "rectified": [
+              1746485715,
+              1360184212
+            ],
+            "background": [
+              80980740,
+              2026700301
+            ],
+            "afterMatch": [
+              1746485715,
+              1360184212
+            ],
+            "shadow": [
+              2850053800,
+              3626342672
+            ]
+          }
+        },
+        "alsc": {
+          "pointCount": 3789,
+          "completion": {
+            "method": "epipolar-ALSC-region-growing",
+            "measured": 3105,
+            "matched": 684,
+            "estimated": 0,
+            "matchedLeft": 9643,
+            "matchedRight": 3388,
+            "lrRejected": 7293,
+            "filterRejected": 8,
+            "rounds": 32,
+            "radius": 10,
+            "prepareMs": 43.30000000074506,
+            "computeReadbackMs": 62.100000001490116,
+            "totalMs": 198.60000000149012
+          },
+          "timing": {
+            "seekMs": 0.5,
+            "decodePairMs": 134.40000000223517,
+            "workerRoundTripMs": 1489.5999999977648,
+            "workerComputeMs": 1473.2000000029802,
+            "workerTransferWaitMs": 16.399999994784594,
+            "renderMs": 6.400000002235174,
+            "totalMs": 1630.9000000022352
+          },
+          "gpu": {
+            "prepareMs": 3.800000000745058,
+            "gpuMs": 133.758976,
+            "submitAndReadbackMs": 138.60000000149012,
+            "postprocessMs": 78.09999999776483,
+            "totalMs": 220.5,
+            "volumeBytes": 1083594240,
+            "backend": "WebGPU RGB SGBM 3WAY"
+          },
+          "measuredHashes": [
+            2764379730,
+            3919134491,
+            2441643324
+          ],
+          "fingerprints": {
+            "input": [
+              909691234,
+              2941076702
+            ],
+            "rectified": [
+              1746485715,
+              1360184212
+            ],
+            "background": [
+              80980740,
+              2026700301
+            ],
+            "afterMatch": [
+              1746485715,
+              1360184212
+            ],
+            "shadow": [
+              2850053800,
+              3626342672
+            ]
+          }
+        }
+      },
+      {
+        "time": 79.736,
+        "baseline": {
+          "pointCount": 3635,
+          "timing": {
+            "seekMs": 0.19999999925494194,
+            "decodePairMs": 134.19999999925494,
+            "workerRoundTripMs": 1416.4000000022352,
+            "workerComputeMs": 1401.5,
+            "workerTransferWaitMs": 14.900000002235174,
+            "renderMs": 8,
+            "totalMs": 1558.800000000745
+          },
+          "gpu": {
+            "prepareMs": 14.300000000745058,
+            "gpuMs": 133.627904,
+            "submitAndReadbackMs": 142.30000000074506,
+            "postprocessMs": 67.59999999776483,
+            "totalMs": 224.19999999925494,
+            "volumeBytes": 1083594240,
+            "backend": "WebGPU RGB SGBM 3WAY"
+          },
+          "measuredHashes": [
+            3093284581,
+            2652179409,
+            370694822
+          ],
+          "fingerprints": {
+            "input": [
+              3943748780,
+              4123571212
+            ],
+            "rectified": [
+              1294483330,
+              589855440
+            ],
+            "background": [
+              80980740,
+              2026700301
+            ],
+            "afterMatch": [
+              1294483330,
+              589855440
+            ],
+            "shadow": [
+              842809089,
+              1141429013
+            ]
+          }
+        },
+        "alsc": {
+          "pointCount": 5117,
+          "completion": {
+            "method": "epipolar-ALSC-region-growing",
+            "measured": 3635,
+            "matched": 1482,
+            "estimated": 0,
+            "matchedLeft": 12478,
+            "matchedRight": 13449,
+            "lrRejected": 8769,
+            "filterRejected": 73,
+            "rounds": 32,
+            "radius": 10,
+            "prepareMs": 41.20000000298023,
+            "computeReadbackMs": 82.79999999701977,
+            "totalMs": 278.4000000022352
+          },
+          "timing": {
+            "seekMs": 0,
+            "decodePairMs": 94.10000000149012,
+            "workerRoundTripMs": 1707.699999999255,
+            "workerComputeMs": 1693.699999999255,
+            "workerTransferWaitMs": 14,
+            "renderMs": 8.099999997764826,
+            "totalMs": 1809.8999999985099
+          },
+          "gpu": {
+            "prepareMs": 3.7000000029802322,
+            "gpuMs": 134.02112,
+            "submitAndReadbackMs": 139.89999999850988,
+            "postprocessMs": 107.10000000149012,
+            "totalMs": 250.70000000298023,
+            "volumeBytes": 1083594240,
+            "backend": "WebGPU RGB SGBM 3WAY"
+          },
+          "measuredHashes": [
+            3093284581,
+            2652179409,
+            370694822
+          ],
+          "fingerprints": {
+            "input": [
+              3943748780,
+              4123571212
+            ],
+            "rectified": [
+              1294483330,
+              589855440
+            ],
+            "background": [
+              80980740,
+              2026700301
+            ],
+            "afterMatch": [
+              1294483330,
+              589855440
+            ],
+            "shadow": [
+              842809089,
+              1141429013
+            ]
+          }
+        }
+      },
+      {
+        "time": 99.177,
+        "baseline": {
+          "pointCount": 4199,
+          "timing": {
+            "seekMs": 0.10000000149011612,
+            "decodePairMs": 132.39999999850988,
+            "workerRoundTripMs": 1531.300000000745,
+            "workerComputeMs": 1514.6000000014901,
+            "workerTransferWaitMs": 16.699999999254942,
+            "renderMs": 9,
+            "totalMs": 1672.800000000745
+          },
+          "gpu": {
+            "prepareMs": 16.900000002235174,
+            "gpuMs": 133.824512,
+            "submitAndReadbackMs": 141.59999999776483,
+            "postprocessMs": 107.10000000149012,
+            "totalMs": 265.6000000014901,
+            "volumeBytes": 1083594240,
+            "backend": "WebGPU RGB SGBM 3WAY"
+          },
+          "measuredHashes": [
+            1479009779,
+            1469748380,
+            2210335655
+          ],
+          "fingerprints": {
+            "input": [
+              3731057281,
+              526604054
+            ],
+            "rectified": [
+              511941631,
+              3909436870
+            ],
+            "background": [
+              80980740,
+              2026700301
+            ],
+            "afterMatch": [
+              511941631,
+              3909436870
+            ],
+            "shadow": [
+              2361502053,
+              3158586727
+            ]
+          }
+        },
+        "alsc": {
+          "pointCount": 5027,
+          "completion": {
+            "method": "epipolar-ALSC-region-growing",
+            "measured": 4199,
+            "matched": 828,
+            "estimated": 0,
+            "matchedLeft": 9933,
+            "matchedRight": 7886,
+            "lrRejected": 6356,
+            "filterRejected": 137,
+            "rounds": 32,
+            "radius": 10,
+            "prepareMs": 39.899999998509884,
+            "computeReadbackMs": 64.69999999925494,
+            "totalMs": 209.19999999925494
+          },
+          "timing": {
+            "seekMs": 0.3999999985098839,
+            "decodePairMs": 123.5,
+            "workerRoundTripMs": 1660.6000000014901,
+            "workerComputeMs": 1643.6000000014901,
+            "workerTransferWaitMs": 17,
+            "renderMs": 9.299999997019768,
+            "totalMs": 1793.7999999970198
+          },
+          "gpu": {
+            "prepareMs": 4.299999997019768,
+            "gpuMs": 133.824512,
+            "submitAndReadbackMs": 145.10000000149012,
+            "postprocessMs": 66.30000000074506,
+            "totalMs": 215.69999999925494,
+            "volumeBytes": 1083594240,
+            "backend": "WebGPU RGB SGBM 3WAY"
+          },
+          "measuredHashes": [
+            1479009779,
+            1469748380,
+            2210335655
+          ],
+          "fingerprints": {
+            "input": [
+              3731057281,
+              526604054
+            ],
+            "rectified": [
+              511941631,
+              3909436870
+            ],
+            "background": [
+              80980740,
+              2026700301
+            ],
+            "afterMatch": [
+              511941631,
+              3909436870
+            ],
+            "shadow": [
+              2361502053,
+              3158586727
+            ]
+          }
+        }
+      },
+      {
+        "time": 102.533,
+        "baseline": {
+          "pointCount": 4459,
+          "timing": {
+            "seekMs": 0.10000000149011612,
+            "decodePairMs": 159.89999999850988,
+            "workerRoundTripMs": 1646.1000000014901,
+            "workerComputeMs": 1628.800000000745,
+            "workerTransferWaitMs": 17.300000000745058,
+            "renderMs": 7.899999998509884,
+            "totalMs": 1814
+          },
+          "gpu": {
+            "prepareMs": 13.400000002235174,
+            "gpuMs": 146.47296,
+            "submitAndReadbackMs": 156.39999999850988,
+            "postprocessMs": 70.69999999925494,
+            "totalMs": 240.5,
+            "volumeBytes": 1083594240,
+            "backend": "WebGPU RGB SGBM 3WAY"
+          },
+          "measuredHashes": [
+            367076232,
+            3424260352,
+            2572088169
+          ],
+          "fingerprints": {
+            "input": [
+              3892100466,
+              2604633381
+            ],
+            "rectified": [
+              2466635495,
+              3249630050
+            ],
+            "background": [
+              80980740,
+              2026700301
+            ],
+            "afterMatch": [
+              2466635495,
+              3249630050
+            ],
+            "shadow": [
+              3903759409,
+              3968478102
+            ]
+          }
+        },
+        "alsc": {
+          "pointCount": 6139,
+          "completion": {
+            "method": "epipolar-ALSC-region-growing",
+            "measured": 4459,
+            "matched": 1680,
+            "estimated": 0,
+            "matchedLeft": 10834,
+            "matchedRight": 9206,
+            "lrRejected": 6110,
+            "filterRejected": 396,
+            "rounds": 32,
+            "radius": 10,
+            "prepareMs": 44.400000002235174,
+            "computeReadbackMs": 79,
+            "totalMs": 356.4000000022352
+          },
+          "timing": {
+            "seekMs": 0.09999999776482582,
+            "decodePairMs": 114.69999999925494,
+            "workerRoundTripMs": 1879.7000000029802,
+            "workerComputeMs": 1865.800000000745,
+            "workerTransferWaitMs": 13.900000002235174,
+            "renderMs": 11.199999999254942,
+            "totalMs": 2005.699999999255
+          },
+          "gpu": {
+            "prepareMs": 7.300000000745058,
+            "gpuMs": 135.200768,
+            "submitAndReadbackMs": 144.29999999701977,
+            "postprocessMs": 74,
+            "totalMs": 225.59999999776483,
+            "volumeBytes": 1083594240,
+            "backend": "WebGPU RGB SGBM 3WAY"
+          },
+          "measuredHashes": [
+            367076232,
+            3424260352,
+            2572088169
+          ],
+          "fingerprints": {
+            "input": [
+              3892100466,
+              2604633381
+            ],
+            "rectified": [
+              2466635495,
+              3249630050
+            ],
+            "background": [
+              80980740,
+              2026700301
+            ],
+            "afterMatch": [
+              2466635495,
+              3249630050
+            ],
+            "shadow": [
+              3903759409,
+              3968478102
+            ]
+          }
+        }
+      },
+      {
+        "time": 149.913,
+        "baseline": {
+          "pointCount": 6374,
+          "timing": {
+            "seekMs": 0.19999999925494194,
+            "decodePairMs": 101.5,
+            "workerRoundTripMs": 1917.199999999255,
+            "workerComputeMs": 1904.199999999255,
+            "workerTransferWaitMs": 13,
+            "renderMs": 12.900000002235174,
+            "totalMs": 2031.8999999985099
+          },
+          "gpu": {
+            "prepareMs": 9.699999999254942,
+            "gpuMs": 149.880832,
+            "submitAndReadbackMs": 156.19999999925494,
+            "postprocessMs": 43.69999999925494,
+            "totalMs": 209.59999999776483,
+            "volumeBytes": 1083594240,
+            "backend": "WebGPU RGB SGBM 3WAY"
+          },
+          "measuredHashes": [
+            3127853911,
+            2367884734,
+            626991830
+          ],
+          "fingerprints": {
+            "input": [
+              826920303,
+              2049744311
+            ],
+            "rectified": [
+              1115750409,
+              4281143425
+            ],
+            "background": [
+              80980740,
+              2026700301
+            ],
+            "afterMatch": [
+              1115750409,
+              4281143425
+            ],
+            "shadow": [
+              2988821470,
+              2305207411
+            ]
+          }
+        },
+        "alsc": {
+          "pointCount": 8393,
+          "completion": {
+            "method": "epipolar-ALSC-region-growing",
+            "measured": 6374,
+            "matched": 2019,
+            "estimated": 0,
+            "matchedLeft": 16501,
+            "matchedRight": 12633,
+            "lrRejected": 9796,
+            "filterRejected": 554,
+            "rounds": 32,
+            "radius": 10,
+            "prepareMs": 54.79999999701977,
+            "computeReadbackMs": 76,
+            "totalMs": 335.5
+          },
+          "timing": {
+            "seekMs": 0,
+            "decodePairMs": 99.59999999776483,
+            "workerRoundTripMs": 2090.60000000149,
+            "workerComputeMs": 2079.099999997765,
+            "workerTransferWaitMs": 11.50000000372529,
+            "renderMs": 10.899999998509884,
+            "totalMs": 2201.099999997765
+          },
+          "gpu": {
+            "prepareMs": 4.599999997764826,
+            "gpuMs": 134.479872,
+            "submitAndReadbackMs": 138.90000000223517,
+            "postprocessMs": 40.79999999701977,
+            "totalMs": 184.29999999701977,
+            "volumeBytes": 1083594240,
+            "backend": "WebGPU RGB SGBM 3WAY"
+          },
+          "measuredHashes": [
+            3127853911,
+            2367884734,
+            626991830
+          ],
+          "fingerprints": {
+            "input": [
+              826920303,
+              2049744311
+            ],
+            "rectified": [
+              1115750409,
+              4281143425
+            ],
+            "background": [
+              80980740,
+              2026700301
+            ],
+            "afterMatch": [
+              1115750409,
+              4281143425
+            ],
+            "shadow": [
+              2988821470,
+              2305207411
+            ]
+          }
+        }
+      },
+      {
+        "time": 151.519,
+        "baseline": {
+          "pointCount": 9313,
+          "timing": {
+            "seekMs": 0.19999999925494194,
+            "decodePairMs": 138.10000000149012,
+            "workerRoundTripMs": 2040.0999999977648,
+            "workerComputeMs": 2014.4000000022352,
+            "workerTransferWaitMs": 25.69999999552965,
+            "renderMs": 11.600000001490116,
+            "totalMs": 2190
+          },
+          "gpu": {
+            "prepareMs": 21.300000000745058,
+            "gpuMs": 134.807552,
+            "submitAndReadbackMs": 138.30000000074506,
+            "postprocessMs": 58.19999999925494,
+            "totalMs": 217.80000000074506,
+            "volumeBytes": 1083594240,
+            "backend": "WebGPU RGB SGBM 3WAY"
+          },
+          "measuredHashes": [
+            1971978291,
+            3408063036,
+            1215883111
+          ],
+          "fingerprints": {
+            "input": [
+              4056714633,
+              2955063078
+            ],
+            "rectified": [
+              820339264,
+              3099503088
+            ],
+            "background": [
+              80980740,
+              2026700301
+            ],
+            "afterMatch": [
+              820339264,
+              3099503088
+            ],
+            "shadow": [
+              2184596236,
+              1822308953
+            ]
+          }
+        },
+        "alsc": {
+          "pointCount": 12577,
+          "completion": {
+            "method": "epipolar-ALSC-region-growing",
+            "measured": 9313,
+            "matched": 3264,
+            "estimated": 0,
+            "matchedLeft": 22218,
+            "matchedRight": 19098,
+            "lrRejected": 12777,
+            "filterRejected": 100,
+            "rounds": 32,
+            "radius": 10,
+            "prepareMs": 64.59999999776483,
+            "computeReadbackMs": 103.80000000074506,
+            "totalMs": 445.29999999701977
+          },
+          "timing": {
+            "seekMs": 0.10000000149011612,
+            "decodePairMs": 119.19999999925494,
+            "workerRoundTripMs": 2448.199999999255,
+            "workerComputeMs": 2435.5,
+            "workerTransferWaitMs": 12.699999999254942,
+            "renderMs": 14.300000000745058,
+            "totalMs": 2581.800000000745
+          },
+          "gpu": {
+            "prepareMs": 4.199999999254942,
+            "gpuMs": 134.67648,
+            "submitAndReadbackMs": 142.59999999776483,
+            "postprocessMs": 75.90000000223517,
+            "totalMs": 222.69999999925494,
+            "volumeBytes": 1083594240,
+            "backend": "WebGPU RGB SGBM 3WAY"
+          },
+          "measuredHashes": [
+            1971978291,
+            3408063036,
+            1215883111
+          ],
+          "fingerprints": {
+            "input": [
+              4056714633,
+              2955063078
+            ],
+            "rectified": [
+              820339264,
+              3099503088
+            ],
+            "background": [
+              80980740,
+              2026700301
+            ],
+            "afterMatch": [
+              820339264,
+              3099503088
+            ],
+            "shadow": [
+              2184596236,
+              1822308953
+            ]
+          }
+        }
+      },
+      {
+        "time": 152.067,
+        "baseline": {
+          "pointCount": 7102,
+          "timing": {
+            "seekMs": 0.10000000149011612,
+            "decodePairMs": 133.69999999925494,
+            "workerRoundTripMs": 1898.6000000014901,
+            "workerComputeMs": 1886.0999999977648,
+            "workerTransferWaitMs": 12.50000000372529,
+            "renderMs": 9.300000000745058,
+            "totalMs": 2041.7000000029802
+          },
+          "gpu": {
+            "prepareMs": 12.5,
+            "gpuMs": 134.807552,
+            "submitAndReadbackMs": 141.10000000149012,
+            "postprocessMs": 76.59999999776483,
+            "totalMs": 230.19999999925494,
+            "volumeBytes": 1083594240,
+            "backend": "WebGPU RGB SGBM 3WAY"
+          },
+          "measuredHashes": [
+            24595280,
+            165160475,
+            590610146
+          ],
+          "fingerprints": {
+            "input": [
+              3289647035,
+              3578270963
+            ],
+            "rectified": [
+              1325891788,
+              3132519680
+            ],
+            "background": [
+              80980740,
+              2026700301
+            ],
+            "afterMatch": [
+              1325891788,
+              3132519680
+            ],
+            "shadow": [
+              3377426985,
+              2934393263
+            ]
+          }
+        },
+        "alsc": {
+          "pointCount": 9467,
+          "completion": {
+            "method": "epipolar-ALSC-region-growing",
+            "measured": 7102,
+            "matched": 2365,
+            "estimated": 0,
+            "matchedLeft": 20391,
+            "matchedRight": 11135,
+            "lrRejected": 13241,
+            "filterRejected": 0,
+            "rounds": 32,
+            "radius": 10,
+            "prepareMs": 62.399999998509884,
+            "computeReadbackMs": 83.40000000223517,
+            "totalMs": 357.6000000014901
+          },
+          "timing": {
+            "seekMs": 0.20000000298023224,
+            "decodePairMs": 128.69999999925494,
+            "workerRoundTripMs": 2025.199999999255,
+            "workerComputeMs": 2000.300000000745,
+            "workerTransferWaitMs": 24.899999998509884,
+            "renderMs": 13.199999999254942,
+            "totalMs": 2167.300000000745
+          },
+          "gpu": {
+            "prepareMs": 9.200000002980232,
+            "gpuMs": 134.479872,
+            "submitAndReadbackMs": 139.19999999925494,
+            "postprocessMs": 36.80000000074506,
+            "totalMs": 185.20000000298023,
+            "volumeBytes": 1083594240,
+            "backend": "WebGPU RGB SGBM 3WAY"
+          },
+          "measuredHashes": [
+            24595280,
+            165160475,
+            590610146
+          ],
+          "fingerprints": {
+            "input": [
+              3289647035,
+              3578270963
+            ],
+            "rectified": [
+              1325891788,
+              3132519680
+            ],
+            "background": [
+              80980740,
+              2026700301
+            ],
+            "afterMatch": [
+              1325891788,
+              3132519680
+            ],
+            "shadow": [
+              3377426985,
+              2934393263
+            ]
+          }
+        }
+      },
+      {
+        "time": 153.82,
+        "baseline": {
+          "pointCount": 9847,
+          "timing": {
+            "seekMs": 0.10000000149011612,
+            "decodePairMs": 128.89999999850988,
+            "workerRoundTripMs": 1981,
+            "workerComputeMs": 1956.8999999985099,
+            "workerTransferWaitMs": 24.100000001490116,
+            "renderMs": 12.199999999254942,
+            "totalMs": 2122.199999999255
+          },
+          "gpu": {
+            "prepareMs": 7,
+            "gpuMs": 146.341888,
+            "submitAndReadbackMs": 151.80000000074506,
+            "postprocessMs": 39,
+            "totalMs": 197.80000000074506,
+            "volumeBytes": 1083594240,
+            "backend": "WebGPU RGB SGBM 3WAY"
+          },
+          "measuredHashes": [
+            4029342588,
+            1787337146,
+            2728835412
+          ],
+          "fingerprints": {
+            "input": [
+              404315592,
+              2621307611
+            ],
+            "rectified": [
+              1999208579,
+              4231839141
+            ],
+            "background": [
+              80980740,
+              2026700301
+            ],
+            "afterMatch": [
+              1999208579,
+              4231839141
+            ],
+            "shadow": [
+              238215223,
+              1920168087
+            ]
+          }
+        },
+        "alsc": {
+          "pointCount": 12532,
+          "completion": {
+            "method": "epipolar-ALSC-region-growing",
+            "measured": 9847,
+            "matched": 2685,
+            "estimated": 0,
+            "matchedLeft": 18177,
+            "matchedRight": 17179,
+            "lrRejected": 9037,
+            "filterRejected": 225,
+            "rounds": 32,
+            "radius": 10,
+            "prepareMs": 74.19999999925494,
+            "computeReadbackMs": 74.10000000149012,
+            "totalMs": 424.19999999925494
+          },
+          "timing": {
+            "seekMs": 0.09999999776482582,
+            "decodePairMs": 116.40000000223517,
+            "workerRoundTripMs": 2450.199999999255,
+            "workerComputeMs": 2435.10000000149,
+            "workerTransferWaitMs": 15.099999997764826,
+            "renderMs": 16.599999997764826,
+            "totalMs": 2583.2999999970198
+          },
+          "gpu": {
+            "prepareMs": 4.100000001490116,
+            "gpuMs": 138.084352,
+            "submitAndReadbackMs": 141.89999999850988,
+            "postprocessMs": 47,
+            "totalMs": 193,
+            "volumeBytes": 1083594240,
+            "backend": "WebGPU RGB SGBM 3WAY"
+          },
+          "measuredHashes": [
+            4029342588,
+            1787337146,
+            2728835412
+          ],
+          "fingerprints": {
+            "input": [
+              404315592,
+              2621307611
+            ],
+            "rectified": [
+              1999208579,
+              4231839141
+            ],
+            "background": [
+              80980740,
+              2026700301
+            ],
+            "afterMatch": [
+              1999208579,
+              4231839141
+            ],
+            "shadow": [
+              238215223,
+              1920168087
+            ]
+          }
+        }
+      },
+      {
+        "time": 220.585,
+        "baseline": {
+          "pointCount": 9911,
+          "timing": {
+            "seekMs": 0.20000000298023224,
+            "decodePairMs": 105.29999999701977,
+            "workerRoundTripMs": 1050.300000000745,
+            "workerComputeMs": 1038.800000000745,
+            "workerTransferWaitMs": 11.5,
+            "renderMs": 7.300000000745058,
+            "totalMs": 1163.1000000014901
+          },
+          "gpu": {
+            "prepareMs": 7.699999999254942,
+            "gpuMs": 145.358848,
+            "submitAndReadbackMs": 150,
+            "postprocessMs": 22.199999999254942,
+            "totalMs": 179.89999999850988,
+            "volumeBytes": 1083594240,
+            "backend": "WebGPU RGB SGBM 3WAY"
+          },
+          "measuredHashes": [
+            1100469410,
+            35675812,
+            1875947588
+          ],
+          "fingerprints": {
+            "input": [
+              1780798106,
+              3323465046
+            ],
+            "rectified": [
+              3237154342,
+              77849778
+            ],
+            "background": [
+              80980740,
+              2026700301
+            ],
+            "afterMatch": [
+              3237154342,
+              77849778
+            ],
+            "shadow": [
+              3762024353,
+              421574789
+            ]
+          }
+        },
+        "alsc": {
+          "pointCount": 16250,
+          "completion": {
+            "method": "epipolar-ALSC-region-growing",
+            "measured": 9911,
+            "matched": 6339,
+            "estimated": 0,
+            "matchedLeft": 24601,
+            "matchedRight": 24422,
+            "lrRejected": 11311,
+            "filterRejected": 8,
+            "rounds": 32,
+            "radius": 10,
+            "prepareMs": 39.80000000074506,
+            "computeReadbackMs": 79.69999999925494,
+            "totalMs": 375.20000000298023
+          },
+          "timing": {
+            "seekMs": 0.10000000149011612,
+            "decodePairMs": 80,
+            "workerRoundTripMs": 1398.5999999977648,
+            "workerComputeMs": 1389.300000000745,
+            "workerTransferWaitMs": 9.299999997019768,
+            "renderMs": 10.199999999254942,
+            "totalMs": 1488.8999999985099
+          },
+          "gpu": {
+            "prepareMs": 2.300000000745058,
+            "gpuMs": 136.183808,
+            "submitAndReadbackMs": 140,
+            "postprocessMs": 22.600000001490116,
+            "totalMs": 164.90000000223517,
+            "volumeBytes": 1083594240,
+            "backend": "WebGPU RGB SGBM 3WAY"
+          },
+          "measuredHashes": [
+            1100469410,
+            35675812,
+            1875947588
+          ],
+          "fingerprints": {
+            "input": [
+              1780798106,
+              3323465046
+            ],
+            "rectified": [
+              3237154342,
+              77849778
+            ],
+            "background": [
+              80980740,
+              2026700301
+            ],
+            "afterMatch": [
+              3237154342,
+              77849778
+            ],
+            "shadow": [
+              3762024353,
+              421574789
+            ]
+          }
+        }
+      },
+      {
+        "time": 247.761,
+        "baseline": {
+          "pointCount": 6966,
+          "timing": {
+            "seekMs": 0.09999999776482582,
+            "decodePairMs": 92.60000000149012,
+            "workerRoundTripMs": 909.8000000007451,
+            "workerComputeMs": 901.5,
+            "workerTransferWaitMs": 8.300000000745058,
+            "renderMs": 5.599999997764826,
+            "totalMs": 1008.0999999977648
+          },
+          "gpu": {
+            "prepareMs": 7.300000000745058,
+            "gpuMs": 138.739712,
+            "submitAndReadbackMs": 144,
+            "postprocessMs": 23.099999997764826,
+            "totalMs": 174.39999999850988,
+            "volumeBytes": 1083594240,
+            "backend": "WebGPU RGB SGBM 3WAY"
+          },
+          "measuredHashes": [
+            1177511156,
+            2342478555,
+            539353657
+          ],
+          "fingerprints": {
+            "input": [
+              440858113,
+              2853445693
+            ],
+            "rectified": [
+              1976771577,
+              2680442234
+            ],
+            "background": [
+              80980740,
+              2026700301
+            ],
+            "afterMatch": [
+              1976771577,
+              2680442234
+            ],
+            "shadow": [
+              1577872282,
+              1988569188
+            ]
+          }
+        },
+        "alsc": {
+          "pointCount": 8449,
+          "completion": {
+            "method": "epipolar-ALSC-region-growing",
+            "measured": 6966,
+            "matched": 1483,
+            "estimated": 0,
+            "matchedLeft": 13343,
+            "matchedRight": 10043,
+            "lrRejected": 8639,
+            "filterRejected": 79,
+            "rounds": 32,
+            "radius": 10,
+            "prepareMs": 31.699999999254942,
+            "computeReadbackMs": 80.19999999925494,
+            "totalMs": 183
+          },
+          "timing": {
+            "seekMs": 0,
+            "decodePairMs": 84.20000000298023,
+            "workerRoundTripMs": 1094.8999999985099,
+            "workerComputeMs": 1086,
+            "workerTransferWaitMs": 8.899999998509884,
+            "renderMs": 6.199999999254942,
+            "totalMs": 1185.300000000745
+          },
+          "gpu": {
+            "prepareMs": 2.199999999254942,
+            "gpuMs": 135.856128,
+            "submitAndReadbackMs": 139.90000000223517,
+            "postprocessMs": 23.599999997764826,
+            "totalMs": 165.69999999925494,
+            "volumeBytes": 1083594240,
+            "backend": "WebGPU RGB SGBM 3WAY"
+          },
+          "measuredHashes": [
+            1177511156,
+            2342478555,
+            539353657
+          ],
+          "fingerprints": {
+            "input": [
+              440858113,
+              2853445693
+            ],
+            "rectified": [
+              1976771577,
+              2680442234
+            ],
+            "background": [
+              80980740,
+              2026700301
+            ],
+            "afterMatch": [
+              1976771577,
+              2680442234
+            ],
+            "shadow": [
+              1577872282,
+              1988569188
+            ]
+          }
+        }
+      },
+      {
+        "time": 282.132,
+        "baseline": {
+          "pointCount": 7986,
+          "timing": {
+            "seekMs": 0,
+            "decodePairMs": 100.30000000074506,
+            "workerRoundTripMs": 974.3000000007451,
+            "workerComputeMs": 965.3000000007451,
+            "workerTransferWaitMs": 9,
+            "renderMs": 6.099999997764826,
+            "totalMs": 1080.699999999255
+          },
+          "gpu": {
+            "prepareMs": 7.199999999254942,
+            "gpuMs": 136.380416,
+            "submitAndReadbackMs": 140.10000000149012,
+            "postprocessMs": 22.199999999254942,
+            "totalMs": 169.5,
+            "volumeBytes": 1083594240,
+            "backend": "WebGPU RGB SGBM 3WAY"
+          },
+          "measuredHashes": [
+            3265758818,
+            2326770920,
+            323283050
+          ],
+          "fingerprints": {
+            "input": [
+              2271735162,
+              3576233993
+            ],
+            "rectified": [
+              1819573499,
+              857588902
+            ],
+            "background": [
+              80980740,
+              2026700301
+            ],
+            "afterMatch": [
+              1819573499,
+              857588902
+            ],
+            "shadow": [
+              1995310172,
+              2961690809
+            ]
+          }
+        },
+        "alsc": {
+          "pointCount": 10192,
+          "completion": {
+            "method": "epipolar-ALSC-region-growing",
+            "measured": 7986,
+            "matched": 2206,
+            "estimated": 0,
+            "matchedLeft": 19171,
+            "matchedRight": 13393,
+            "lrRejected": 11950,
+            "filterRejected": 18,
+            "rounds": 32,
+            "radius": 10,
+            "prepareMs": 35.20000000298023,
+            "computeReadbackMs": 84.29999999701977,
+            "totalMs": 219.60000000149012
+          },
+          "timing": {
+            "seekMs": 0.09999999776482582,
+            "decodePairMs": 85.5,
+            "workerRoundTripMs": 1210.199999999255,
+            "workerComputeMs": 1201,
+            "workerTransferWaitMs": 9.199999999254942,
+            "renderMs": 7.100000001490116,
+            "totalMs": 1302.8999999985099
+          },
+          "gpu": {
+            "prepareMs": 2.199999999254942,
+            "gpuMs": 145.883136,
+            "submitAndReadbackMs": 150,
+            "postprocessMs": 22.599999997764826,
+            "totalMs": 174.79999999701977,
+            "volumeBytes": 1083594240,
+            "backend": "WebGPU RGB SGBM 3WAY"
+          },
+          "measuredHashes": [
+            3265758818,
+            2326770920,
+            323283050
+          ],
+          "fingerprints": {
+            "input": [
+              2271735162,
+              3576233993
+            ],
+            "rectified": [
+              1819573499,
+              857588902
+            ],
+            "background": [
+              80980740,
+              2026700301
+            ],
+            "afterMatch": [
+              1819573499,
+              857588902
+            ],
+            "shadow": [
+              1995310172,
+              2961690809
+            ]
+          }
+        }
+      }
+    ],
+    "done": true
+  }
+}

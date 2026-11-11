@@ -1,0 +1,92 @@
+[
+  {
+    "time": 165.008333,
+    "points": 2259,
+    "surface": {
+      "vertices": 2259,
+      "connectedVertices": 2259,
+      "triangles": 4279,
+      "rejected": 214,
+      "maxEdge": 0.2,
+      "step": 2,
+      "method": "Delaunay in left image; bounded 3D edges; right-image fold rejection",
+      "interior": "estimated between measured vertices",
+      "addedVertices": 0,
+      "ms": 3.099999999627471
+    },
+    "timing": {
+      "seekMs": 0.09999999962747097,
+      "decodePairMs": 87.5,
+      "workerRoundTripMs": 2742.60000000149,
+      "workerComputeMs": 2734.5999999996275,
+      "workerTransferWaitMs": 8.000000001862645,
+      "renderMs": 3.299999998882413,
+      "totalMs": 2833.5
+    },
+    "hashes": {
+      "points": 3145735064,
+      "colors": 3855694787,
+      "uv": 1258487301
+    }
+  },
+  {
+    "time": 15.001667,
+    "points": 1151,
+    "surface": {
+      "vertices": 1151,
+      "connectedVertices": 1150,
+      "triangles": 2104,
+      "rejected": 179,
+      "maxEdge": 0.2,
+      "step": 2,
+      "method": "Delaunay in left image; bounded 3D edges; right-image fold rejection",
+      "interior": "estimated between measured vertices",
+      "addedVertices": 0,
+      "ms": 1.8999999985098839
+    },
+    "timing": {
+      "seekMs": 0,
+      "decodePairMs": 105.69999999925494,
+      "workerRoundTripMs": 2773.800000000745,
+      "workerComputeMs": 2765.2999999988824,
+      "workerTransferWaitMs": 8.500000001862645,
+      "renderMs": 3.599999999627471,
+      "totalMs": 2883.0999999996275
+    },
+    "hashes": {
+      "points": 3725520639,
+      "colors": 1841137807,
+      "uv": 3112788253
+    }
+  },
+  {
+    "time": 224.983333,
+    "points": 3124,
+    "surface": {
+      "vertices": 3124,
+      "connectedVertices": 3124,
+      "triangles": 5955,
+      "rejected": 277,
+      "maxEdge": 0.2,
+      "step": 2,
+      "method": "Delaunay in left image; bounded 3D edges; right-image fold rejection",
+      "interior": "estimated between measured vertices",
+      "addedVertices": 0,
+      "ms": 2.800000000745058
+    },
+    "timing": {
+      "seekMs": 0.09999999962747097,
+      "decodePairMs": 85.5,
+      "workerRoundTripMs": 2778.2000000011176,
+      "workerComputeMs": 2768.0999999996275,
+      "workerTransferWaitMs": 10.100000001490116,
+      "renderMs": 4.299999998882413,
+      "totalMs": 2868.0999999996275
+    },
+    "hashes": {
+      "points": 1213766289,
+      "colors": 2574685298,
+      "uv": 1452844731
+    }
+  }
+]

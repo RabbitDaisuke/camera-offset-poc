@@ -1,45 +1,11 @@
 #include <emscripten/bind.h>
 #include <opencv2/calib3d.hpp>
 #include <opencv2/core/version.hpp>
-#include <opencv2/objdetect/aruco_detector.hpp>
+#include <opencv2/imgproc.hpp>
 #include <stdexcept>
 #include <vector>
 
 using emscripten::val;
-
-static cv::aruco::ArucoDetector makeDetector(bool fast) {
-    cv::aruco::DetectorParameters p;
-    p.cornerRefinementMethod = cv::aruco::CORNER_REFINE_APRILTAG;
-    p.cornerRefinementWinSize = 3;
-    p.aprilTagQuadDecimate = fast ? 2 : 1;
-    p.minMarkerPerimeterRate = .005;
-    p.polygonalApproxAccuracyRate = .05;
-    p.errorCorrectionRate = .45;
-    p.adaptiveThreshWinSizeMax = 73;
-    return cv::aruco::ArucoDetector(cv::aruco::getPredefinedDictionary(cv::aruco::DICT_APRILTAG_36h11),p,cv::aruco::RefineParameters(10,3,true));
-}
-
-// The same official detector, dictionary and parameters as core.js. The
-// grayscale input is unchanged; only the compiler and WASM SIMD build differ.
-static val detectAprilTags(const val &gray, int width, int height, bool fast) {
-    if (gray["length"].as<int>() != width*height) throw std::invalid_argument("Gray image dimensions differ");
-    static auto full = makeDetector(false), roi = makeDetector(true);
-    cv::Mat image(height,width,CV_8UC1);
-    val(emscripten::typed_memory_view(image.total(),image.data)).call<void>("set",gray);
-    std::vector<std::vector<cv::Point2f>> corners,rejected;
-    std::vector<int> ids;
-    (fast ? roi : full).detectMarkers(image,corners,ids,rejected);
-    auto flatten=[](const std::vector<std::vector<cv::Point2f>> &values,size_t limit) {
-        std::vector<float> result;
-        for(size_t i=0;i<values.size() && i<limit;++i) for(const auto &p:values[i]) { result.push_back(p.x);result.push_back(p.y); }
-        return val(emscripten::typed_memory_view(result.size(),result.data())).call<val>("slice");
-    };
-    val result=val::object();
-    result.set("ids",val(emscripten::typed_memory_view(ids.size(),ids.data())).call<val>("slice"));
-    result.set("corners",flatten(corners,corners.size()));
-    result.set("rejected",flatten(rejected,80));
-    return result;
-}
 
 static cv::Mat matrix(const val &values, int rows, int cols) {
     if (values["length"].as<int>() != rows * cols)
@@ -157,10 +123,54 @@ static val stereoDisparity(const val &left, const val &right, int width, int hei
     return result;
 }
 
+// Linear postprocessing for GPU-produced 3-way SGBM winners. The GPU retains
+// the same cost, uniqueness and subpixel rules; OpenCV retains its exact
+// pseudo left/right check, median filter and connected-component filter.
+static val finishGpuDisparity(const val &raw, int width, int height,
+                             int minimum, int disparities, bool reverse) {
+    disparities = ((disparities + 15) / 16) * 16;
+    const int pad = minimum + disparities + 5, paddedWidth = width + 2 * pad;
+    const int md = reverse ? -minimum - disparities + 1 : minimum;
+    const int minX = std::max(md + disparities, 0);
+    const int maxX = paddedWidth + std::min(md, 0), validWidth = maxX - minX;
+    if (raw["length"].as<int>() != height * validWidth * 3)
+        throw std::invalid_argument("GPU disparity dimensions differ");
+    std::vector<int32_t> values(height * validWidth * 3);
+    val(emscripten::typed_memory_view(values.size(), values.data())).call<void>("set", raw);
+    const short invalid = static_cast<short>((md - 1) * 16);
+    cv::Mat disparity(height, paddedWidth, CV_16S, cv::Scalar(invalid));
+    std::vector<int> back(paddedWidth), costs(paddedWidth);
+    for (int y = 0; y < height; ++y) {
+        std::fill(back.begin(), back.end(), invalid);
+        std::fill(costs.begin(), costs.end(), 32767);
+        short *row = disparity.ptr<short>(y);
+        for (int x = validWidth - 1; x >= 0; --x) {
+            const int32_t *p = values.data() + (y * validWidth + x) * 3;
+            row[x + minX] = static_cast<short>(p[0]);
+            if (p[0] == invalid) continue;
+            const int xr = x + minX - p[1];
+            if (xr >= 0 && xr < paddedWidth && costs[xr] > p[2]) {
+                costs[xr] = p[2]; back[xr] = p[1];
+            }
+        }
+        for (int x = minX; x < maxX; ++x) {
+            const int d = row[x]; if (d == invalid) continue;
+            const int lo = d >> 4, hi = (d + 15) >> 4;
+            const int a = x - lo, b = x - hi;
+            if (a >= 0 && a < paddedWidth && back[a] >= md && std::abs(back[a]-lo) > 1 &&
+                b >= 0 && b < paddedWidth && back[b] >= md && std::abs(back[b]-hi) > 1)
+                row[x] = invalid;
+        }
+    }
+    cv::medianBlur(disparity, disparity, 3);
+    cv::filterSpeckles(disparity, invalid, 60, 32);
+    const cv::Mat result = disparity(cv::Rect(pad, 0, width, height)).clone();
+    return val(emscripten::typed_memory_view(result.total(), result.ptr<int16_t>())).call<val>("slice");
+}
+
 EMSCRIPTEN_BINDINGS(epipolar_stereo) {
-    emscripten::constant("aprilTagStackBytes", 5242880);
-    emscripten::function("detectAprilTags", &detectAprilTags);
     emscripten::function("calibrateStereo", &calibrateStereo);
     emscripten::function("undistortPixels", &undistortPixels);
     emscripten::function("stereoDisparity", &stereoDisparity);
+    emscripten::function("finishGpuDisparity", &finishGpuDisparity);
 }

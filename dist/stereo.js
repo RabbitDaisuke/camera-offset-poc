@@ -33,3 +33,4 @@
  }
  root.A4Stereo={solve,eigen,triangulate};if(typeof module!=='undefined')module.exports=root.A4Stereo;
 })(typeof self!=='undefined'?self:globalThis);
+

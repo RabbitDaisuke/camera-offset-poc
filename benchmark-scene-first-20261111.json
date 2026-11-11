@@ -1,0 +1,1065 @@
+{
+  "done": true,
+  "runs": [
+    {
+      "t": 1.16,
+      "pointCount": 7719,
+      "classification": {
+        "static": 3339,
+        "nearer": 2422,
+        "unknown": 1958,
+        "shadowOnStatic": 364,
+        "planeAssisted": 2988,
+        "nearerWithPlane": 2422
+      },
+      "timing": {
+        "seekMs": 0.09999999776482582,
+        "decodePairMs": 123.80000000074506,
+        "workerRoundTripMs": 1144.9000000022352,
+        "workerComputeMs": 1127.4000000022352,
+        "workerTransferWaitMs": 17.5,
+        "renderMs": 40.5,
+        "totalMs": 1309.300000000745
+      },
+      "gpu": {
+        "prepareMs": 10.699999999254942,
+        "gpuMs": 122.945536,
+        "submitAndReadbackMs": 138.30000000074506,
+        "postprocessMs": 42.400000002235174,
+        "totalMs": 191.40000000223517,
+        "volumeBytes": 1071751680,
+        "backend": "WebGPU RGB SGBM 3WAY"
+      },
+      "counts": {
+        "sampled": 404496,
+        "shadow": 0,
+        "texture": 325777,
+        "aperture": 0,
+        "correlation": 4817,
+        "ambiguous": 53427,
+        "roundtrip": 11857,
+        "neighborhood": 190,
+        "geometry": 0,
+        "background": 0,
+        "isolated3D": 709,
+        "subpixelRecovered": 787
+      }
+    },
+    {
+      "t": 6.27,
+      "pointCount": 19352,
+      "classification": {
+        "static": 13747,
+        "nearer": 2036,
+        "unknown": 3569,
+        "shadowOnStatic": 3880,
+        "planeAssisted": 6033,
+        "nearerWithPlane": 2008
+      },
+      "timing": {
+        "seekMs": 0.09999999776482582,
+        "decodePairMs": 129.40000000223517,
+        "workerRoundTripMs": 1310.5,
+        "workerComputeMs": 1293.6000000014901,
+        "workerTransferWaitMs": 16.899999998509884,
+        "renderMs": 56.30000000074506,
+        "totalMs": 1496.300000000745
+      },
+      "gpu": {
+        "prepareMs": 10.199999999254942,
+        "gpuMs": 120.979456,
+        "submitAndReadbackMs": 127.10000000149012,
+        "postprocessMs": 82.5,
+        "totalMs": 219.80000000074506,
+        "volumeBytes": 1071751680,
+        "backend": "WebGPU RGB SGBM 3WAY"
+      },
+      "counts": {
+        "sampled": 404496,
+        "shadow": 0,
+        "texture": 300473,
+        "aperture": 0,
+        "correlation": 9724,
+        "ambiguous": 61073,
+        "roundtrip": 13312,
+        "neighborhood": 152,
+        "geometry": 0,
+        "background": 0,
+        "isolated3D": 410,
+        "subpixelRecovered": 1762
+      }
+    },
+    {
+      "t": 7.812,
+      "pointCount": 20871,
+      "classification": {
+        "static": 14509,
+        "nearer": 2110,
+        "unknown": 4252,
+        "shadowOnStatic": 1802,
+        "planeAssisted": 6447,
+        "nearerWithPlane": 2082
+      },
+      "timing": {
+        "seekMs": 0.19999999925494194,
+        "decodePairMs": 131.30000000074506,
+        "workerRoundTripMs": 1240.5,
+        "workerComputeMs": 1226.4000000022352,
+        "workerTransferWaitMs": 14.099999997764826,
+        "renderMs": 63,
+        "totalMs": 1435
+      },
+      "gpu": {
+        "prepareMs": 29.599999997764826,
+        "gpuMs": 120.455168,
+        "submitAndReadbackMs": 123.80000000074506,
+        "postprocessMs": 32.69999999925494,
+        "totalMs": 186.09999999776483,
+        "volumeBytes": 1071751680,
+        "backend": "WebGPU RGB SGBM 3WAY"
+      },
+      "counts": {
+        "sampled": 404496,
+        "shadow": 0,
+        "texture": 321343,
+        "aperture": 0,
+        "correlation": 6880,
+        "ambiguous": 42554,
+        "roundtrip": 12436,
+        "neighborhood": 130,
+        "geometry": 0,
+        "background": 0,
+        "isolated3D": 282,
+        "subpixelRecovered": 1726
+      }
+    },
+    {
+      "t": 12.255,
+      "pointCount": 24824,
+      "classification": {
+        "static": 14283,
+        "nearer": 7101,
+        "unknown": 3440,
+        "shadowOnStatic": 806,
+        "planeAssisted": 11703,
+        "nearerWithPlane": 7031
+      },
+      "timing": {
+        "seekMs": 0,
+        "decodePairMs": 121.89999999850988,
+        "workerRoundTripMs": 1252,
+        "workerComputeMs": 1235.800000000745,
+        "workerTransferWaitMs": 16.199999999254942,
+        "renderMs": 56.600000001490116,
+        "totalMs": 1430.5
+      },
+      "gpu": {
+        "prepareMs": 4,
+        "gpuMs": 120.782848,
+        "submitAndReadbackMs": 128.30000000074506,
+        "postprocessMs": 61.69999999925494,
+        "totalMs": 194,
+        "volumeBytes": 1071751680,
+        "backend": "WebGPU RGB SGBM 3WAY"
+      },
+      "counts": {
+        "sampled": 404496,
+        "shadow": 0,
+        "texture": 307589,
+        "aperture": 0,
+        "correlation": 10079,
+        "ambiguous": 50500,
+        "roundtrip": 11005,
+        "neighborhood": 182,
+        "geometry": 0,
+        "background": 0,
+        "isolated3D": 317,
+        "subpixelRecovered": 1950
+      }
+    },
+    {
+      "t": 15.141,
+      "pointCount": 17981,
+      "classification": {
+        "static": 10291,
+        "nearer": 3899,
+        "unknown": 3791,
+        "shadowOnStatic": 1983,
+        "planeAssisted": 5678,
+        "nearerWithPlane": 3899
+      },
+      "timing": {
+        "seekMs": 0.09999999776482582,
+        "decodePairMs": 101.60000000149012,
+        "workerRoundTripMs": 1255.199999999255,
+        "workerComputeMs": 1242.7999999970198,
+        "workerTransferWaitMs": 12.400000002235174,
+        "renderMs": 42.400000002235174,
+        "totalMs": 1399.300000000745
+      },
+      "gpu": {
+        "prepareMs": 10.199999999254942,
+        "gpuMs": 120.782848,
+        "submitAndReadbackMs": 126.30000000074506,
+        "postprocessMs": 66.39999999850988,
+        "totalMs": 202.89999999850988,
+        "volumeBytes": 1071751680,
+        "backend": "WebGPU RGB SGBM 3WAY"
+      },
+      "counts": {
+        "sampled": 404496,
+        "shadow": 0,
+        "texture": 300146,
+        "aperture": 0,
+        "correlation": 8368,
+        "ambiguous": 62349,
+        "roundtrip": 14887,
+        "neighborhood": 277,
+        "geometry": 0,
+        "background": 0,
+        "isolated3D": 488,
+        "subpixelRecovered": 1594
+      }
+    },
+    {
+      "t": 22.031,
+      "pointCount": 21739,
+      "classification": {
+        "static": 12502,
+        "nearer": 5580,
+        "unknown": 3657,
+        "shadowOnStatic": 4498,
+        "planeAssisted": 10058,
+        "nearerWithPlane": 5520
+      },
+      "timing": {
+        "seekMs": 0.19999999925494194,
+        "decodePairMs": 124.59999999776483,
+        "workerRoundTripMs": 1212.5,
+        "workerComputeMs": 1188.4000000022352,
+        "workerTransferWaitMs": 24.099999997764826,
+        "renderMs": 43.900000002235174,
+        "totalMs": 1381.199999999255
+      },
+      "gpu": {
+        "prepareMs": 7.199999999254942,
+        "gpuMs": 121.307136,
+        "submitAndReadbackMs": 129.09999999776483,
+        "postprocessMs": 49.100000001490116,
+        "totalMs": 185.39999999850988,
+        "volumeBytes": 1071751680,
+        "backend": "WebGPU RGB SGBM 3WAY"
+      },
+      "counts": {
+        "sampled": 404496,
+        "shadow": 0,
+        "texture": 319331,
+        "aperture": 0,
+        "correlation": 9138,
+        "ambiguous": 43373,
+        "roundtrip": 10321,
+        "neighborhood": 217,
+        "geometry": 0,
+        "background": 0,
+        "isolated3D": 377,
+        "subpixelRecovered": 1637
+      }
+    },
+    {
+      "t": 38.744,
+      "pointCount": 8093,
+      "classification": {
+        "static": 4006,
+        "nearer": 2427,
+        "unknown": 1660,
+        "shadowOnStatic": 1547,
+        "planeAssisted": 3029,
+        "nearerWithPlane": 2284
+      },
+      "timing": {
+        "seekMs": 0.10000000149011612,
+        "decodePairMs": 162.69999999925494,
+        "workerRoundTripMs": 1077,
+        "workerComputeMs": 1052,
+        "workerTransferWaitMs": 25,
+        "renderMs": 21.900000002235174,
+        "totalMs": 1261.7000000029802
+      },
+      "gpu": {
+        "prepareMs": 4.199999999254942,
+        "gpuMs": 123.666432,
+        "submitAndReadbackMs": 127,
+        "postprocessMs": 106.90000000223517,
+        "totalMs": 238.10000000149012,
+        "volumeBytes": 1071751680,
+        "backend": "WebGPU RGB SGBM 3WAY"
+      },
+      "counts": {
+        "sampled": 404496,
+        "shadow": 0,
+        "texture": 330495,
+        "aperture": 0,
+        "correlation": 4914,
+        "ambiguous": 50145,
+        "roundtrip": 10225,
+        "neighborhood": 213,
+        "geometry": 0,
+        "background": 0,
+        "isolated3D": 411,
+        "subpixelRecovered": 756
+      }
+    },
+    {
+      "t": 79.736,
+      "pointCount": 16820,
+      "classification": {
+        "static": 10916,
+        "nearer": 2295,
+        "unknown": 3609,
+        "shadowOnStatic": 2864,
+        "planeAssisted": 4445,
+        "nearerWithPlane": 2295
+      },
+      "timing": {
+        "seekMs": 0.10000000149011612,
+        "decodePairMs": 134.69999999925494,
+        "workerRoundTripMs": 1236,
+        "workerComputeMs": 1219.3999999985099,
+        "workerTransferWaitMs": 16.600000001490116,
+        "renderMs": 33.69999999925494,
+        "totalMs": 1404.5
+      },
+      "gpu": {
+        "prepareMs": 10.200000002980232,
+        "gpuMs": 124.84608,
+        "submitAndReadbackMs": 130.09999999776483,
+        "postprocessMs": 59.600000001490116,
+        "totalMs": 199.90000000223517,
+        "volumeBytes": 1071751680,
+        "backend": "WebGPU RGB SGBM 3WAY"
+      },
+      "counts": {
+        "sampled": 404496,
+        "shadow": 0,
+        "texture": 324930,
+        "aperture": 0,
+        "correlation": 5615,
+        "ambiguous": 45662,
+        "roundtrip": 10491,
+        "neighborhood": 231,
+        "geometry": 0,
+        "background": 0,
+        "isolated3D": 747,
+        "subpixelRecovered": 1397
+      }
+    },
+    {
+      "t": 99.177,
+      "pointCount": 15158,
+      "classification": {
+        "static": 9348,
+        "nearer": 3013,
+        "unknown": 2797,
+        "shadowOnStatic": 2157,
+        "planeAssisted": 5295,
+        "nearerWithPlane": 3013
+      },
+      "timing": {
+        "seekMs": 0.10000000149011612,
+        "decodePairMs": 107.59999999776483,
+        "workerRoundTripMs": 1148,
+        "workerComputeMs": 1132.6000000014901,
+        "workerTransferWaitMs": 15.399999998509884,
+        "renderMs": 29.600000001490116,
+        "totalMs": 1285.300000000745
+      },
+      "gpu": {
+        "prepareMs": 3.800000000745058,
+        "gpuMs": 124.256256,
+        "submitAndReadbackMs": 130.5,
+        "postprocessMs": 45.099999997764826,
+        "totalMs": 179.39999999850988,
+        "volumeBytes": 1071751680,
+        "backend": "WebGPU RGB SGBM 3WAY"
+      },
+      "counts": {
+        "sampled": 404496,
+        "shadow": 0,
+        "texture": 328308,
+        "aperture": 0,
+        "correlation": 5064,
+        "ambiguous": 46254,
+        "roundtrip": 9197,
+        "neighborhood": 183,
+        "geometry": 0,
+        "background": 0,
+        "isolated3D": 332,
+        "subpixelRecovered": 1379
+      }
+    },
+    {
+      "t": 102.533,
+      "pointCount": 15153,
+      "classification": {
+        "static": 7930,
+        "nearer": 2801,
+        "unknown": 4422,
+        "shadowOnStatic": 1641,
+        "planeAssisted": 4175,
+        "nearerWithPlane": 2801
+      },
+      "timing": {
+        "seekMs": 0.09999999776482582,
+        "decodePairMs": 124.69999999925494,
+        "workerRoundTripMs": 1140.800000000745,
+        "workerComputeMs": 1126.1000000014901,
+        "workerTransferWaitMs": 14.699999999254942,
+        "renderMs": 31.199999999254942,
+        "totalMs": 1296.7999999970198
+      },
+      "gpu": {
+        "prepareMs": 3.699999999254942,
+        "gpuMs": 165.019648,
+        "submitAndReadbackMs": 173,
+        "postprocessMs": 53,
+        "totalMs": 229.69999999925494,
+        "volumeBytes": 1071751680,
+        "backend": "WebGPU RGB SGBM 3WAY"
+      },
+      "counts": {
+        "sampled": 404496,
+        "shadow": 0,
+        "texture": 315113,
+        "aperture": 0,
+        "correlation": 6290,
+        "ambiguous": 53900,
+        "roundtrip": 13312,
+        "neighborhood": 278,
+        "geometry": 0,
+        "background": 0,
+        "isolated3D": 450,
+        "subpixelRecovered": 1210
+      }
+    },
+    {
+      "t": 149.913,
+      "pointCount": 20517,
+      "classification": {
+        "static": 11875,
+        "nearer": 3141,
+        "unknown": 5501,
+        "shadowOnStatic": 1637,
+        "planeAssisted": 6352,
+        "nearerWithPlane": 3050
+      },
+      "timing": {
+        "seekMs": 0.10000000149011612,
+        "decodePairMs": 104.69999999925494,
+        "workerRoundTripMs": 1297.6000000014901,
+        "workerComputeMs": 1278.4000000022352,
+        "workerTransferWaitMs": 19.199999999254942,
+        "renderMs": 39.69999999925494,
+        "totalMs": 1442.1000000014901
+      },
+      "gpu": {
+        "prepareMs": 11.600000001490116,
+        "gpuMs": 125.17376,
+        "submitAndReadbackMs": 132.30000000074506,
+        "postprocessMs": 56.30000000074506,
+        "totalMs": 200.20000000298023,
+        "volumeBytes": 1071751680,
+        "backend": "WebGPU RGB SGBM 3WAY"
+      },
+      "counts": {
+        "sampled": 404496,
+        "shadow": 0,
+        "texture": 294873,
+        "aperture": 0,
+        "correlation": 15124,
+        "ambiguous": 59007,
+        "roundtrip": 13993,
+        "neighborhood": 333,
+        "geometry": 0,
+        "background": 0,
+        "isolated3D": 649,
+        "subpixelRecovered": 1673
+      }
+    },
+    {
+      "t": 151.519,
+      "pointCount": 17699,
+      "classification": {
+        "static": 8387,
+        "nearer": 4071,
+        "unknown": 5241,
+        "shadowOnStatic": 1341,
+        "planeAssisted": 6197,
+        "nearerWithPlane": 4053
+      },
+      "timing": {
+        "seekMs": 0.10000000149011612,
+        "decodePairMs": 120.30000000074506,
+        "workerRoundTripMs": 1223.8999999985099,
+        "workerComputeMs": 1212.300000000745,
+        "workerTransferWaitMs": 11.599999997764826,
+        "renderMs": 35.600000001490116,
+        "totalMs": 1379.9000000022352
+      },
+      "gpu": {
+        "prepareMs": 4,
+        "gpuMs": 128.974848,
+        "submitAndReadbackMs": 133.30000000074506,
+        "postprocessMs": 57.899999998509884,
+        "totalMs": 195.19999999925494,
+        "volumeBytes": 1071751680,
+        "backend": "WebGPU RGB SGBM 3WAY"
+      },
+      "counts": {
+        "sampled": 404496,
+        "shadow": 0,
+        "texture": 314242,
+        "aperture": 0,
+        "correlation": 7236,
+        "ambiguous": 52058,
+        "roundtrip": 12627,
+        "neighborhood": 244,
+        "geometry": 0,
+        "background": 0,
+        "isolated3D": 390,
+        "subpixelRecovered": 1450
+      }
+    },
+    {
+      "t": 152.067,
+      "pointCount": 12743,
+      "classification": {
+        "static": 4920,
+        "nearer": 4356,
+        "unknown": 3467,
+        "shadowOnStatic": 378,
+        "planeAssisted": 5663,
+        "nearerWithPlane": 4234
+      },
+      "timing": {
+        "seekMs": 0.10000000149011612,
+        "decodePairMs": 109.69999999925494,
+        "workerRoundTripMs": 1121,
+        "workerComputeMs": 1105,
+        "workerTransferWaitMs": 16,
+        "renderMs": 25,
+        "totalMs": 1255.800000000745
+      },
+      "gpu": {
+        "prepareMs": 9.199999999254942,
+        "gpuMs": 122.093568,
+        "submitAndReadbackMs": 131,
+        "postprocessMs": 90.19999999925494,
+        "totalMs": 230.39999999850988,
+        "volumeBytes": 1071751680,
+        "backend": "WebGPU RGB SGBM 3WAY"
+      },
+      "counts": {
+        "sampled": 404496,
+        "shadow": 0,
+        "texture": 322190,
+        "aperture": 0,
+        "correlation": 7409,
+        "ambiguous": 48935,
+        "roundtrip": 12564,
+        "neighborhood": 264,
+        "geometry": 0,
+        "background": 0,
+        "isolated3D": 391,
+        "subpixelRecovered": 1028
+      }
+    },
+    {
+      "t": 153.82,
+      "pointCount": 14156,
+      "classification": {
+        "static": 4955,
+        "nearer": 6629,
+        "unknown": 2572,
+        "shadowOnStatic": 826,
+        "planeAssisted": 7602,
+        "nearerWithPlane": 6532
+      },
+      "timing": {
+        "seekMs": 0.30000000074505806,
+        "decodePairMs": 123,
+        "workerRoundTripMs": 1079.199999999255,
+        "workerComputeMs": 1066,
+        "workerTransferWaitMs": 13.199999999254942,
+        "renderMs": 23.5,
+        "totalMs": 1226
+      },
+      "gpu": {
+        "prepareMs": 3.899999998509884,
+        "gpuMs": 121.307136,
+        "submitAndReadbackMs": 128,
+        "postprocessMs": 43.100000001490116,
+        "totalMs": 175,
+        "volumeBytes": 1071751680,
+        "backend": "WebGPU RGB SGBM 3WAY"
+      },
+      "counts": {
+        "sampled": 404496,
+        "shadow": 0,
+        "texture": 318570,
+        "aperture": 0,
+        "correlation": 6669,
+        "ambiguous": 53157,
+        "roundtrip": 11122,
+        "neighborhood": 195,
+        "geometry": 0,
+        "background": 0,
+        "isolated3D": 627,
+        "subpixelRecovered": 1024
+      }
+    },
+    {
+      "t": 220.585,
+      "pointCount": 12250,
+      "classification": {
+        "static": 4434,
+        "nearer": 5472,
+        "unknown": 2344,
+        "shadowOnStatic": 811,
+        "planeAssisted": 6106,
+        "nearerWithPlane": 5401
+      },
+      "timing": {
+        "seekMs": 0,
+        "decodePairMs": 117.59999999776483,
+        "workerRoundTripMs": 1090.300000000745,
+        "workerComputeMs": 1055.2000000029802,
+        "workerTransferWaitMs": 35.099999997764826,
+        "renderMs": 20.699999999254942,
+        "totalMs": 1228.5999999977648
+      },
+      "gpu": {
+        "prepareMs": 8.799999997019768,
+        "gpuMs": 126.615552,
+        "submitAndReadbackMs": 132,
+        "postprocessMs": 50.80000000074506,
+        "totalMs": 191.59999999776483,
+        "volumeBytes": 1071751680,
+        "backend": "WebGPU RGB SGBM 3WAY"
+      },
+      "counts": {
+        "sampled": 404496,
+        "shadow": 0,
+        "texture": 316228,
+        "aperture": 0,
+        "correlation": 4203,
+        "ambiguous": 56232,
+        "roundtrip": 14742,
+        "neighborhood": 197,
+        "geometry": 0,
+        "background": 0,
+        "isolated3D": 644,
+        "subpixelRecovered": 825
+      }
+    },
+    {
+      "t": 247.761,
+      "pointCount": 11011,
+      "classification": {
+        "static": 4317,
+        "nearer": 3712,
+        "unknown": 2982,
+        "shadowOnStatic": 885,
+        "planeAssisted": 4816,
+        "nearerWithPlane": 3686
+      },
+      "timing": {
+        "seekMs": 0.10000000149011612,
+        "decodePairMs": 118.80000000074506,
+        "workerRoundTripMs": 1007.0999999977648,
+        "workerComputeMs": 992.8000000007451,
+        "workerTransferWaitMs": 14.299999997019768,
+        "renderMs": 19.600000001490116,
+        "totalMs": 1145.6000000014901
+      },
+      "gpu": {
+        "prepareMs": 3.7999999970197678,
+        "gpuMs": 121.634816,
+        "submitAndReadbackMs": 124.90000000223517,
+        "postprocessMs": 64.59999999776483,
+        "totalMs": 193.29999999701977,
+        "volumeBytes": 1071751680,
+        "backend": "WebGPU RGB SGBM 3WAY"
+      },
+      "counts": {
+        "sampled": 404496,
+        "shadow": 0,
+        "texture": 320991,
+        "aperture": 0,
+        "correlation": 6966,
+        "ambiguous": 52307,
+        "roundtrip": 12403,
+        "neighborhood": 355,
+        "geometry": 0,
+        "background": 0,
+        "isolated3D": 463,
+        "subpixelRecovered": 823
+      }
+    },
+    {
+      "t": 282.132,
+      "pointCount": 13798,
+      "classification": {
+        "static": 7044,
+        "nearer": 2769,
+        "unknown": 3985,
+        "shadowOnStatic": 1368,
+        "planeAssisted": 4451,
+        "nearerWithPlane": 2769
+      },
+      "timing": {
+        "seekMs": 0.10000000149011612,
+        "decodePairMs": 112.5,
+        "workerRoundTripMs": 1155.699999999255,
+        "workerComputeMs": 1144.9000000022352,
+        "workerTransferWaitMs": 10.799999997019768,
+        "renderMs": 22.899999998509884,
+        "totalMs": 1291.199999999255
+      },
+      "gpu": {
+        "prepareMs": 7.300000000745058,
+        "gpuMs": 123.469824,
+        "submitAndReadbackMs": 129.5,
+        "postprocessMs": 62.900000002235174,
+        "totalMs": 199.70000000298023,
+        "volumeBytes": 1071751680,
+        "backend": "WebGPU RGB SGBM 3WAY"
+      },
+      "counts": {
+        "sampled": 404496,
+        "shadow": 0,
+        "texture": 313251,
+        "aperture": 0,
+        "correlation": 6880,
+        "ambiguous": 56590,
+        "roundtrip": 12917,
+        "neighborhood": 307,
+        "geometry": 0,
+        "background": 0,
+        "isolated3D": 753,
+        "subpixelRecovered": 1059
+      }
+    }
+  ],
+  "backgroundModel": {
+    "method": "OpenCV RANSAC planar background; affine disparity inside measured support hulls",
+    "samples": 821,
+    "models": [
+      {
+        "plane": [
+          0.01108123391297234,
+          -0.14254203345035468,
+          227.65965364980175
+        ],
+        "support": 635,
+        "rms": 0.5403396034074325,
+        "areas": [
+          79384,
+          78233.875
+        ],
+        "leftHull": [
+          [
+            262,
+            522
+          ],
+          [
+            266,
+            506
+          ],
+          [
+            410,
+            166
+          ],
+          [
+            414,
+            162
+          ],
+          [
+            454,
+            142
+          ],
+          [
+            502,
+            142
+          ],
+          [
+            510,
+            150
+          ],
+          [
+            550,
+            466
+          ],
+          [
+            538,
+            498
+          ],
+          [
+            450,
+            570
+          ],
+          [
+            426,
+            578
+          ],
+          [
+            422,
+            578
+          ]
+        ],
+        "rightHull": [
+          [
+            106,
+            522
+          ],
+          [
+            108.0625,
+            506
+          ],
+          [
+            202,
+            166
+          ],
+          [
+            205.5,
+            162
+          ],
+          [
+            241.5625,
+            142
+          ],
+          [
+            287.9375,
+            142
+          ],
+          [
+            293.25,
+            146
+          ],
+          [
+            297.625,
+            150
+          ],
+          [
+            383.25,
+            466
+          ],
+          [
+            374,
+            498
+          ],
+          [
+            298,
+            570
+          ],
+          [
+            276.0625,
+            578
+          ],
+          [
+            272,
+            578
+          ]
+        ]
+      },
+      {
+        "plane": [
+          0.03695572071681573,
+          -0.08499887315944428,
+          207.30863560703312
+        ],
+        "support": 74,
+        "rms": 0.6823911336744212,
+        "areas": [
+          6344,
+          6082
+        ],
+        "leftHull": [
+          [
+            410,
+            226
+          ],
+          [
+            478,
+            170
+          ],
+          [
+            498,
+            158
+          ],
+          [
+            546,
+            138
+          ],
+          [
+            594,
+            138
+          ],
+          [
+            494,
+            222
+          ]
+        ],
+        "rightHull": [
+          [
+            208.0625,
+            226
+          ],
+          [
+            267.375,
+            170
+          ],
+          [
+            284.3125,
+            158
+          ],
+          [
+            330.0625,
+            138
+          ],
+          [
+            376.875,
+            138
+          ],
+          [
+            286.4375,
+            222
+          ]
+        ]
+      },
+      {
+        "plane": [
+          -0.42763779488120823,
+          -0.2923036968292317,
+          481.40861101659186
+        ],
+        "support": 70,
+        "rms": 0.5196775311869537,
+        "areas": [
+          30928,
+          44067.5
+        ],
+        "leftHull": [
+          [
+            282,
+            386
+          ],
+          [
+            290,
+            338
+          ],
+          [
+            314,
+            206
+          ],
+          [
+            330,
+            122
+          ],
+          [
+            338,
+            82
+          ],
+          [
+            342,
+            66
+          ],
+          [
+            498,
+            194
+          ],
+          [
+            498,
+            202
+          ],
+          [
+            282,
+            394
+          ]
+        ],
+        "rightHull": [
+          [
+            25.875,
+            102
+          ],
+          [
+            26,
+            82
+          ],
+          [
+            27,
+            66
+          ],
+          [
+            287,
+            194
+          ],
+          [
+            288,
+            202
+          ],
+          [
+            36.8125,
+            394
+          ],
+          [
+            34.875,
+            386
+          ],
+          [
+            33.3125,
+            362
+          ],
+          [
+            31.875,
+            338
+          ],
+          [
+            28.9375,
+            250
+          ],
+          [
+            27,
+            186
+          ],
+          [
+            26,
+            122
+          ]
+        ]
+      }
+    ],
+    "covered": [
+      101841,
+      117618
+    ],
+    "ms": 86.89999999850988
+  },
+  "inputs": [
+    {
+      "name": "IMG_0165.MOV",
+      "size": 614052187,
+      "lastModified": 1794200593000,
+      "width": 1080,
+      "height": 1920,
+      "duration": 288.026667
+    },
+    {
+      "name": "VID_20261109_140805.mp4",
+      "size": 652439744,
+      "lastModified": 1794200885000,
+      "width": 1080,
+      "height": 1920,
+      "duration": 307.363344
+    }
+  ]
+}
